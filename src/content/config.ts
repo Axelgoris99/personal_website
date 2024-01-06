@@ -44,11 +44,21 @@ export const collections = {
     schema: z.object({
       title: z.string(),
       description: z.string(),
-      begin: z.coerce.date(),
-      end: z.coerce.date(),
-      tags: z.array(z.string()),
+      begin: z.coerce.date().optional(),
+      end: z.coerce.date().optional(),
+      tags: z.array(z.string()).optional(),
       img: z.string(),
       img_alt: z.string().optional(),
+      imgs: z
+        .array(
+          z.object({
+            link: z.string(),
+            caption: z.string(),
+            alt: z.string().optional(),
+          })
+        )
+        .optional(),
+      video: z.string().optional(),
       favorite: z.boolean().optional(),
     }),
   }),

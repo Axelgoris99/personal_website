@@ -1,5 +1,5 @@
 ---
-title: Duvet Genius
+title: Piano
 end: 2021-02
 begin: 2021-02
 img: /assets/render/piano.png

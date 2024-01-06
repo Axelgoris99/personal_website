@@ -4,27 +4,29 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Hero from "../components/Hero.astro";
 import Gallery from "../components/Gallery.astro";
 
-const projects = (await getCollection("render")).sort(
-  (a, b) => b.data.end.valueOf() - a.data.end.valueOf()
-);
+const projects = await getCollection("render");
 ---
 
 <BaseLayout
-  title="My Render | Axel Goris"
+  title="My Renders | Axel Goris"
   description="Learn about my 3D tinkering and rendering. Visual things!"
 >
   <div class="stack gap-20">
     <main class="wrapper stack gap-8">
       <Hero
-        title="My Render"
+        title="My Renders"
         tagline="See my different renders below."
         align="start"
       />
-      <Gallery projects={projects} />
+      <span
+        >The number indicator is the number of renders in the project. <br />
+        The ❤️ indicates my favorite projects; whether for the subject or for the
+        technical side.
+      </span>
+      <Gallery projects={projects} folder="render" />
     </main>
     <ContactCTA />
   </div>
