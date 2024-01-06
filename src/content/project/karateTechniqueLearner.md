@@ -2,7 +2,7 @@
 title: Karate Technique Learner
 begin: 2022-05
 end: 2022-08
-img: /assets/project/karate.png
+img: /assets/project/karate.webp
 img_alt: A black karateka logo 
 description: |
   Karate Kihon Generator for karate learning. Coded with Vue + Firebase!

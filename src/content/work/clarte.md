@@ -3,7 +3,7 @@ title: CLARTE - Mixed Reality Intern
 begin: 2021-04
 end: 2021-08
 location: Laval, France
-img: /assets/experience/clarte.png
+img: /assets/experience/clarte.webp
 img_alt: CLARTE Logo
 description: |
   I developed a Mixed Reality Experience to design UI and change it in realtime in a simulation, with a video see through headset, colocalization and eye-tracking.

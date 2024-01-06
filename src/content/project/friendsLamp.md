@@ -2,7 +2,7 @@
 title: Friends Lamp
 begin: 2023-05
 end: 2023-08
-img: /assets/project/friendsLamp.png
+img: /assets/project/friendsLamp.webp
 img_alt: Two old lamps turned on against a uniform background.
 description: |
  Two connected lamps that turn each other on, with a small message as well. Very technical project. Probably my favorite so far!

@@ -2,7 +2,7 @@
 title: Vibracoustic - Volunteer Consultant
 begin: 2020-01
 end: 2020-06
-img: /assets/project/association/vibra.jpg
+img: /assets/project/association/vibra.webp
 img_alt: Vibracoustic Logo
 description: |
   I was a volunteer to help Vibracoustic Consulting improve their workflow.

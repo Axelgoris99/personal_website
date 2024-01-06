@@ -2,7 +2,7 @@
 title: Chess
 end: 2021-02
 begin: 2021-02
-img: /assets/render/chess/render.png
+img: /assets/render/chess/render.webp
 img_alt: A chess battle.
 description: |
   A chess battle animated with Blender and rendered with Eevee.

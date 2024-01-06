@@ -2,7 +2,7 @@
 title: Geo Node - Isometric
 end: 2020-03-04 00:00:00
 begin: 2020-03-04 00:00:00
-img: /assets/render/iso/iso.png
+img: /assets/render/iso/iso.webp
 img_alt: An isometric terrain in low poly
 description: |
   An isometric terrain in low poly
@@ -13,7 +13,7 @@ tags:
 favorite: true
 imgs:
   - {
-      link: /assets/render/iso/render.png,
+      link: /assets/render/iso/render.webp,
       caption: Another type of lighting,
       alt: Another lighting,
     }

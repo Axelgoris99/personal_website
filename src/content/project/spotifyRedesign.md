@@ -2,7 +2,7 @@
 title: Spotify Redesign
 begin: 2022-01
 end: 2022-03
-img: /assets/project/spotify.png
+img: /assets/project/spotify.webp
 img_alt: Spotify Logo
 description: |
   Redesign of the Spotify interface to make it easier for older people to use

@@ -2,7 +2,7 @@
 title: Area of Effect - Game Jam 2021
 begin: 2021-10
 end: 2021-10
-img: /assets/project/lifeAttack.png
+img: /assets/project/lifeAttack.webp
 img_alt: The main page of a small game I created for a game jam
 description: |
   Small Shooter-Puzzle game we made in 48h with my girlfriend. We finished 12/41!

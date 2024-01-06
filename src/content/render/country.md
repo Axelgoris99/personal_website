@@ -2,7 +2,7 @@
 title: Country Map
 end: 2021-02
 begin: 2021-02
-img: /assets/render/country/france.png
+img: /assets/render/country/france.webp
 img_alt: A picture of France
 description: |
   An illustration of what you can do with satellite heights map.
@@ -12,17 +12,17 @@ tags:
   - GIS
 imgs:
   - {
-      link: /assets/render/country/australiahd.png,
+      link: /assets/render/country/australiahd.webp,
       caption: A map of Australia,
       alt: A map of Australia,
     }
   - {
-      link: /assets/render/country/italy.png,
+      link: /assets/render/country/italy.webp,
       caption: A map of Italy,
       alt: A map of Italy,
     }
   - {
-      link: /assets/render/country/ehehPeak.png,
+      link: /assets/render/country/ehehPeak.webp,
       caption: A map of Italy seen from sea level,
       alt: A map of Italy seen from sea level,
     }

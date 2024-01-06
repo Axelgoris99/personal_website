@@ -3,7 +3,7 @@ title: NeoConcept VRD - Web Designer
 begin: 2022-06
 end: 2022-08
 location: Remote
-img: /assets/experience/NeoconceptVrd.jpg
+img: /assets/experience/NeoconceptVrd.webp
 img_alt: Neoconcept Logo
 description: |
   I designed a website to be developed by someone else later. I also suggested font and color theme.

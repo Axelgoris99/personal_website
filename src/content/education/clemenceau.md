@@ -3,7 +3,7 @@ title: Preparatory Class | Lycée Clémenceau
 beginYear: 2017-09
 endYear: 2019-06
 location: Nantes
-img: /assets/highschool.jpg
+img: /assets/highschool.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Prep course with the main goal of training undergraduate students for enrollment in one of the "grandes écoles".

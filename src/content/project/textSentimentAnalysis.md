@@ -2,7 +2,7 @@
 title: Text Sentiment Analysis
 begin: 2022-08
 end: 2022-10
-img: /assets/project/sentimentAnalysis.jpg
+img: /assets/project/sentimentAnalysis.webp
 img_alt: A picture with three emojis and the attached emotions - neutral, positive, negative
 description: |
  Research Paper "Trade-off Between Accuracy and Performance For Text Classification Using Ensemble Models in Machine Learning."

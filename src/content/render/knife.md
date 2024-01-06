@@ -2,7 +2,7 @@
 title: Knife
 end: 2021-02
 begin: 2021-02
-img: /assets/render/knife.png
+img: /assets/render/knife.webp
 img_alt: A knife.
 description: |
   A knife in the ground.

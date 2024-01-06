@@ -2,7 +2,7 @@
 title: Am I crazy?
 end: 2021-02
 begin: 2021-02
-img: /assets/render/ail/pre_render.png
+img: /assets/render/ail/pre_render.webp
 img_alt: No idea
 description: |
   No idea

@@ -2,7 +2,7 @@
 title: Automated Webcam Switcher
 begin: 2022-01
 end: 2022-04
-img: /assets/project/webcam.png
+img: /assets/project/webcam.webp
 img_alt: A webcam icon
 description: |
   A webcam switcher software for an innovative entreneurship class.

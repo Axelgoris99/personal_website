@@ -2,7 +2,7 @@
 title: Among Us
 end: 2021-02
 begin: 2021-02
-img: /assets/render/amongUs/1.png
+img: /assets/render/amongUs/1.webp
 img_alt: An amogus jumping on a platform that opens a window.
 description: |
   A small stupid Among Us video where he does a random task and dies.

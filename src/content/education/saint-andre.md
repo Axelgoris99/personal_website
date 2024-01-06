@@ -3,7 +3,7 @@ title: Highschool | Lycée Saint-André
 beginYear: 2014-09
 endYear: 2017-06
 location: Niort
-img: /assets/highschool.jpg
+img: /assets/highschool.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Science course, specializing in mathematics. Baccalaureate with honors and congratulations from the jury. 18.5/20.

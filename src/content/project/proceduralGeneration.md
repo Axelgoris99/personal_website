@@ -2,7 +2,7 @@
 title: Procedural Generation
 begin: 2023-01
 end: 2023-04
-img: /assets/project/proceduralGeneration.png
+img: /assets/project/proceduralGeneration.webp
 img_alt: A procedural generation example with rocks.
 description: |
   A naive implementation of wave function collapse.

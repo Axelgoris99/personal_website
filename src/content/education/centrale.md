@@ -3,7 +3,7 @@ title: Ecole Centrale de Nantes
 beginYear: 2019-09
 endYear: 2023-12
 location: Nantes
-img: /assets/centrale.jpg
+img: /assets/centrale.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Engineering School with a general first year and usually two years in two different specialization. I instead went to KTH for my third year. In second year, I followed the Virtual Reality Track.

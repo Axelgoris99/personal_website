@@ -2,7 +2,7 @@
 title: Phone Kart
 begin: 2022-05
 end: 2022-08
-img: /assets/project/marioKart.png
+img: /assets/project/marioKart.webp
 img_alt: Mario in a low poly kart with a blurred forest behind
 description: |
   A test with using phone as controller and websocket.

@@ -2,7 +2,7 @@
 title: The Clarte Hackaton
 begin: 2021-02
 end: 2021-02
-img: /assets/project/lapine.png
+img: /assets/project/lapine.webp
 img_alt: The main page of a small game I created for a game jam
 description: |
   A 36h game jam in a group of 4 where we created an augmented reality game for child, mixed with a book.

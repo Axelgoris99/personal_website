@@ -3,7 +3,7 @@ title: KTH - Teacher Assistant DH2642
 begin: 2022-08
 end: 2023-01
 location: Stockholm, Sweden
-img: /assets/experience/kth.png
+img: /assets/experience/kth.webp
 img_alt: KTH Logo
 description: |
     I helped with the organization of lectures, grading, exercises for a web design and development class.

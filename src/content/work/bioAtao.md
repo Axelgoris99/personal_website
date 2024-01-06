@@ -3,7 +3,7 @@ title: Bio Atao - Web Designer + Developer
 begin: 2022-03
 end: 2022-04
 location: Remote
-img: /assets/experience/BioAtao.png
+img: /assets/experience/BioAtao.webp
 img_alt: Bio Atao Logo
 description: |
   I designed and developed a website for a client using Django and basic HTML/CSS/JS.

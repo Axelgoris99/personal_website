@@ -3,7 +3,7 @@ title: Deya - Material Handling Operator
 begin: 2020-06
 end: 2020-08
 location: La Crèche, France
-img: /assets/experience/deya.jpg
+img: /assets/experience/deya.webp
 img_alt: Deya Logo
 description: |
   Cutting and dressing of metal frames. Management of a complex cutting machine with 2 temporary workers under my direction

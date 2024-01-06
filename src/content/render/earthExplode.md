@@ -2,7 +2,7 @@
 title: Planet Explosion
 end: 2021-02
 begin: 2021-02
-img: /assets/render/earthExplode/earthExplode.png
+img: /assets/render/earthExplode/earthExplode.webp
 img_alt: The explosion of a planet.
 description: |
   The explosion of a planet!

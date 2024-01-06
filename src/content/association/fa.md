@@ -2,7 +2,7 @@
 title: Forum Atlantique - Treasurer
 begin: 2020-02
 end: 2021-03
-img: /assets/project/association/fa.png
+img: /assets/project/association/fa.webp
 img_alt: Forum Atlantique Logo
 description: |
   I was a treasurer, in charge of a 250k€ budget for the organisation of Nantes engineering school career fair.

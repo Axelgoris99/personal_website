@@ -2,7 +2,7 @@
 title: ISK - Karate Teacher Assistant
 begin: 2017-09
 end: 2023-07
-img: /assets/project/association/isk.png
+img: /assets/project/association/isk.webp
 img_alt: ISK Logo
 description: |
   I was a teacher assistant, in charge of a group of 1 to 10 persons during classes.

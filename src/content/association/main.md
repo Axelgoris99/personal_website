@@ -2,7 +2,7 @@
 title: Event Manager - MAIN
 begin: 2022-06
 end: 2023-01
-img: /assets/project/association/main.png
+img: /assets/project/association/main.webp
 img_alt: MAIN Logo
 description: |
   I organized events for 20 to 100+ persons. LaserTag, three course dinner, hike...

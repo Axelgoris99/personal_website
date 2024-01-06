@@ -2,7 +2,7 @@
 title: Embedded Image QR Code Generator
 begin: 2020-10
 end: 2021-02
-img: /assets/project/qrCode.jpg
+img: /assets/project/qrCode.webp
 img_alt: A horse QR Code.
 description: |
   A QR Code generator with an image embedding system.

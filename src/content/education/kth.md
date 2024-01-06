@@ -3,7 +3,7 @@ title: KTH | Kungliga Tekniska Högskolan
 beginYear: 2021-08
 endYear: 2023-12
 location: Niort
-img: /assets/highschool.jpg
+img: /assets/highschool.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Master in ICT Innovation - Focus on Entrepreneurship and Human-Computer Interaction.

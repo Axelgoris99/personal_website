@@ -2,7 +2,7 @@
 title: Recipe Ingredient Parser
 begin: 2022-01
 end: 2022-02
-img: /assets/project/recipe.jpg
+img: /assets/project/recipe.webp
 img_alt: a pizza photo
 description: |
   An ingredient parser depending on the menu you select.

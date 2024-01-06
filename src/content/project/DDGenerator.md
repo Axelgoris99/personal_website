@@ -2,7 +2,7 @@
 title: D&D Character Generator
 begin: 2022-01
 end: 2022-04
-img: /assets/project/dd_logo.jpg
+img: /assets/project/dd_logo.webp
 img_alt: A chicken with writings
 description: |
   D&D Character Generator coded with Vue for the frontend and Firebase for the backend. Focused on User Experience!

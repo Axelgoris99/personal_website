@@ -2,7 +2,7 @@
 title: Brackeys Game Jam 2021-2
 begin: 2021-08
 end: 2021-08
-img: /assets/project/brackeys.png
+img: /assets/project/brackeys.webp
 img_alt: The main page of a small game I created for a game jam
 description: |
   My first game jam, made in 24h with my girlfriend. We finished 1046/1714!

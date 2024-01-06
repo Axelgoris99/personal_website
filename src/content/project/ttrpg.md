@@ -2,7 +2,7 @@
 title: TTRPG - Godot
 begin: 2023-10
 end: 2024-12
-img: /assets/project/ttrpg.png
+img: /assets/project/ttrpg.webp
 img_alt: A tactical rpg low-poly example.
 description: |
   An isometric low-poly tactical role playing game developed in Godot.

@@ -2,7 +2,7 @@
 title: SKCBN - Karate Teacher Assistant
 begin: 2014-09
 end: 2017-06
-img: /assets/project/association/skcbn.png
+img: /assets/project/association/skcbn.webp
 img_alt: SKCBN Logo
 description: |
   I was a teacher assistant, in charge of a group of 1 to 10 persons during classes.

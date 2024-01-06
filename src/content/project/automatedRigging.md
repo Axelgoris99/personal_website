@@ -2,7 +2,7 @@
 title: Automated Rigging
 begin: 2021-04
 end: 2021-04
-img: /assets/project/rig.png
+img: /assets/project/rig.webp
 img_alt: The human animation rig 
 description: |
   A project of automatically rigging a human skeleton.

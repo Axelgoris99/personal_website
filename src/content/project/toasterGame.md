@@ -2,7 +2,7 @@
 title: Toaster Game - Research Project
 begin: 2022-08
 end: 2022-12
-img: /assets/project/toaster.jpg
+img: /assets/project/toaster.webp
 img_alt: A toaster.
 description: |
   Research project about how to gamify our environment, a toaster here, and design a small game to help as an electricity consumption reminder.

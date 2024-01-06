@@ -2,7 +2,7 @@
 title: Escape Game VR
 begin: 2021-01
 end: 2021-04
-img: /assets/project/escape.jpg
+img: /assets/project/escape.webp
 img_alt: an illustration of a small VR escape game made for a class project
 description: |
   A small VR Escape Game project to learn Github and use controller-free interaction (Leap Motion)
