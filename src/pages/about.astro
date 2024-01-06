@@ -1,0 +1,142 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+import Education from "../components/Education.astro";
+import HardSkills from "../components/HardSkills.astro";
+
+const educations = (await getCollection("education")).sort(
+  (a, b) => b.data.beginYear.valueOf() - a.data.beginYear.valueOf()
+);
+---
+
+<BaseLayout title="About | Axel Goris" description="About Axel Goris">
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero
+        title="About"
+        tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+      >
+        <img
+          width="1553"
+          height="873"
+          src="/assets/at-work.jpg"
+          alt="Axel Goris hip deep in the snow"
+        />
+      </Hero>
+
+      <section>
+        <h2 class="section-title">Background</h2>
+        <div class="content">
+          <p>
+            If you've made it this far, you probably know my name is Axel Goris.
+            I'm a 23 year old, french software engineer, currently working in
+            Australia. I'm passionate about web development, design, and all
+            things tech. I'm also a big fan of videogames, playing a wide
+            variety of games (JRPG, FPS, MOBA, Action, Aventure, Puzzle,
+            Survival...). Obviously, with such a background, I'm also a fan of
+            fantasy, notably the books by Brandon Sanderson. Oh and I love to
+            travel and really spend a fair time in different places, just to
+            enjoy the vibes of different countries. And I'm a VR enthusiast, a
+            self-taught game developper, pianist and a lot of other things.
+          </p>
+          <p>
+            Born near Paris, moved to Niort, a pretty unknown city that people
+            like to make fun about, despite one of the coolest and chillest town
+            to live in. I moved to Nantes, spent 4 years there, with breaks
+            during Covid, going back to Niort. An internship in Laval, the
+            french one, not the canadian one, then direction Stockholm for two
+            years. And now I'm in Australia, in Adelaide, for two years.
+          </p>
+          <p>
+            You can also follow my projects at <a href="https://blog.goris.live"
+              >blog.goris.live</a
+            >. I'm not always writing code and having a good
+            work-project-personal life balance is something I'm aiming for.
+            Moreover, as everyone of us, I often feel that what I'm doing is not
+            cool enough to share so don't expect two articles a month.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="content">
+          {educations.map((education) => <Education education={education} />)}
+        </div>
+      </section>
+      <!-- <section>
+        <h2 class="section-title">Hard Skills</h2>
+        <div class="content">
+          <HardSkills />
+        </div>
+      </section> -->
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 4;
+    text-indent: 20px;
+  }
+
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>

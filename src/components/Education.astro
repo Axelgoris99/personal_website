@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Pill from "./Pill.astro";
+
+interface Props {
+  education: CollectionEntry<"education">;
+}
+
+const { data, slug } = Astro.props.education;
+---
+
+<p class="education">
+  <a href={`/education/${slug}`}>
+    <h3 class="title">{data.title}</h3>
+  </a>
+  <span class="dateLocation"
+    >{data.beginYear.getFullYear()} - {data.endYear.getFullYear()} | {
+      data.location
+    }</span
+  >
+  <p class="description">{data.description}</p>
+  <div class="tags">
+    {data.tags.map((tag) => <Pill>{tag}</Pill>)}
+  </div>
+</p>
+<style>
+  .title {
+    font-size: var(--text-lg);
+    color: var(--gray-0);
+  }
+  .dateLocation {
+    font-size: var(--text-base);
+    color: var(--gray-2);
+    padding-left: 2rem;
+  }
+  .tags {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  @media (min-width: 50em) {
+    .tags {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+  .education {
+    margin-bottom: 2rem;
+  }
+</style>

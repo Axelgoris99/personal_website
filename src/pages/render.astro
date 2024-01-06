@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Hero from "../components/Hero.astro";
+import Gallery from "../components/Gallery.astro";
+
+const projects = (await getCollection("render")).sort(
+  (a, b) => b.data.end.valueOf() - a.data.end.valueOf()
+);
+---
+
+<BaseLayout
+  title="My Render | Axel Goris"
+  description="Learn about my 3D tinkering and rendering. Visual things!"
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="My Render"
+        tagline="See my different renders below."
+        align="start"
+      />
+      <Gallery projects={projects} />
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>

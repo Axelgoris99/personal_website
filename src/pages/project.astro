@@ -1,0 +1,58 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Hero from "../components/Hero.astro";
+import Grid from "../components/Grid.astro";
+
+const volunteering = (await getCollection("association")).sort(
+  (a, b) => b.data.end.valueOf() - a.data.end.valueOf()
+);
+const projects = (await getCollection("project")).sort(
+  (a, b) => b.data.end.valueOf() - a.data.end.valueOf()
+);
+---
+
+<BaseLayout
+  title="My Projects | Axel Goris"
+  description="Learn about my projects."
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="My Projects"
+        tagline="See my projects below to get an idea of what I like to tinker with."
+        align="start"
+      />
+      The ❤️ indicates my favorite projects; whether for the subject or for the technical
+      side.
+      <Grid variant="small">
+        {
+          projects.map((project) => (
+            <li>
+              <PortfolioPreview project={project} folder="project" />
+            </li>
+          ))
+        }
+      </Grid>
+      <Hero
+        title="Volunteering & Association"
+        tagline="See my volunteer work from the past years."
+        align="start"
+      />
+      <Grid variant="small">
+        {
+          volunteering.map((project) => (
+            <li>
+              <PortfolioPreview project={project} folder="association" />
+            </li>
+          ))
+        }
+      </Grid>
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>
