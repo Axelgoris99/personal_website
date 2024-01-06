@@ -2,6 +2,8 @@
 
 I'm currently using the Astro Starter Kit as a template. Works great!
 
+Unless I keep breaking things with Git...
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
