@@ -1,7 +1,7 @@
 ---
 title: TTRPG - Godot
 begin: 2023-10
-end: 2024-12
+end: 2023-12
 img: /assets/project/ttrpg.webp
 img_alt: A tactical rpg low-poly example.
 description: |

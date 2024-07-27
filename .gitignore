@@ -23,8 +23,15 @@ pnpm-debug.log*
 # History extension
 .history/
 
+# Eveyrhing related to lighthouse
+.unlighthouse/
+
+# Everything related to VSCode
+.vscode/
+
 *.jpg
 *.jpeg
 *.png
 *.mp4
 *.svg
+*.webp
