@@ -43,6 +43,7 @@ const projects = (await getCollection("project"))
             <Pill><Icon icon="microphone-stage" size="1.33em" /> Impro</Pill>
             <Pill><Icon icon="karate" size="1.33em" /> Karate</Pill>
             <Pill><Icon icon="piano" size="1.33em" /> Piano</Pill>
+            <Pill><Icon icon="climbing" size="1.33em" /> Climbing</Pill>
           </div>
         </Hero>
 
@@ -162,10 +163,6 @@ const projects = (await getCollection("project"))
     gap: 2rem;
   }
 
-  .roles {
-    display: none;
-  }
-
   .hero img {
     aspect-ratio: 5 / 4;
     object-fit: cover;
@@ -186,6 +183,7 @@ const projects = (await getCollection("project"))
       margin-top: 0.5rem;
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .hero img {

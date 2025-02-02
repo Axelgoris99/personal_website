@@ -1,9 +1,9 @@
 ---
-title: TTRPG - Godot
+title: TTRPG - Godot - C# - Archived
 begin: 2023-10
 end: 2023-12
 img: /assets/project/ttrpg.webp
-img_alt: A tactical rpg low-poly example.
+img_alt: A tactical rpg low-poly example with C#.
 description: |
   An isometric low-poly tactical role playing game developed in Godot.
 tags:
@@ -12,6 +12,7 @@ tags:
   - RPG
   - Tactical RPG
 ---
+
 I'm recreating the [following serie](http://theliquidfire.com/2015/05/04/tactics-rpg-series-intro/) of tutorial using C# in Godot. This serves as a basis for a potential game and a basis for learning how to work with Godot.
 
 The github is here: <https://github.com/Axelgoris99/TTRPG_Godot>

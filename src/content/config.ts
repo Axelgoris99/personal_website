@@ -12,6 +12,15 @@ export const collections = {
       tags: z.array(z.string()),
       img: z.string(),
       img_alt: z.string().optional(),
+      imgs: z
+        .array(
+          z.object({
+            link: z.string(),
+            caption: z.string(),
+            alt: z.string().optional(),
+          })
+        )
+        .optional(),
     }),
   }),
   project: defineCollection({
