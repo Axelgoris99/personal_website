@@ -3,7 +3,7 @@ title: Master Thesis - HCI with Eye-Tracking
 begin: 2023-01
 end: 2023-07
 location: Centrale Nantes, France
-img: /assets/experience/ecn.webp
+img: /assets/experience/ecn2.webp
 img_alt: Centrale Nantes Logo
 description: |
     I wrote a research paper on control of an embodied avatar using eye-tracking.
