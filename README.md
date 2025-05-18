@@ -25,7 +25,14 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 1. Build the app
 2. Use rsync to sync on the server.
-   rsync -au -v --exclude='\*.mp4' /home/user/Documents/Software/personal_website/dist/ root@ip/home/portfolio/dist/
+   ```
+   rsync -au -v --exclude='*.mp4' /home/user/Documents/Software/personal_website/dist/ root@ip:/home/portfolio/dist/
+   ```
    Note that this is not the final destination.
+   You can also sync directly to 
+   ```
+   rsync -au -v --exclude='*.mp4' /home/user/Documents/Software/personal_website/dist/ root@ip:/var/www/
+   ```
 3. On your server, copy paste from /home/portfolio/dist to the place where your caddy file config is looking.
-4. All done.
+4. That's probably in /var/www. Make sure to copy into /var/www and not into /var/www/dist. The index.js must be in /var/www at that level because that's where Caddy looks for an entry file.
+5. All done.
