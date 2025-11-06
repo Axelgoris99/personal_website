@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # Everything related to VSCode
 .vscode/
+
+# every html in public
+public/**/*.html
