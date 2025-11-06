@@ -25,4 +25,4 @@ For my end of study internship at KTH (a.k.a "Master Thesis"), I did:
 
 The github is currently private due to the use of paid assets.
 
-You can read the final research paper here: [Google Drive](https://drive.google.com/file/d/13Plkn6p-8saa7tXAuHQdF15Tt3AUpsk7/view?usp=sharing)
+You can read the final research paper here: [KTH DiVa](https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-340948)

@@ -28,10 +28,3 @@ pnpm-debug.log*
 
 # Everything related to VSCode
 .vscode/
-
-*.jpg
-*.jpeg
-*.png
-*.mp4
-*.svg
-*.webp

@@ -1,5 +1,5 @@
 ---
-title: Oktal Sydac/Sogeclair - Fullstack Engineer
+title: Oktal Sydac a.k.a Sogeclair - Fullstack Engineer
 begin: 2023-09
 end: 2025-09
 location: Adelaide, Australia
