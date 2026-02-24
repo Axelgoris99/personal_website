@@ -25,6 +25,11 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 Picture for work tab should have a 1.8 ratio (so 100px height for 180px width).
 
+## Picture Compression
+
+Make sure Cwebp is installed. run `cwebp -q 80 input.extension -o output.webp`
+
+
 ## Deploy Steps
 
 1. Build the app
