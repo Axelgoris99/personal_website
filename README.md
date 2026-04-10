@@ -2,8 +2,6 @@
 
 I'm currently using the Astro Starter Kit as a template. Works great!
 
-Unless I keep breaking things with Git...
-
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
@@ -27,7 +25,7 @@ Picture for work tab should have a 1.8 ratio (so 100px height for 180px width).
 
 ## Picture Compression
 
-Make sure Cwebp is installed. run `cwebp -q 80 input.extension -o output.webp`
+Make sure Cwebp is installed. run `cwebp -q 80 input.extension -o output.webp` for lighter images with roughly the same quality.
 
 
 ## Deploy Steps
