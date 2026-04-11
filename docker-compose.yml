@@ -6,11 +6,19 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp" # HTTP/3
+    networks:
+      - default
+      - gobble-net
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - /home/debian/goris.live:/home/debian/goris.live:ro
+      - /home/debian/gobble/www:/home/debian/gobble/www:ro
       - caddy_data:/data
       - caddy_logs:/var/log/caddy
+
+networks:
+  gobble-net:
+    external: true
 
 volumes:
   caddy_data: # persists TLS certificates across container restarts
