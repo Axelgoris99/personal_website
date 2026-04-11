@@ -1,0 +1,17 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp" # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - /home/debian/goris.live:/home/debian/goris.live:ro
+      - caddy_data:/data
+      - caddy_logs:/var/log/caddy
+
+volumes:
+  caddy_data: # persists TLS certificates across container restarts
+  caddy_logs:
