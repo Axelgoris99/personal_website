@@ -14,6 +14,18 @@ goddle.goris.live {
     }
 }
 
+monitor.goris.live {
+    handle {
+        reverse_proxy uptime-kuma:3001
+    }
+}
+
+blog.goris.live {
+    root * /home/debian/blog
+    file_server
+    encode gzip zstd
+}
+
 goris.live {
     root * /home/debian/goris.live
     file_server
