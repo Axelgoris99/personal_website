@@ -1,17 +1,10 @@
+// Name.com : goris.live - 
 test.goris.live {
     respond "it works"
 }
 
 goddle.goris.live {
-    handle /signal {
-        reverse_proxy signaling:3000
-    }
-    handle {
-        root * /home/debian/gobble/www
-        file_server
-        encode gzip zstd
-        try_files {path} /index.html
-    }
+    redir https://goddle.xyz{uri} permanent
 }
 
 monitor.goris.live {
@@ -33,5 +26,18 @@ goris.live {
 
     log {
         output file /var/log/caddy/access.log
+    }
+}
+
+// Porkbun : goddle.xyz
+goddle.xyz {
+    handle /signal {
+        reverse_proxy signaling:3000
+    }
+    handle {
+        root * /home/debian/gobble/www
+        file_server
+        encode gzip zstd
+        try_files {path} /index.html
     }
 }
