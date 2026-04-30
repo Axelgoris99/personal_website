@@ -1,10 +1,10 @@
-// Name.com : goris.live - 
+# Name.com : goris.live - 
 test.goris.live {
     respond "it works"
 }
 
 goddle.goris.live {
-    redir https://goddle.xyz{uri} permanent
+    redir https://goddle.xyz permanent
 }
 
 monitor.goris.live {
@@ -29,7 +29,7 @@ goris.live {
     }
 }
 
-// Porkbun : goddle.xyz
+# Porkbun : goddle.xyz
 goddle.xyz {
     handle /signal {
         reverse_proxy signaling:3000
