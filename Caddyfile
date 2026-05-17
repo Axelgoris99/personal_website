@@ -19,6 +19,13 @@ blog.goris.live {
     encode gzip zstd
 }
 
+# Chroma Notes : chroma.goris.live
+chroma.goris.live {
+    handle {
+        reverse_proxy chroma-notes:8000
+    }
+}
+
 goris.live {
     root * /home/debian/goris.live
     file_server

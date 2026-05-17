@@ -5,7 +5,7 @@ end: 2025-12
 img: /assets/project/goddle.webp
 img_alt: The main scene of goddle.
 description: |
-  A party game in the style of Jackbox Party Pack games. It is based on the well-known "Boggle" game.
+  A party game in the style of Jackbox Party Pack games.
 tags:
   - C#
   - Angular
