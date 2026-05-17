@@ -2,7 +2,7 @@
 title: Chroma Notes
 begin: 2026-05
 end: 2026-05
-img: /assets/project/goddle.webp
+img: /assets/project/chromaNotes.webp
 img_alt: The main scene of goddle.
 description: |
   A simple python server with a react front to automatically color code notes on a sheet music.

@@ -10,7 +10,6 @@ tags:
   - Flutter
   - Dart
   - Android Studio
-favorite: true
 ---
 
 A friend of mine has a game he used to play when he was younger. The idea is simple: You throw dices. Depending on the combination, you have a rule associated. After a couple party, players can add their own combinations.

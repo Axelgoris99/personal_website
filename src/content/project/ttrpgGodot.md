@@ -1,7 +1,7 @@
 ---
 title: TTRPG - Godot - Godot Script
 begin: 2024-06
-end: 2099-12
+end: 2025-06
 img: /assets/project/ttrpg.webp
 img_alt: A tactical rpg low-poly. Full system with stats, skills, turns.
 description: |
@@ -12,9 +12,11 @@ tags:
   - RPG
   - Tactical RPG
   - Godot Script
-favorite: true
+favorite: false
 ---
 
 I'm recreating the [following serie](http://theliquidfire.com/2015/05/04/tactics-rpg-series-intro/) of tutorial using Godot Script in Godot. This serves as a basis for a potential game and a basis for learning how to work with Godot.
 
 Also note that I have been actively following and appreciating or giving advice on <https://theliquidfire.com/2023/11/09/godot-tactics-rpg-01-intro-setup/>.
+
+This has been stopped for the time being.
