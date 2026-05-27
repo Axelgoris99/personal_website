@@ -1,0 +1,12 @@
+monitor.goris.live {
+    handle {
+        reverse_proxy uptime-kuma:3001
+    }
+}
+
+# Chroma Notes : chroma.goris.live
+chroma.goris.live {
+    handle {
+        reverse_proxy chroma-notes:8000
+    }
+}

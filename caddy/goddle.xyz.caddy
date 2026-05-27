@@ -1,0 +1,12 @@
+# Porkbun : goddle.xyz
+goddle.xyz {
+    handle /signal {
+        reverse_proxy signaling:3000
+    }
+    handle {
+        root * /home/debian/gobble/www
+        file_server
+        encode gzip zstd
+        try_files {path} /index.html
+    }
+}

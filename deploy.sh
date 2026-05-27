@@ -12,6 +12,7 @@ rsync -az --delete --progress dist/ "$VPS:$REMOTE_DIR/"
 
 echo "==> Syncing Caddy config..."
 rsync -az docker-compose.yml Caddyfile "$VPS:~/"
+rsync -az caddy/ "$VPS:~/caddy/"
 
 echo "==> Restarting Caddy..."
 ssh "$VPS" "cd ~ && docker compose up -d --force-recreate"

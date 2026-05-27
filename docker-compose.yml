@@ -11,6 +11,7 @@ services:
       - gobble-net
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy:/etc/caddy/caddy:ro
       - /home/debian/goris.live:/home/debian/goris.live:ro
       - /home/debian/gobble/www:/home/debian/gobble/www:ro
       - /home/debian/blog:/home/debian/blog:ro

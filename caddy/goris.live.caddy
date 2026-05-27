@@ -1,0 +1,23 @@
+test.goris.live {
+    respond "it works"
+}
+
+goddle.goris.live {
+    redir https://goddle.xyz permanent
+}
+
+blog.goris.live {
+    root * /home/debian/blog
+    file_server
+    encode gzip zstd
+}
+
+goris.live {
+    root * /home/debian/goris.live
+    file_server
+    encode gzip zstd
+
+    log {
+        output file /var/log/caddy/access.log
+    }
+}
