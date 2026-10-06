@@ -26,3 +26,5 @@ For my end of study internship at KTH (a.k.a "Master Thesis"), I did:
 The github is currently private due to the use of paid assets.
 
 You can read the final research paper here: [KTH DiVa](https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-340948)
+
+Two years later, the work was accepted at an IEEE conference: [What You See is What You Get: Exploring Novel Hands-Free Methods of Virtual Body Control for Avatars](https://ieeexplore.ieee.org/document/10972718)

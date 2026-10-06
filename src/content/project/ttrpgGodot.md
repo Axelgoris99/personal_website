@@ -1,11 +1,11 @@
 ---
 title: TTRPG - Godot - Godot Script
-begin: 2024-06
-end: 2025-06
+begin: 2024-03
+end: 2026-01
 img: /assets/project/ttrpg.webp
 img_alt: A tactical rpg low-poly. Full system with stats, skills, turns.
 description: |
-  An isometric low-poly tactical role playing game developed in Godot using Godot Script.
+  An isometric low-poly tactical role playing game developed in Godot using Godot Script. On indefinite pause.
 tags:
   - Godot
   - Blender
@@ -19,4 +19,6 @@ I'm recreating the [following serie](http://theliquidfire.com/2015/05/04/tactics
 
 Also note that I have been actively following and appreciating or giving advice on <https://theliquidfire.com/2023/11/09/godot-tactics-rpg-01-intro-setup/>.
 
-This has been stopped for the time being.
+The code architecture is something I'm really happy with: Composition, Factory, Strategy and Event Bus patterns all over the place.
+
+The project is on indefinite pause.

@@ -11,7 +11,6 @@ tags:
   - Firebase
   - API
   - MVP
-favorite: true
 ---
 As a group of 3, we created a Dungeon & Dragon character generator using Vue and Firebase, as part of the best course I ever had: DH2642. That was made to practice implementing a Model-View-Presenter to understand the proper architecture of a software.
 

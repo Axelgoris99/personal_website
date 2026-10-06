@@ -1,12 +1,12 @@
 ---
 title: Aegir - Fullstack Engineer
 begin: 2025-10
-end: 2099-11
+end: 2026-09
 location: Remote, Europe
 img: /assets/experience/aegir.webp
 img_alt: Aegir Logo
 description: |
-  I am currently working as a fullstack software engineer, using Godot, React and Python.
+  Fullstack software engineer in the defence sector, using Godot, React, Python and Rust.
 tags:
   - Godot
   - React (Javascript/Typescript)
@@ -14,11 +14,17 @@ tags:
   - Docker
   - Nginx
   - Gitea
+  - Rust
+  - CI/CD
 ---
+
+Defence-sector company with a sharp technical team and a compelling product.
 
 As my first task, I ported our multi-window Godot app to be working as a local multi-tab web export. That involved a lot of bridging between javascript and godot, and it got me refactoring quite a bunch of logic to fully support our app with the limited resources available in a browser. We're using a lot of BroadcastChannel. It can synchronize dependencies, state, services and such.
 
-I've refactored and implemented a whole lot of stuff ranging from map shader performance to hover effect card system.
+I've refactored and implemented a whole lot of stuff ranging from map shader performance to hover effect card system. I wrote shaders and used multimesh instancing to improve rendering performance, and spent a fair amount of time profiling and debugging performance and stability issues.
+
+I also peer-reviewed code across Rust, React, Python and GDScript, always pushing for modular code following composition principles to reduce iteration time.
 
 I went to the client site to install and deploy docker images + systemd for starting and such. That involved integration with Keycloak, checking TLS certificates, etc.
 

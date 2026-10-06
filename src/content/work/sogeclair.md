@@ -6,7 +6,7 @@ location: Adelaide, Australia
 img: /assets/experience/oktalSydac.webp
 img_alt: Oktal Sydac Logo
 description: |
-  I am currently working as fullstack software engineer, using Angular and C++.
+  Fullstack software engineer on railway training simulators, using Angular, C++ and C#.
 tags:
   - Angular
   - C++
@@ -30,9 +30,18 @@ imgs:
     }
 ---
 
-I mostly do Angular and C++ development for train simulators, involving many different teams (physical modeling, 3D, system architect, networks, GIS data, hardware and backend).
+Some highlights:
 
-The Angular parts is a 100k+ lines of Code project, separated into a library architecture where different projects can replace part or all of the app. It is used by instructor to manage session and prepare scenario, create rules, add signaling and such.
+- Built a Mixed Reality proof-of-concept training simulation with a Varjo XR4 and Unigine, from design to testing. It was praised as a standout demo at the Asia Pacific Rail conference.
+- Optimized a distributed C++ and Angular system, with a 200% speed-up on database loading times, plus a new logging module and tracking metrics to cut time to resolution.
+- Developed a large-scale tram simulation in C# for a major Melbourne project, with hundreds of AI-driven pedestrians, vehicles and automated trams.
+- Migrated a 10-year-old on-premise Jira instance to the cloud for 180+ people.
+- Demonstrated a local AI stack (Ollama, RAG, vector embeddings) on our codebase and knowledge base to senior management, cutting bid management time.
+- Led a 6-person, multi-location team through agile sprints.
+
+I mostly did Angular and C++ development for train simulators, involving many different teams (physical modeling, 3D, system architect, networks, GIS data, hardware and backend).
+
+The Angular part is a 100k+ lines of code project, separated into a library architecture where different projects can replace part or all of the app. It is used by instructor to manage session and prepare scenario, create rules, add signaling and such.
 
 The C++ part manages a simulation once it is running. It calculates train position, take care of changing feature state (a feature being something that will interact in the session, such as a light changing, point for direction, etc). The architecture is quite remarkable with a distributed store being accessed by different units that can all change parts of the application. If the sound engine crashed for example, you just have to reload it. The simulation won't stop, only the sound will be stopped while it is down.
 

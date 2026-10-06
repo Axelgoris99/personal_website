@@ -1,11 +1,11 @@
 ---
 title: Centrale Nantes Alumni
 begin: 2022-10
-end: 2099-12
+end: 2026-09
 img: /assets/project/association/cna.webp
 img_alt: CNA Logo
 description: |
-  I'm responsible for our Slack and helping with digital needs.
+  I was responsible for our Slack and helped with digital needs.
 tags:
   - Association
   - Management
