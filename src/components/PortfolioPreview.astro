@@ -18,6 +18,7 @@ const folder = Astro.props.folder;
       <Image
         src={data.img}
         alt={data.img_alt || ""}
+        style={`view-transition-name: img-${folder}-${slug}`}
         widths={[400, 800]}
         sizes="(min-width: 50em) 50vw, 100vw"
       />

@@ -22,6 +22,7 @@ const { Content } = await render(entry);
 
 <EntryLayout
   {...data}
+  transitionName={`img-education-${entry.id}`}
   back={{ href: "/about/", label: "About" }}
   subtitle={`${data.beginYear.getFullYear()} - ${data.endYear.getFullYear()} | ${data.location}`}
 >

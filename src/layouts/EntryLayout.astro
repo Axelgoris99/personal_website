@@ -19,6 +19,8 @@ interface Props {
   imgs?: { link: ImageMetadata; caption: string; alt?: string }[];
   video?: string;
   back: { href: string; label: string };
+  /** Shared with the card image so it morphs into the page on navigation. */
+  transitionName?: string;
   wide?: boolean;
 }
 
@@ -32,6 +34,7 @@ const {
   imgs = [],
   video,
   back,
+  transitionName,
   wide = false,
 } = Astro.props;
 
@@ -74,6 +77,7 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
               <Image
                 src={img}
                 alt={img_alt || ""}
+                style={transitionName && `view-transition-name: ${transitionName}`}
                 widths={widths}
                 sizes={sizes}
                 loading="eager"

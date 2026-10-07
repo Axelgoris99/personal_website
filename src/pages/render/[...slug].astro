@@ -22,6 +22,7 @@ const { Content } = await render(entry);
 
 <EntryLayout
   {...data}
+  transitionName={`img-render-${entry.id}`}
   back={{ href: "/render/", label: "Renders" }}
   wide
 >

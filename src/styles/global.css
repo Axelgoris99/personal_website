@@ -253,3 +253,10 @@ h5 {
 		gap: 12rem;
 	}
 }
+
+/* Animate navigations between pages (no-op in browsers without support). */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}

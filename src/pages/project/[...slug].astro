@@ -23,6 +23,7 @@ const { Content } = await render(entry);
 
 <EntryLayout
   {...data}
+  transitionName={`img-project-${entry.id}`}
   subtitle={formatRange(data.begin, data.end)}
   back={{ href: "/project/", label: "Project" }}
 >
