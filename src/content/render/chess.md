@@ -3,7 +3,7 @@ title: Chess
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/chess/render.webp
-img_alt: A chess battle.
+img_alt: "Chess pieces glowing gold, reflected on a black floor."
 description: |
   A chess battle animated with Blender and rendered with Eevee.
 tags:

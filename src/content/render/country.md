@@ -3,7 +3,7 @@ title: Country Map
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/country/france.webp
-img_alt: A picture of France
+img_alt: "Relief map of France, with lowlands in blue and high mountains in red."
 description: |
   An illustration of what you can do with satellite height maps.
 tags:
@@ -14,17 +14,17 @@ imgs:
   - {
       link: ../../assets/render/country/australiahd.webp,
       caption: A map of Australia,
-      alt: A map of Australia,
+      alt: "Relief map of Australia.",
     }
   - {
       link: ../../assets/render/country/italy.webp,
       caption: A map of Italy,
-      alt: A map of Italy,
+      alt: "Relief map of Italy, with Sardinia and Sicily.",
     }
   - {
       link: ../../assets/render/country/ehehPeak.webp,
       caption: A map of Italy seen from sea level,
-      alt: A map of Italy seen from sea level,
+      alt: "Relief map of Italy seen from a low angle at sunset, casting long shadows.",
     }
 favorite: true
 ---

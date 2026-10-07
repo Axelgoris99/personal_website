@@ -3,7 +3,7 @@ title: Planet Explosion
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/earthExplode/earthExplode.webp
-img_alt: The explosion of a planet.
+img_alt: "A planet breaking apart in space, glowing molten rock bursting through its cracks."
 description: |
   The explosion of a planet!
 tags:

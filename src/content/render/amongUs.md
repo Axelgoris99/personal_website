@@ -3,7 +3,7 @@ title: Among Us
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/amongUs/1.webp
-img_alt: An amogus jumping on a platform that opens a window.
+img_alt: "A red Among Us crewmate standing under a glowing hatch in a spaceship room."
 description: |
   A small stupid Among Us video where he does a random task and dies.
 tags:

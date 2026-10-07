@@ -3,7 +3,7 @@ title: 3D logo
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/3dIcons.webp
-img_alt: A 3D logo with a wolf.
+img_alt: "A metallic blue wolf head inside a crescent, lit in purple against a pink backdrop."
 description: |
   A 3D logo.
 tags:

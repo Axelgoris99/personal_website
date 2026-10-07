@@ -3,7 +3,7 @@ title: Light Pillars
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/light/light.webp
-img_alt: A very weird light.
+img_alt: "Glowing white pillars and floating particles in the dark."
 description: |
   My first attempt at doing a video in Blender on my own.
 tags:

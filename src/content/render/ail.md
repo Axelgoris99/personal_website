@@ -3,7 +3,7 @@ title: Am I crazy?
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/ail/pre_render.webp
-img_alt: No idea
+img_alt: "Glass droplets hanging over dark water under a starry sky."
 description: |
   No idea
 tags:

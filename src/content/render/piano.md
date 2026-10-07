@@ -3,7 +3,7 @@ title: Piano
 end: 2021-02
 begin: 2021-02
 img: ../../assets/render/piano.webp
-img_alt: A piano.
+img_alt: "A black digital piano on an X stand, on a wooden floor."
 description: |
   A piano that I posted on the Unity Asset Store.
 tags:
