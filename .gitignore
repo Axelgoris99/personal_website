@@ -31,3 +31,5 @@ pnpm-debug.log*
 
 # every html in public
 public/**/*.html
+# Serena
+.serena/
