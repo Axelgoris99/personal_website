@@ -4,19 +4,37 @@ import "../styles/global.css";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  image?: string | undefined;
 }
 
 const {
   title = "Axel Goris | Personal Site",
-  description = "The personal site of Axel Goris",
+  description: rawDescription = "The personal site of Axel Goris",
+  image = "/assets/portrait.webp",
 } = Astro.props;
+
+const description = rawDescription.trim();
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
+<meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+<link rel="canonical" href={canonical} />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Axel Goris" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
