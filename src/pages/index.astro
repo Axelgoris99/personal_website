@@ -1,9 +1,35 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 import { byMostRecent } from "../utils/dates";
 
 import portrait from "../assets/portrait.webp";
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Axel Goris",
+  url: Astro.site?.href,
+  image: new URL(
+    (await getImage({ src: portrait, width: 800, format: "jpg" })).src,
+    Astro.site
+  ).href,
+  jobTitle: "Software Engineer",
+  worksFor: [
+    { "@type": "Organization", name: "Nabla" },
+    { "@type": "Organization", name: "GoGoStudio" },
+  ],
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "KTH Royal Institute of Technology" },
+    { "@type": "CollegeOrUniversity", name: "Ecole Centrale de Nantes" },
+  ],
+  sameAs: [
+    "https://www.linkedin.com/in/axel-goris",
+    "https://github.com/axelgoris99",
+    "https://axelgoris99.itch.io",
+    "https://blog.goris.live",
+  ],
+};
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -34,6 +60,12 @@ const projects = (await getCollection("project"))
 ---
 
 <BaseLayout>
+  <script
+    is:inline
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(person)}
+  />
   <div class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
       <header class="hero">

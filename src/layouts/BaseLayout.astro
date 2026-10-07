@@ -22,6 +22,7 @@ const { title, description, image } = Astro.props;
 <html lang="en">
 	<head>
 		<MainHead title={title} description={description} image={image} />
+		<slot name="head" />
 		<script is:inline defer src="https://umami.goris.live/script.js" data-website-id="ea169c6e-9488-48f9-9eae-043422d9534f"></script>
 	</head>
 	<body>
