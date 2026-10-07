@@ -14,6 +14,14 @@ export function formatRange(begin: Date, end?: Date) {
   return from === to ? from : `${from} – ${to}`;
 }
 
+/** "2023 – 2025", "2026 – Present" or "2021". */
+export function formatYears(begin: Date, end?: Date) {
+  const from = begin.getUTCFullYear();
+  if (!end) return `${from} – Present`;
+  const to = end.getUTCFullYear();
+  return from === to ? `${from}` : `${from} – ${to}`;
+}
+
 /**
  * Entries with an `order` first (ascending), then ongoing entries,
  * then most recently ended, then most recently begun.
