@@ -1,12 +1,12 @@
 ---
-interface Props {
-  href: string;
-}
+import type { HTMLAttributes } from "astro/types";
 
-const { href } = Astro.props;
+type Props = HTMLAttributes<"a"> & { href: string };
+
+const { href, ...attrs } = Astro.props;
 ---
 
-<a href={href}><slot /></a>
+<a href={href} {...attrs}><slot /></a>
 
 <style>
   a {
