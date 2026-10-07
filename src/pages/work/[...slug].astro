@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 import EntryLayout from "../../layouts/EntryLayout.astro";
+import { formatRange } from "../../utils/dates";
 
 interface Props {
   entry: CollectionEntry<"work">;
@@ -22,6 +23,7 @@ const { Content } = await render(entry);
 
 <EntryLayout
   {...data}
+  subtitle={`${formatRange(data.begin, data.end)} | ${data.location}`}
   back={{ href: "/work/", label: "Work" }}
 >
   <Content />

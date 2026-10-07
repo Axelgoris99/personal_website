@@ -1,7 +1,6 @@
 ---
 title: Homelab - Proxmox & VPS
 begin: 2024-01
-end: 2099-12
 img_alt: A diagram of my homelab.
 description: |
   Two Proxmox servers and a VPS running 30+ self-hosted services, from Home Assistant to game servers.

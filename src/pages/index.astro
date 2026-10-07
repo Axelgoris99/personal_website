@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import { byMostRecent } from "../utils/dates";
 
 import portrait from "../assets/portrait.webp";
 
@@ -21,11 +22,11 @@ import Skills from "../components/Skills.astro";
 
 // Content Fetching: List four most recent work projects
 const works = (await getCollection("work"))
-  .sort((a, b) => b.data.end.valueOf() - a.data.end.valueOf())
+  .sort(byMostRecent)
   .slice(0, 4);
 
 const projects = (await getCollection("project"))
-  .sort((a, b) => b.data.end.valueOf() - a.data.end.valueOf())
+  .sort(byMostRecent)
   .slice(0, 6);
 
 // Full Astro Component Syntax:

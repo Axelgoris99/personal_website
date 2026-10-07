@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { byMostRecent } from "../utils/dates";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -9,7 +10,7 @@ import Hero from "../components/Hero.astro";
 import Grid from "../components/Grid.astro";
 
 const projects = (await getCollection("work")).sort(
-  (a, b) => b.data.end.valueOf() - a.data.end.valueOf()
+  byMostRecent
 );
 ---
 

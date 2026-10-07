@@ -1,7 +1,6 @@
 ---
 title: Nabla - Software Engineer
 begin: 2026-09
-end: 2099-12
 location: Paris, France (Hybrid)
 img: ../../assets/experience/nabla.webp
 img_alt: Nabla Logo

@@ -1,7 +1,6 @@
 ---
 title: Goddle - Godot
 begin: 2025-07
-end: 2099-12
 img: ../../assets/project/goddle.webp
 img_alt: The main scene of goddle.
 description: |

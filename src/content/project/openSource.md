@@ -1,7 +1,6 @@
 ---
 title: Open Source Contributions
 begin: 2025-06
-end: 2099-12
 img: ../../assets/project/oss.webp
 img_alt: The main scene of goddle.
 description: |
