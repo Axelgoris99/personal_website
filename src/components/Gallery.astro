@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -18,11 +19,11 @@ const folder = Astro.props.folder;
         {project.data.favorite && <span class="favorite">❤️</span>}
         <span class="number">{(project.data.imgs && project.data.imgs.length + 1 ) || 1}</span>
         {project.data.video && <span class="video">🎥</span>}
-        <img
+        <Image
           src={project.data.img}
           alt={project.data.img_alt || ""}
-          loading="lazy"
-          decoding="async"
+          widths={[480, 960]}
+          sizes="(min-width: 50em) 50vw, 100vw"
         />
       </a>
     ))

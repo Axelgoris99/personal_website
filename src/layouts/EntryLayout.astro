@@ -1,4 +1,7 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 import BaseLayout from "./BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
@@ -11,9 +14,9 @@ interface Props {
   description: string;
   subtitle?: string;
   tags?: string[];
-  img?: string;
+  img?: ImageMetadata;
   img_alt?: string;
-  imgs?: { link: string; caption: string; alt?: string }[];
+  imgs?: { link: ImageMetadata; caption: string; alt?: string }[];
   video?: string;
   back: { href: string; label: string };
   wide?: boolean;
@@ -31,6 +34,9 @@ const {
   back,
   wide = false,
 } = Astro.props;
+
+const widths = [480, 800, 1200, 1600];
+const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
 ---
 
 <BaseLayout title={title} description={description} image={img}>
@@ -63,7 +69,17 @@ const {
       </header>
       <main class:list={["wrapper", { wide }]}>
         <div class="stack gap-10 content">
-          {img && <img src={img} alt={img_alt || ""} />}
+          {
+            img && (
+              <Image
+                src={img}
+                alt={img_alt || ""}
+                widths={widths}
+                sizes={sizes}
+                loading="eager"
+              />
+            )
+          }
           <div class="content">
             <slot />
           </div>
@@ -71,11 +87,11 @@ const {
           {
             imgs.map((i) => (
               <>
-                <img
+                <Image
                   src={i.link}
                   alt={i.alt || i.caption || ""}
-                  loading="lazy"
-                  decoding="async"
+                  widths={widths}
+                  sizes={sizes}
                 />
                 <p class="caption">{i.caption}</p>
               </>

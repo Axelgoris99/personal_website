@@ -2,7 +2,7 @@
 title: Dice Game - Flutter Learning
 begin: 2025-01
 end: 2025-01
-img: /assets/project/Flutter.webp
+img: ../../assets/project/Flutter.webp
 img_alt: The flutter logo
 description: |
   A dice game for a friend.

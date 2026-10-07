@@ -2,7 +2,7 @@
 title: Signature Generator
 begin: 2023-06
 end: 2024-02
-img: /assets/project/signatureGenerator.webp
+img: ../../assets/project/signatureGenerator.webp
 img_alt: Multiple fake signature created by AI.
 description: |
   Signature generator 

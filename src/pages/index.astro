@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
+import portrait from "../assets/portrait.webp";
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -47,11 +50,11 @@ const projects = (await getCollection("project"))
           </div>
         </Hero>
 
-        <img
+        <Image
           alt="Axel Goris smiling in a winter coat with the swedish parliament in the background"
-          width="480"
-          height="620"
-          src="/assets/portrait.webp"
+          src={portrait}
+          widths={[480, 960]}
+          sizes="(min-width: 50em) 480px, 100vw"
           fetchpriority="high"
           loading="eager"
         />

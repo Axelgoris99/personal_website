@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+
+import atWork from "../assets/at-work.webp";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -18,11 +21,12 @@ const educations = (await getCollection("education")).sort(
         title="About"
         tagline="Thanks for stopping by. Read below to learn more about myself and my background."
       >
-        <img
-          width="1553"
-          height="873"
-          src="/assets/at-work.webp"
+        <Image
+          src={atWork}
+          widths={[800, 1553]}
+          sizes="(min-width: 50em) 80vw, 100vw"
           alt="Axel Goris hip deep in the snow"
+          loading="eager"
         />
       </Hero>
 

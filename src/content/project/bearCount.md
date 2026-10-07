@@ -2,7 +2,7 @@
 title: BearCount - GMTK 2026
 begin: 2026-07
 end: 2026-07
-img: /assets/project/bearcount.webp
+img: ../../assets/project/bearcount.webp
 img_alt: A screenshot from BearCount.
 description: |
   Our GMTK 2026 game jam entry. Top 10% for creativity out of 10.5k entries!

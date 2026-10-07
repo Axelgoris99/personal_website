@@ -3,7 +3,7 @@ title: Aegir - Fullstack Engineer
 begin: 2025-10
 end: 2026-09
 location: Remote, Europe
-img: /assets/experience/aegir.webp
+img: ../../assets/experience/aegir.webp
 img_alt: Aegir Logo
 description: |
   Fullstack software engineer in the defence sector, using Godot, React, Python and Rust.

@@ -2,7 +2,7 @@
 title: Goddle - Godot
 begin: 2025-07
 end: 2099-12
-img: /assets/project/goddle.webp
+img: ../../assets/project/goddle.webp
 img_alt: The main scene of goddle.
 description: |
   A multiplayer word game for game nights: the grid is on the big screen, everyone plays from their phone. Free demo available!

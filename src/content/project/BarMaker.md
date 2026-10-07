@@ -2,7 +2,7 @@
 title: Bar Maker Game Jam
 begin: 2024-01
 end: 2024-01
-img: /assets/project/barmaker.webp
+img: ../../assets/project/barmaker.webp
 img_alt: A beer with the words Bar Maker beside
 description: |
   A Game Jam Project done in 2 days with a friend.

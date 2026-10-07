@@ -2,7 +2,7 @@
 title: Research Contributions
 begin: 2023-01
 end: 2023-06
-img: /assets/project/avatar.webp
+img: ../../assets/project/avatar.webp
 img_alt: Two vr avatars.
 description: |
   Research is necessary for progress!

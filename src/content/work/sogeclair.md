@@ -3,7 +3,7 @@ title: Oktal Sydac a.k.a Sogeclair - Fullstack Engineer
 begin: 2023-09
 end: 2025-09
 location: Adelaide, Australia
-img: /assets/experience/oktalSydac.webp
+img: ../../assets/experience/oktalSydac.webp
 img_alt: Oktal Sydac Logo
 description: |
   Fullstack software engineer on railway training simulators, using Angular, C++ and C#.
@@ -19,12 +19,12 @@ tags:
   - Unigine
 imgs:
   - {
-      link: /assets/experience/Sogeclair-Train.webp,
+      link: ../../assets/experience/Sogeclair-Train.webp,
       caption: A train stopped at a platform for boarding,
       alt: A train stopped at a platform for boarding,
     }
   - {
-      link: /assets/experience/Simulator-Outside.webp,
+      link: ../../assets/experience/Simulator-Outside.webp,
       caption: A person using one of our simulator for training purpose,
       alt: A person using one of our simulator for training purpose,
     }

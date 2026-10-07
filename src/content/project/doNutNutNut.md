@@ -2,7 +2,7 @@
 title: DoNutNutNut - Godot
 begin: 2025-07
 end: 2025-07
-img: /assets/project/donutnutnut.webp
+img: ../../assets/project/donutnutnut.webp
 img_alt: A screenshot from the game featuring a donut truck.
 description: |
   A game jam project about a donut truck making donuts to get donuts while avoiding the donuts hungry policemen.

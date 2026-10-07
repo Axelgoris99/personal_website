@@ -2,7 +2,7 @@
 title: Centrale Nantes Alumni
 begin: 2022-10
 end: 2026-09
-img: /assets/project/association/cna.webp
+img: ../../assets/project/association/cna.webp
 img_alt: CNA Logo
 description: |
   I was responsible for our Slack and helped with digital needs.

@@ -2,7 +2,7 @@
 title: TTRPG - Godot - Godot Script
 begin: 2024-03
 end: 2026-01
-img: /assets/project/ttrpg.webp
+img: ../../assets/project/ttrpg.webp
 img_alt: A tactical rpg low-poly. Full system with stats, skills, turns.
 description: |
   An isometric low-poly tactical role playing game developed in Godot using Godot Script. On indefinite pause.

@@ -2,7 +2,7 @@
 title: Open Source Contributions
 begin: 2025-06
 end: 2099-12
-img: /assets/project/oss.webp
+img: ../../assets/project/oss.webp
 img_alt: The main scene of goddle.
 description: |
   Open source is a great philosophy. Please contribute!
