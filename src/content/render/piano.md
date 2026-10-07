@@ -5,11 +5,11 @@ begin: 2021-02
 img: ../../assets/render/piano.webp
 img_alt: A piano.
 description: |
-  A piano that I posted on the unity asset store.
+  A piano that I posted on the Unity Asset Store.
 tags:
   - Blender
   - Piano
   - Asset Store
 ---
 1.4k vertices.
-I did put it for free on the unity asset store and surprisingly, it got more than 2k downloads as of 1st of january 2024!
+I put it up for free on the Unity Asset Store and surprisingly, it got more than 2k downloads as of January 1st, 2024!

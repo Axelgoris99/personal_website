@@ -15,6 +15,6 @@ tags:
 ---
 Remember that this was in 2021 and AI was not such a big thing yet.
 
-I did my first step into ML through this project, trying to automatically rig a human in Blender and extract length of different bones through a photo scan.
+I took my first steps into ML through this project, trying to automatically rig a human in Blender and extract the length of different bones through a photo scan.
 
-In the end, we still suggested our responsible to use some well-known blender plugin to quickly rig a human.
+In the end, we still suggested our supervisor use a well-known Blender plugin to quickly rig a human.

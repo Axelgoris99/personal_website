@@ -5,7 +5,7 @@ begin: 2021-02
 img: ../../assets/render/country/france.webp
 img_alt: A picture of France
 description: |
-  An illustration of what you can do with satellite heights map.
+  An illustration of what you can do with satellite height maps.
 tags:
   - Blender
   - Python
@@ -29,4 +29,4 @@ imgs:
 favorite: true
 ---
 
-This was a very fun project, took me a day, but basically played around with height map from satellite and rendered different countries, sometimes with different style. The France picture is actually colored with the heights and some threshold value.
+This was a very fun project, took me a day, but basically played around with satellite height maps and rendered different countries, sometimes in different styles. The France picture is actually colored with the heights and some threshold values.

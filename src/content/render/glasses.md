@@ -11,7 +11,7 @@ tags:
 imgs:
   - {
       link: ../../assets/render/glasses/10_2.webp,
-      caption: Another Pov,
+      caption: Another PoV,
       alt: Another Pov,
     }
   - {
@@ -21,4 +21,4 @@ imgs:
     }
 ---
 
-I followed a tutorial from Grant Abbit.
+I followed a tutorial from Grant Abbitt.

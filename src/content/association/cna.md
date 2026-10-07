@@ -11,8 +11,8 @@ tags:
   - Management
 ---
 
-Set up the Slack rights, chanel and organization.
+Set up the Slack permissions, channels and organization.
 
-I also created a simple signature generator using Svelte so that member can easily generate their own member signature.
+I also created a simple signature generator using Svelte so that members can easily generate their own member signature.
 
 <https://www.centraliens-nantes.org/en/>

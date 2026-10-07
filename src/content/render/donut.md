@@ -10,4 +10,4 @@ tags:
   - Blender
   - DOooOoOOOnut
 ---
-As any good Blender beginner - I followed Blender Guru tutorial.
+As any good Blender beginner - I followed the Blender Guru tutorial.

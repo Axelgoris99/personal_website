@@ -13,7 +13,7 @@ tags:
   - Destruction
   - Game Jam
 ---
-We only had one computer at the time and we started at KTH a few days before so only had 24h to give it - trust me, it was a challenge!
+We only had one computer at the time and we had started at KTH a few days before, so we only had 24h to give it - trust me, it was a challenge!
 
 It's not the game I'm the most proud of but at least, we did something and did publish it, got criticized and that helped with future design.
 

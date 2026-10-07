@@ -13,11 +13,11 @@ tags:
   - Energy Consumption
   - Gamification
 ---
-The design was that depending on your consumption of the previous day, the game would be easier or harder. For now, the only thing to do was to press the button at faster or slower rate. We did a user study to see if that could be useful on a daily basis but it probably was not. Let's be honest, this was mostly a developer opportunity to build up even more skills, using python with arduino, javascript reading websocket and using pure data to make motor noise. But overall, gamification to help with sustainability is a really cool and interesting field with plenty of opportunities.
+The design was that depending on your consumption of the previous day, the game would be easier or harder. For now, the only thing to do was to press the button at a faster or slower rate. We did a user study to see if that could be useful on a daily basis but it probably was not. Let's be honest, this was mostly a developer opportunity to build up even more skills, using Python with Arduino, JavaScript reading WebSockets and using Pure Data to make motor noise. But overall, gamification to help with sustainability is a really cool and interesting field with plenty of opportunities.
 
-Led to the writing of an article about playful reminder and got an A in the class.
+Led to the writing of an article about playful reminders and got an A in the class.
 
-The git is here: <https://github.com/Axelgoris99/ToasterGame>
+The repo is here: <https://github.com/Axelgoris99/ToasterGame>
 
 A video can be found here: <https://drive.google.com/file/d/1GTPLQPH-Ai9gHL322YgAaXRLIfG2M7Oh/view?usp=sharing>
 

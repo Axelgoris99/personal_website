@@ -20,4 +20,4 @@ imgs:
     }
 ---
 
-It turned out to be kind of alright, I liked it. Also allowed me to test Cycle vs Eevee.
+It turned out to be kind of alright, I liked it. Also allowed me to test Cycles vs Eevee.

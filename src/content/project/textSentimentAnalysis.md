@@ -15,7 +15,7 @@ tags:
   - Stacking
   - Max Voting
 ---
-We wrote a research paper with a comrade about ensemble model for text classification.
+We wrote a research paper with a classmate about ensemble models for text classification.
 
 Here is the abstract:
 

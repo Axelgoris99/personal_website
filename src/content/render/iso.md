@@ -19,4 +19,4 @@ imgs:
     }
 ---
 
-Learning how to use blender geometry nodes. That is crazy efficient and stylish! I followed a tutorial on Youtube but I'm unable to find it back... 😔
+Learning how to use Blender geometry nodes. That is crazy efficient and stylish! I followed a tutorial on YouTube but I can't find it again... 😔

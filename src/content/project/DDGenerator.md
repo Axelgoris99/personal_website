@@ -12,10 +12,10 @@ tags:
   - API
   - MVP
 ---
-As a group of 3, we created a Dungeon & Dragon character generator using Vue and Firebase, as part of the best course I ever had: DH2642. That was made to practice implementing a Model-View-Presenter to understand the proper architecture of a software.
+As a group of 3, we created a Dungeons & Dragons character generator using Vue and Firebase, as part of the best course I ever had: DH2642. That was made to practice implementing a Model-View-Presenter to understand proper software architecture.
 
 That was basically randomly generating attributes, getting data from a 3rd party API and browsing the internet for cool pictures.
 
 Project can be explored here: <https://dd-gen.web.app/>
 
-The github is here: <https://github.com/Axelgoris99/DD_Gen>
+The GitHub repo is here: <https://github.com/Axelgoris99/DD_Gen>

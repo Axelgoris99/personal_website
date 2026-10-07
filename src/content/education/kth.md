@@ -22,7 +22,7 @@ I came to KTH from [Centrale Nantes](/education/centrale) for the Master in ICT 
 
 While there, I:
 
-- became a [Teacher Assistant for DH2642](/work/kth), the web development course I liked the most.
+- became a [Teaching Assistant for DH2642](/work/kth), the web development course I liked the most.
 - was an [Event Manager for MAIN](/association/main), organizing events for 20 to 100+ students.
 - wrote a machine learning paper on the [trade-off between accuracy and performance for text classification using ensemble models](/project/textsentimentanalysis).
 - designed the [Playable Toaster](/project/toastergame), a toaster game to raise awareness of household energy consumption.

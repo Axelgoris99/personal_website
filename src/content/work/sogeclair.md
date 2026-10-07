@@ -25,8 +25,8 @@ imgs:
     }
   - {
       link: ../../assets/experience/Simulator-Outside.webp,
-      caption: A person using one of our simulator for training purpose,
-      alt: A person using one of our simulator for training purpose,
+      caption: A person using one of our simulators for training,
+      alt: A person using one of our simulators for training,
     }
 ---
 
@@ -39,14 +39,14 @@ Some highlights:
 - Demonstrated a local AI stack (Ollama, RAG, vector embeddings) on our codebase and knowledge base to senior management, cutting bid management time.
 - Led a 6-person, multi-location team through agile sprints.
 
-I mostly did Angular and C++ development for train simulators, involving many different teams (physical modeling, 3D, system architect, networks, GIS data, hardware and backend).
+I mostly did Angular and C++ development for train simulators, involving many different teams (physical modeling, 3D, system architecture, networks, GIS data, hardware and backend).
 
-The Angular part is a 100k+ lines of code project, separated into a library architecture where different projects can replace part or all of the app. It is used by instructor to manage session and prepare scenario, create rules, add signaling and such.
+The Angular part is a 100k+ lines of code project, separated into a library architecture where different projects can replace part or all of the app. Instructors use it to manage sessions, prepare scenarios, create rules, add signaling and such.
 
-The C++ part manages a simulation once it is running. It calculates train position, take care of changing feature state (a feature being something that will interact in the session, such as a light changing, point for direction, etc). The architecture is quite remarkable with a distributed store being accessed by different units that can all change parts of the application. If the sound engine crashed for example, you just have to reload it. The simulation won't stop, only the sound will be stopped while it is down.
+The C++ part manages a simulation once it is running. It calculates train positions and takes care of changing feature states (a feature being something that will interact in the session, such as a light changing, points for direction, etc.). The architecture is quite remarkable with a distributed store being accessed by different units that can all change parts of the application. If the sound engine crashed for example, you just have to reload it. The simulation won't stop, only the sound will be stopped while it is down.
 
-I have used Python for automating part of the job, converting JSON to XML, writing tools to define splines and such.
+I used Python to automate parts of the job, converting JSON to XML, writing tools to define splines and such.
 
-We use Unigine as the rendering engine and have written a unit to communicate between our store and the Unigine engine. Unigine simply display our worlds and update based on the simulation state.
+We use Unigine as the rendering engine and have written a unit to communicate between our store and the Unigine engine. Unigine simply displays our worlds and updates them based on the simulation state.
 
-I have also worked with C# for our own traffic simulation, including cars, pedestrians and events such as a person fainting, the ambulance coming with sirens on and lights, getting the pedestrian and going out of the way.
+I have also worked with C# for our own traffic simulation, including cars, pedestrians and events such as a person fainting, the ambulance arriving with sirens and lights on, picking up the pedestrian and driving away.

@@ -15,15 +15,15 @@ tags:
   - Embodiment
   - Inverse Kinematics
 ---
-For my end of study internship at KTH (a.k.a "Master Thesis"), I did:
+For my end-of-studies internship at KTH (a.k.a "Master Thesis"), I did:
 
-- Realize a state of the art of the use of eye-tracking and interaction modalities including little or no user's movements to interact with his avatar in Virtual Reality.
-- Find a research angle that has not yet been explored in depth and that has a concrete use (e.g. rehabilitation of paralyzed people through VR)
+- Review the state of the art of eye-tracking and interaction modalities requiring little or no user movement to interact with their avatar in Virtual Reality.
+- Find a research angle that has not yet been explored in depth and that has a concrete use (e.g. rehabilitation of paralyzed people through VR).
 - Set up one or more experiments to measure and validate our research hypotheses on these interaction modalities and their usability, feeling of embodiment, etc.
 - Conduct user tests to collect data and establish conclusions.
-- To write a research paper to summarize the entire research.
+- Write a research paper to summarize the entire research.
 
-The github is currently private due to the use of paid assets.
+The GitHub repository is private due to the use of paid assets.
 
 You can read the final research paper here: [KTH DiVa](https://urn.kb.se/resolve?urn=urn:nbn:se:kth:diva-340948)
 

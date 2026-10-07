@@ -5,7 +5,7 @@ end: 2022-08
 img: ../../assets/project/marioKart.webp
 img_alt: Mario in a low poly kart with a blurred forest behind
 description: |
-  A test with using phone as controller and websocket.
+  A test of using a phone as a controller with WebSockets.
 tags:
   - Unity
   - Blender
@@ -14,7 +14,7 @@ tags:
   - Mario Kart
   - Racing Game
 ---
-I created a mario kart like where you could play and connect using your phone. Basically, the idea was that sometimes you only have your computer and playing on the same keyboard is not practical. So, why not use your phone? As are Jackbox games doing. However, Jackbox connects to a remote server and uses TCP but for real time games, it is better to stay on local network and avoid latency, as in Eon Altar. So I did my research and started this whole project as an excuse to find more about TCP/UDP, racing game and networking in general.
+I created a Mario Kart-like game where you could play and connect using your phone. Basically, the idea was that sometimes you only have your computer and playing on the same keyboard is not practical. So, why not use your phone? Like Jackbox games do. However, Jackbox connects to a remote server and uses TCP but for real time games, it is better to stay on local network and avoid latency, as in Eon Altar. So I did my research and started this whole project as an excuse to find more about TCP/UDP, racing games and networking in general.
 
 In the end, you can "play" the game but there is not much to do. You can connect up to 8 players but everything gets very laggy...and you can move your kart that was implemented with the Unity tutorial for kart games.
 

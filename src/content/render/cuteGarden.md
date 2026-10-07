@@ -20,4 +20,4 @@ imgs:
   alt: Same picture but at night
 }
 ---
-I followed Grant Abbit tutorial for this one, and experimented with lighting and composition.
+I followed a Grant Abbitt tutorial for this one, and experimented with lighting and composition.

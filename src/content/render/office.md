@@ -1,11 +1,11 @@
 ---
-title: My parents office
+title: My parents' office
 end: 2025-12
 begin: 2025-12
 img: ../../assets/render/office/office1.webp
 img_alt: A nice cozy office
 description: |
-    A visualization of what my parents office could look like.
+    A visualization of what my parents' office could look like.
 tags:
   - Blender
   - ArchViz
@@ -18,4 +18,4 @@ imgs:
 favorite: true
 ---
 
-Used a mix of personal build and props from various places.
+Used a mix of my own models and props from various places.

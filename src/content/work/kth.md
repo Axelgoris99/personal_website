@@ -1,5 +1,5 @@
 ---
-title: KTH - Teacher Assistant DH2642
+title: KTH - Teaching Assistant DH2642
 begin: 2022-08
 end: 2023-01
 location: Stockholm, Sweden
@@ -18,10 +18,10 @@ tags:
 
 [DH2642 - Interaction Programming and the Dynamic Web](https://www.kth.se/student/kurser/kurs/DH2642?l=en)
 
-Probably the best class I ever took and I decided to help continue the tradition by becoming a teacher assistant and helping students to advance in the various projects.
+Probably the best class I ever took and I decided to help continue the tradition by becoming a teaching assistant and helping students move forward on their projects.
 
 I was helping and grading students during the first half of the course.
 
-During the second half, I was responsible for 5 groups having to design and develop their own web applications and host it.
+During the second half, I was responsible for 5 groups having to design and develop their own web applications and host them.
 
-That's how I truly became a frontend developer, by looking at many persons code, finding what was their goal, guiding them, refactoring my own code in the process, etc.
+That's how I truly became a frontend developer, by reading many people's code, figuring out their goals, guiding them, refactoring my own code in the process, etc.

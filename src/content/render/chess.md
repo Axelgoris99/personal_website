@@ -12,4 +12,4 @@ video: /assets/render/chess/chessEevee.mp4
 favorite: true
 ---
 
-After following the tutorial for chess pieces by Grant Abbit, I made some weird animation but I kinda like it.
+After following the tutorial for chess pieces by Grant Abbitt, I made a weird animation but I kinda like it.

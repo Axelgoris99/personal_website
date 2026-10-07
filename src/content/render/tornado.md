@@ -11,4 +11,4 @@ tags:
   - Animation
 video: /assets/render/tornado/tornado.mp4
 ---
-One of my first animation, made by following a tutorial from CG Geek.
+One of my first animations, made by following a tutorial from CG Geek.

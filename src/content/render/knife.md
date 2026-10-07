@@ -9,4 +9,4 @@ description: |
 tags:
   - Blender
 ---
-I followed Grant Abbit tutorial to get a wonderful knife at the end.
+I followed a Grant Abbitt tutorial to get a wonderful knife at the end.

@@ -11,7 +11,7 @@ tags:
   - Wave Function Collapse
   - Procedural
 ---
-Playing around with procedural generation and mesh refinement in Unity. I tried both marching cube and wave function collapse. They are realy fun to play with!
+Playing around with procedural generation and mesh refinement in Unity. I tried both marching cubes and wave function collapse. They are really fun to play with!
 
 I've been looking at this for a few years but it took me quite some time to wrap my head around how it worked.
 

@@ -9,4 +9,4 @@ description: |
 tags:
   - Blender
 ---
-A wolf logo in 3D. I followed Grant Abbit tutorial.
+A wolf logo in 3D. I followed a Grant Abbitt tutorial.

@@ -15,6 +15,6 @@ tags:
   - Game Jam
 favorite: true
 ---
-We created a game where you need to collect letters by killing them and then use the letters in a puzzle way where you must fill the space. The Theme was : Signs of Life. We finished 12/41 which is good!
+We created a game where you need to collect letters by killing them and then use the letters in a puzzle way where you must fill the space. The theme was: Signs of Life. We finished 12/41 which is good!
 
 <https://axelgoris99.itch.io/life-attack>

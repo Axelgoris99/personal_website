@@ -6,7 +6,7 @@ location: La Crèche, France
 img: ../../assets/experience/deya.webp
 img_alt: Deya Logo
 description: |
-  Cutting and dressing of metal frames. Management of a complex cutting machine with 2 temporary workers under my direction
+  Cutting and dressing of metal frames. Management of a complex cutting machine with 2 temporary workers under my direction.
 tags:
   - Design
   - Dev

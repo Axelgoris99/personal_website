@@ -1,11 +1,11 @@
 ---
-title: My brothers flat
+title: My brother's flat
 end: 2025-08
 begin: 2025-08
 img: ../../assets/render/jerem/jerem5.webp
 img_alt: A nice appartment seen from above.
 description: |
-    A visualization of what my brothers new flat could look like.
+    A visualization of what my brother's new flat could look like.
 tags:
   - Blender
   - ArchViz
@@ -17,6 +17,6 @@ imgs:
 favorite: true
 ---
 
-Unfortunately, I moved out of Australia and only had access to poor quality what's app transfered pictures.
+Unfortunately, I moved out of Australia and only had access to poor-quality pictures sent over WhatsApp.
 
-Used a mix of personal build and props from various places. 
+Used a mix of my own models and props from various places. 

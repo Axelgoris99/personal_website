@@ -10,6 +10,6 @@ tags:
   - Association
   - Management
 ---
-We helped project bootstrap and keep in touch with the higher organization.
+We helped projects bootstrap and keep in touch with the higher organization.
 
 <https://enactus.org>
