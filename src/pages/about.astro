@@ -6,7 +6,9 @@ import atWork from "../assets/at-work.webp";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import CallToAction from "../components/CallToAction.astro";
 import ContactCTA from "../components/ContactCTA.astro";
+import Icon from "../components/Icon.astro";
 import Hero from "../components/Hero.astro";
 import Education from "../components/Education.astro";
 const educations = (await getCollection("education")).sort(
@@ -48,6 +50,10 @@ const educations = (await getCollection("education")).sort(
             Born near Paris, moved to Niort, a pretty unknown city that people
             like to make fun about, despite being one of the coolest and chillest town to live in. I moved to Nantes, spent 4 years there, with breaks during Covid, going back to Niort. An internship in Laval, the french one, not the canadian one, then direction Stockholm for two years. Then, I was in Australia, in Adelaide, for two years. Best decision, it was super chill, the city is great, the people are great, the weather is great, the food is great, the beer is great, everything is great. I really recommend it if you want to move abroad. Now I'm back in France, in Marseille, enjoying the sun while working remotely, for a while at least. But I'm secretly looking forward to my next adventure... Stay tuned!
           </p>
+          <CallToAction href="/Axel_Goris_Resume.pdf">
+            Download my resume
+            <Icon icon="arrow-right" size="1.2em" />
+          </CallToAction>
          </div>
       </section>
       <section>

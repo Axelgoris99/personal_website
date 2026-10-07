@@ -41,3 +41,11 @@ Light/dark mode is driven entirely by CSS custom properties defined in `BaseLayo
 ### Adding New Content
 
 To add a new entry (e.g. a new project), create a `.md` file in the appropriate `src/content/<collection>/` directory with frontmatter matching the Zod schema in `src/content.config.ts`. Content images go in `src/assets/` and are referenced with a relative path (`img: ../../assets/...`) so Astro optimizes them. Videos and backgrounds stay in `public/assets/`.
+
+### Resume PDF
+
+`public/Axel_Goris_Resume.pdf` is built from the Typst repo at `../resume` with the phone number hidden:
+
+```bash
+typst compile --root ../resume --input public=true ../resume/resume/Axel_Goris_Resume.typ public/Axel_Goris_Resume.pdf
+```
