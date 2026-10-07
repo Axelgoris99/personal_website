@@ -6,7 +6,7 @@ interface Props {
   education: CollectionEntry<"education">;
 }
 
-const { data, slug } = Astro.props.education;
+const { data, id: slug } = Astro.props.education;
 ---
 
 <div class="education">

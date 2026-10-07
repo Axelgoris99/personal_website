@@ -1,8 +1,12 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
+
+const md = (dir: string) =>
+  glob({ pattern: "**/*.md", base: `./src/content/${dir}` });
 
 export const collections = {
   work: defineCollection({
-    type: "content",
+    loader: md("work"),
     schema: z.object({
       title: z.string(),
       description: z.string(),
@@ -24,7 +28,7 @@ export const collections = {
     }),
   }),
   project: defineCollection({
-    type: "content",
+    loader: md("project"),
     schema: z.object({
       title: z.string(),
       description: z.string(),
@@ -37,7 +41,7 @@ export const collections = {
     }),
   }),
   association: defineCollection({
-    type: "content",
+    loader: md("association"),
     schema: z.object({
       title: z.string(),
       description: z.string(),
@@ -49,7 +53,7 @@ export const collections = {
     }),
   }),
   render: defineCollection({
-    type: "content",
+    loader: md("render"),
     schema: z.object({
       title: z.string(),
       description: z.string(),
@@ -72,7 +76,7 @@ export const collections = {
     }),
   }),
   education: defineCollection({
-    type: "content",
+    loader: md("education"),
     schema: z.object({
       title: z.string(),
       description: z.string(),

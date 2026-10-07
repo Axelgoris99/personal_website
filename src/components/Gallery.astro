@@ -13,7 +13,7 @@ const folder = Astro.props.folder;
 <div class="gallery">
   {
     projects.map((project) => (
-      <a class="card" href={`/${folder}/${project.slug}`}>
+      <a class="card" href={`/${folder}/${project.id}`}>
         <span class="title">{project.data.title}</span>
         {project.data.favorite && <span class="favorite">❤️</span>}
         <span class="number">{(project.data.imgs && project.data.imgs.length + 1 ) || 1}</span>

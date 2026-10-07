@@ -14,11 +14,11 @@ npm run preview    # Preview production build
 
 ## Architecture
 
-This is an **Astro 4** personal portfolio/CV website with no frontend framework (no React/Vue/Svelte). All interactivity is vanilla JS in `<script>` tags.
+This is an **Astro 5** personal portfolio/CV website with no frontend framework (no React/Vue/Svelte). All interactivity is vanilla JS in `<script>` tags.
 
 ### Content Collections
 
-All portfolio data lives in `src/content/` as Markdown files with YAML frontmatter. The schema for each collection is defined in `src/content/config.ts` using Zod:
+All portfolio data lives in `src/content/` as Markdown files with YAML frontmatter. The schema for each collection is defined in `src/content.config.ts` using Zod:
 
 - **`work/`** — professional experience entries (`title`, `description`, `begin`, `end`, `location`, `tags`, `img`, optional `imgs[]`)
 - **`project/`** — personal projects (`title`, `description`, `begin`, `end`, `tags`, `img`, optional `favorite`)
@@ -40,4 +40,4 @@ Light/dark mode is driven entirely by CSS custom properties defined in `BaseLayo
 
 ### Adding New Content
 
-To add a new entry (e.g. a new project), create a `.md` file in the appropriate `src/content/<collection>/` directory with frontmatter matching the Zod schema in `config.ts`. Images go in `public/assets/`.
+To add a new entry (e.g. a new project), create a `.md` file in the appropriate `src/content/<collection>/` directory with frontmatter matching the Zod schema in `src/content.config.ts`. Images go in `public/assets/`.
