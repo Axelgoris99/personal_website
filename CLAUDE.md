@@ -26,7 +26,7 @@ All portfolio data lives in `src/content/` as Markdown files with YAML frontmatt
 - **`render/`** — 3D renders/artwork (`title`, `description`, `img`, optional `imgs[]`, `video`, `favorite`)
 - **`education/`** — education entries (`title`, `description`, `location`, `beginYear`, `endYear`, `tags`, `img`)
 
-Dates use `z.coerce.date()` — YAML values like `2025-10` are accepted. Omit `end` for ongoing entries (shown as "Present").
+Dates use `z.coerce.date()` — YAML values like `2025-10` are accepted. Omit `end` for ongoing entries (shown as "Present"). Lists sort by date; set `order: 1, 2…` on work/project/association entries to pin them first.
 
 ### Page Structure
 

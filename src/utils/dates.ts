@@ -1,4 +1,4 @@
-type Dated = { data: { begin: Date; end?: Date } };
+type Dated = { data: { begin: Date; end?: Date; order?: number } };
 
 const month = (date: Date) =>
   date.toLocaleDateString("en-US", {
@@ -14,8 +14,16 @@ export function formatRange(begin: Date, end?: Date) {
   return from === to ? from : `${from} – ${to}`;
 }
 
-/** Ongoing entries first, then most recently ended, then most recently begun. */
+/**
+ * Entries with an `order` first (ascending), then ongoing entries,
+ * then most recently ended, then most recently begun.
+ */
 export function byMostRecent(a: Dated, b: Dated) {
+  const order = (e: Dated) => e.data.order ?? Infinity;
   const end = (e: Dated) => e.data.end?.valueOf() ?? Infinity;
-  return end(b) - end(a) || b.data.begin.valueOf() - a.data.begin.valueOf();
+  return (
+    order(a) - order(b) ||
+    end(b) - end(a) ||
+    b.data.begin.valueOf() - a.data.begin.valueOf()
+  );
 }
