@@ -71,7 +71,12 @@ const {
           {
             imgs.map((i) => (
               <>
-                <img src={i.link} alt={i.alt || i.caption || ""} />
+                <img
+                  src={i.link}
+                  alt={i.alt || i.caption || ""}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <p class="caption">{i.caption}</p>
               </>
             ))
@@ -79,7 +84,7 @@ const {
 
           {
             video && (
-              <video controls>
+              <video controls preload="metadata">
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
