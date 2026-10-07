@@ -63,7 +63,7 @@ export const collections = {
     schema: ({ image }) =>
       z.object({
         title: z.string(),
-        description: z.string(),
+        description: z.string().optional(),
         begin: z.coerce.date().optional(),
         end: z.coerce.date().optional(),
         tags: z.array(z.string()).optional(),
