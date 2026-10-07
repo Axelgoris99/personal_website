@@ -8,11 +8,14 @@ interface Props {
 }
 
 const {
-  title = "Axel Goris | Personal Site",
+  title: rawTitle = "Axel Goris | Personal Site",
   description: rawDescription = "The personal site of Axel Goris",
   image = "/assets/portrait.webp",
 } = Astro.props;
 
+const title = rawTitle.includes("Axel Goris")
+  ? rawTitle
+  : `${rawTitle} | Axel Goris`;
 const description = rawDescription.trim();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
