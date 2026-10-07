@@ -15,7 +15,7 @@ export const collections = {
         end: z.coerce.date().optional(),
         order: z.number().optional(),
         location: z.string(),
-        tags: z.array(z.string()),
+        tags: z.array(z.string()).optional(),
         img: image(),
         img_alt: z.string().optional(),
         imgs: z
