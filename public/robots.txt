@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://goris.live/sitemap-index.xml
