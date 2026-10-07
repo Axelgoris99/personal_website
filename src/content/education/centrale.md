@@ -3,8 +3,6 @@ title: Ecole Centrale de Nantes
 beginYear: 2019-09
 endYear: 2023-12
 location: Nantes
-img: /assets/centrale.webp
-img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Engineering School with a general first year and usually two years in two different specialization. I instead went to KTH for my third year. In second year, I followed the Virtual Reality Track.
 tags:
@@ -23,4 +21,15 @@ tags:
   - Project Management
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+In second year, I followed the Virtual Reality track: graphics programming, shaders, collision detection and interaction in VR. I graduated with a 4.0 / 4.0 GPA.
+
+Main courses: Virtual Reality Design & Interaction, Computer Vision and 3D Rendering, and Computer Science.
+
+I then left for [KTH](/education/kth) for my third year and came back for my [Master Thesis](/work/masterthesis) on controlling an embodied avatar with eye-tracking.
+
+Projects from that time:
+
+- [Escape Game VR](/project/escapegamevr): a small VR escape game with controller-free interaction (Leap Motion).
+- [The Clarte Hackaton](/project/clartehackaton): a 36h game jam, an augmented reality game for children mixed with a book.
+
+Outside of class, I was treasurer of the [Forum Atlantique](/association/fa) career fair and I'm part of [Centrale Nantes Alumni](/association/cna).

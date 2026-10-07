@@ -3,8 +3,6 @@ title: KTH | Kungliga Tekniska Högskolan
 beginYear: 2021-08
 endYear: 2023-12
 location: Stockholm, Sweden
-img: /assets/highschool.webp
-img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
   Master in ICT Innovation - Focus on Entrepreneurship and Human-Computer Interaction.
 tags:
@@ -20,4 +18,15 @@ tags:
   - Python
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.
+I came to KTH from [Centrale Nantes](/education/centrale) for the Master in ICT Innovation, mixing entrepreneurship and Human-Computer Interaction.
+
+While there, I:
+
+- became a [Teacher Assistant for DH2642](/work/kth), the web development course I liked the most.
+- was an [Event Manager for MAIN](/association/main), organizing events for 20 to 100+ students.
+- wrote a machine learning paper on the [trade-off between accuracy and performance for text classification using ensemble models](/project/textsentimentanalysis).
+- designed the [Playable Toaster](/project/toastergame), a toaster game to raise awareness of household energy consumption.
+- did my first game jam, the [Brackeys Game Jam](/project/brackeysgamejam), a few days after arriving.
+- wrote my [Master Thesis](/work/masterthesis) on avatar control with eye-tracking in VR, which led to an IEEE paper: [*What You See is What You Get: Exploring Novel Hands-Free Methods of Virtual Body Control for Avatars*](https://ieeexplore.ieee.org/document/10972718).
+
+Main courses: Web Development, Machine Learning, Computer Science, Entrepreneurship and UX Design.

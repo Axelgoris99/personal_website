@@ -9,7 +9,7 @@ interface Props {
 const { data, slug } = Astro.props.education;
 ---
 
-<p class="education">
+<div class="education">
   <a href={`/education/${slug}`}>
     <h3 class="title">{data.title}</h3>
   </a>
@@ -22,7 +22,7 @@ const { data, slug } = Astro.props.education;
   <div class="tags">
     {data.tags.map((tag) => <Pill>{tag}</Pill>)}
   </div>
-</p>
+</div>
 <style>
   .title {
     font-size: var(--text-lg);

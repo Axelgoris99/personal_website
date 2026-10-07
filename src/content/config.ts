@@ -80,7 +80,7 @@ export const collections = {
       beginYear: z.coerce.date(),
       endYear: z.coerce.date(),
       tags: z.array(z.string()),
-      img: z.string(),
+      img: z.string().optional(),
       img_alt: z.string().optional(),
     }),
   }),
