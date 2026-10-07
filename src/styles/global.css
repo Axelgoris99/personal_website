@@ -115,15 +115,18 @@
 		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
 }
 
-html,
-body {
+/* Keep overflow on html only: it applies to the viewport, so the window stays
+   the scroller (scroll restoration, mobile address bar). On body it would make
+   body its own scroll container. */
+html {
 	height: 100%;
 	overflow-x: hidden;
+	/* Without this, Chrome shows the default white canvas during view transitions. */
+	background-color: var(--gray-999);
 }
 
-/* Without this, Chrome shows the default white canvas during view transitions. */
-html {
-	background-color: var(--gray-999);
+body {
+	min-height: 100%;
 }
 
 body {
