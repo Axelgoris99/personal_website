@@ -121,6 +121,11 @@ body {
 	overflow-x: hidden;
 }
 
+/* Without this, Chrome shows the default white canvas during view transitions. */
+html {
+	background-color: var(--gray-999);
+}
+
 body {
 	background-color: var(--gray-999);
 	color: var(--gray-200);
