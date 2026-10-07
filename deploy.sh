@@ -11,10 +11,20 @@ echo "==> Syncing site..."
 rsync -az --delete --progress dist/ "$VPS:$REMOTE_DIR/"
 
 echo "==> Syncing Caddy config..."
-rsync -az docker-compose.yml Caddyfile "$VPS:~/"
-rsync -az caddy/ "$VPS:~/caddy/"
+# --inplace keeps the Caddyfile inode, so the container's single-file bind mount sees the update
+changes=$(
+  rsync -az --inplace --itemize-changes docker-compose.yml Caddyfile "$VPS:~/"
+  rsync -az --itemize-changes caddy/ "$VPS:~/caddy/"
+)
 
-echo "==> Restarting Caddy..."
-ssh "$VPS" "cd ~ && docker compose up -d --force-recreate"
+# Only recreates the container if docker-compose.yml changed
+ssh "$VPS" "cd ~ && docker compose up -d"
+
+if [ -n "$changes" ]; then
+  echo "==> Reloading Caddy (no downtime)..."
+  ssh "$VPS" "cd ~ && docker compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile"
+else
+  echo "==> Caddy config unchanged"
+fi
 
 echo "==> Done. https://goris.live"
