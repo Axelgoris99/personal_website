@@ -1,0 +1,275 @@
+/* Retro RPG skin (classic Final Fantasy menus inspired). Blue gradient menu
+   windows with white borders over a starfield, pixel type, a pointing-hand
+   cursor and ▶ selection markers. Dark swaps the window colour to purple. */
+
+@import "@fontsource/press-start-2p/400.css";
+@import "@fontsource/pixelify-sans/400.css";
+@import "@fontsource/pixelify-sans/700.css";
+
+:root[data-skin="retro"] {
+	--win-top: #3346c2;
+	--win-bottom: #0a1262;
+	--win: linear-gradient(180deg, var(--win-top), var(--win-bottom));
+	--win-edge: #e8e8f0;
+	--win-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.55), 0 0 0 1px #000, 4px 4px 0 rgba(0, 0, 0, 0.45);
+	--gold: #ffe066;
+	--hand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' shape-rendering='crispEdges'%3E%3Cpath d='M1 7h10V5h2v2h9v4h-7v1h3v3h-3v1h2v3h-2v1H6l-5-4z' fill='white' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E") 22 8, pointer;
+
+	--gray-0: #ffffff;
+	--gray-50: #f8f8fc;
+	--gray-100: #f0f0f8;
+	--gray-200: #dcdcea;
+	--gray-300: #b8b8d0;
+	--gray-400: #9a9ab8;
+	--gray-500: #7a7a9a;
+	--gray-600: #5a5a7a;
+	--gray-700: #3a3a5a;
+	--gray-800: var(--win-edge);
+	--gray-900: #10104a;
+	--gray-999-basis: 240, 73%, 6%;
+	--gray-999: #04041a;
+
+	--accent-light: var(--gold);
+	--accent-regular: var(--win-top);
+	--accent-dark: var(--gold);
+	--accent-overlay: var(--win-edge);
+	--accent-subtle-overlay: rgba(255, 255, 255, 0.12);
+	--accent-text-over: #ffffff;
+	--link-color: #9ecbff;
+	--gradient-stop-1: #ffffff;
+	--gradient-stop-2: #c9d4ff;
+	--gradient-stop-3: #9ecbff;
+
+	--shadow-sm: 4px 4px 0 rgba(0, 0, 0, 0.45);
+	--shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.45);
+	--shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.5);
+
+	--radius-xs: 4px;
+	--radius-sm: 6px;
+	--radius-md: 6px;
+	--radius-lg: 8px;
+	--radius-xl: 8px;
+	--radius-pill: 6px;
+	--line: 3px solid var(--win-edge);
+
+	--surface: var(--win);
+	--surface-muted: var(--win);
+	--label-bg: var(--win);
+	--label-fg: #ffffff;
+	--badge-bg: var(--win);
+	--badge-fg: var(--gold);
+	--pill-bg: var(--win);
+	--pill-fg: #ffffff;
+	--pill-line: 2px solid var(--win-edge);
+	--cta-bg: var(--win);
+	--cta-fg: #ffffff;
+	--cta-hover-overlay: rgba(255, 255, 255, 0.12);
+	--nav-bg: var(--win);
+	--nav-ring: var(--win-edge);
+	--nav-ring-width: 3px;
+	--nav-hover-bg: rgba(255, 255, 255, 0.12);
+	--nav-active-bg: transparent;
+	--nav-active-fg: var(--gold);
+
+	--font-body: 'Pixelify Sans', var(--font-system);
+	--font-brand: 'Press Start 2P', monospace;
+	--font-label: 'Pixelify Sans', var(--font-system);
+	--heading-weight: 400;
+	--heading-case: none;
+	--heading-tracking: 0;
+	--ui-transition: 0.12s steps(2, end);
+}
+
+:root[data-skin="retro"].theme-dark {
+	--win-top: #4a3478;
+	--win-bottom: #140a2a;
+	--gray-999: #07040f;
+	--gray-900: #1a0f33;
+}
+
+:root[data-skin="retro"] body {
+	font-size: 1.05rem;
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Starfield. */
+:root[data-skin="retro"] .backgrounds {
+	background:
+		radial-gradient(#fff 1px, transparent 1.5px) 0 0 / 120px 120px,
+		radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1.5px) 60px 40px / 170px 150px,
+		radial-gradient(rgba(158, 203, 255, 0.5) 1px, transparent 1.5px) 30px 90px / 230px 210px,
+		linear-gradient(180deg, var(--gray-999), var(--gray-900));
+	background-blend-mode: normal;
+}
+
+:root[data-skin="retro"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="retro"] a,
+:root[data-skin="retro"] button,
+:root[data-skin="retro"] .card {
+	cursor: var(--hand);
+}
+
+:root[data-skin="retro"] ::selection {
+	background: var(--gold);
+	color: #000;
+	text-shadow: none;
+}
+
+/* Pixel type is wide: scale headings down and give them room. */
+:root[data-skin="retro"] :is(h1, h2, h3, h4, h5) {
+	line-height: 1.4;
+}
+
+:root[data-skin="retro"] .hero-title {
+	font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+}
+
+:root[data-skin="retro"] .section-header h3,
+:root[data-skin="retro"] .entry-content h2 {
+	font-size: clamp(1.2rem, 2.6vw, 2rem);
+}
+
+:root[data-skin="retro"] .contact-title {
+	font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+}
+
+:root[data-skin="retro"] .skills h2,
+:root[data-skin="retro"] .about-title,
+:root[data-skin="retro"] .edu-title {
+	font-size: 1rem;
+}
+
+:root[data-skin="retro"] .site-name {
+	font-size: 0.8rem;
+}
+
+:root[data-skin="retro"] .nav-items,
+:root[data-skin="retro"] .card-title {
+	font-size: 0.65rem;
+	line-height: 1.6;
+}
+
+/* Menu windows. */
+:root[data-skin="retro"] .box,
+:root[data-skin="retro"] .contact,
+:root[data-skin="retro"] .education,
+:root[data-skin="retro"] .card,
+:root[data-skin="retro"] .card-title,
+:root[data-skin="retro"] .card-dates,
+:root[data-skin="retro"] .card-count,
+:root[data-skin="retro"] .card-favorite,
+:root[data-skin="retro"] .card-video,
+:root[data-skin="retro"] .pill,
+:root[data-skin="retro"] .cta,
+:root[data-skin="retro"] .skin-menu,
+:root[data-skin="retro"] .menu-button,
+:root[data-skin="retro"] .skin-button,
+:root[data-skin="retro"] theme-toggle button,
+:root[data-skin="retro"] .toTop,
+:root[data-skin="retro"] .entry-content img {
+	background: var(--win);
+	border: var(--line);
+	box-shadow: var(--win-shadow);
+	color: #ffffff;
+}
+
+:root[data-skin="retro"] .pill {
+	border-width: 2px;
+}
+
+:root[data-skin="retro"] .education {
+	padding: 1.25rem 1.5rem;
+}
+
+:root[data-skin="retro"] .contact {
+	margin-inline: 1rem;
+}
+
+:root[data-skin="retro"] .card-dates,
+:root[data-skin="retro"] .card-count {
+	color: var(--gold);
+}
+
+/* The selected item gets a ▶ cursor and turns gold. */
+:root[data-skin="retro"] .link.active::before,
+:root[data-skin="retro"] .link:hover::before,
+:root[data-skin="retro"] .skin-option[aria-pressed='true']::before,
+:root[data-skin="retro"] .skin-option:hover::before {
+	content: '▶ ';
+}
+
+:root[data-skin="retro"] .skin-option[aria-pressed='true'] {
+	color: var(--gold);
+}
+
+:root[data-skin="retro"] .card:hover,
+:root[data-skin="retro"] .card:focus-visible,
+:root[data-skin="retro"] .cta:hover,
+:root[data-skin="retro"] .cta:focus-visible {
+	border-color: var(--gold);
+}
+
+:root[data-skin="retro"] .cta {
+	font-family: var(--font-brand);
+	font-size: 0.85rem;
+}
+
+:root[data-skin="retro"] .portrait img {
+	border: var(--line);
+	box-shadow: var(--win-shadow);
+}
+
+:root[data-skin="retro"] .badge svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+:root[data-skin="retro"] .badge {
+	color: var(--gold);
+}
+
+/* Switching in: the classic battle swirl. */
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="retro"][data-skin-switching]::view-transition-new(root) {
+		animation: retro-swirl 0.7s steps(10, end);
+	}
+}
+
+@keyframes retro-swirl {
+	from {
+		opacity: 0;
+		transform: scale(0) rotate(-540deg);
+	}
+}
+
+:root[data-skin="retro"] .skin-intro {
+	padding: 1.2rem 1.6rem;
+	font-family: var(--font-brand);
+	font-size: clamp(1rem, 3vw, 1.6rem);
+	color: var(--gold);
+	text-shadow: 2px 2px 0 #000;
+	background: var(--win);
+	border: var(--line);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--win-shadow);
+	animation: retro-window 1.6s steps(8, end) forwards;
+}
+
+@keyframes retro-window {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scaleY(0);
+	}
+	15%,
+	80% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scaleY(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scaleY(1);
+	}
+}
