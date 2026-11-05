@@ -3,8 +3,13 @@ import { skins } from "../skins";
 ---
 
 <skin-picker>
-  <button class="skin-button" popovertarget="skin-menu" title="Change style">
-    <span class="sr-only">Change style</span>
+  <button
+    class="skin-button"
+    aria-haspopup="true"
+    aria-controls="skin-menu"
+    title="Random style (hover for the list)"
+  >
+    <span class="sr-only">Random style (arrow down for the list)</span>
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         class="palette"
@@ -135,45 +140,106 @@ import { skins } from "../skins";
         sync();
       };
 
-      // Anchor the menu under the button.
-      menu.addEventListener("toggle", (e) => {
-        if ((e as ToggleEvent).newState !== "open") return;
+      const switchTo = (option: HTMLButtonElement) => {
+        const id = option.dataset.skinId!;
+        if (id === root.dataset.skin) return;
+
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!document.startViewTransition || reduced) return apply(id);
+
+        // The new skin is revealed from the button (see global.css).
+        const rect = button.getBoundingClientRect();
+        root.style.setProperty("--switch-x", `${rect.left + rect.width / 2}px`);
+        root.style.setProperty("--switch-y", `${rect.top + rect.height / 2}px`);
+        root.dataset.skinSwitching = "";
+
+        const transition = document.startViewTransition(() => {
+          apply(id);
+          const text = option.dataset.intro;
+          if (!text) return;
+          const intro = document.createElement("div");
+          intro.className = "skin-intro";
+          intro.textContent = text;
+          intro.setAttribute("aria-hidden", "true");
+          const remove = () => intro.remove();
+          intro.addEventListener("animationend", remove);
+          setTimeout(remove, 2000);
+          document.body.append(intro);
+        });
+        // Rejects when the browser skips the animation; the skin still applies.
+        transition.ready.catch(() => {});
+        transition.finished.finally(() => delete root.dataset.skinSwitching);
+      };
+
+      const open = () => {
+        if (menu.matches(":popover-open")) return;
+        // Popovers default to the viewport centre; anchor it under the button.
         const rect = button.getBoundingClientRect();
         menu.style.top = `${rect.bottom + 8}px`;
         menu.style.right = `${Math.max(8, innerWidth - rect.right)}px`;
+        menu.showPopover();
+      };
+      const close = () => menu.hidePopover();
+
+      // Click: a random other skin. The list is for hover, long-press or arrow keys.
+      let longPressed = false;
+      button.addEventListener("click", () => {
+        if (longPressed) return void (longPressed = false);
+        close();
+        const others = options.filter((o) => o.dataset.skinId !== root.dataset.skin);
+        switchTo(others[Math.floor(Math.random() * others.length)]);
+      });
+
+      // Hover (mouse): open, and close shortly after leaving both button and list.
+      let closeTimer: ReturnType<typeof setTimeout> | undefined;
+      for (const el of [button, menu]) {
+        el.addEventListener("pointerenter", (e) => {
+          if (e.pointerType !== "mouse") return;
+          clearTimeout(closeTimer);
+          open();
+        });
+        el.addEventListener("pointerleave", (e) => {
+          if (e.pointerType !== "mouse") return;
+          closeTimer = setTimeout(close, 250);
+        });
+      }
+
+      // Touch: long-press opens the list.
+      let pressTimer: ReturnType<typeof setTimeout> | undefined;
+      button.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse") return;
+        pressTimer = setTimeout(() => {
+          longPressed = true;
+          open();
+        }, 450);
+      });
+      for (const type of ["pointerup", "pointercancel"]) {
+        button.addEventListener(type, () => clearTimeout(pressTimer));
+      }
+      button.addEventListener("contextmenu", (e) => e.preventDefault());
+
+      // Keyboard: arrow down opens the list and focuses the current skin.
+      button.addEventListener("keydown", (e) => {
+        if (e.key !== "ArrowDown") return;
+        e.preventDefault();
+        open();
+        (options.find((o) => o.getAttribute("aria-pressed") === "true") ?? options[0]).focus();
+      });
+      menu.addEventListener("keydown", (e) => {
+        const i = options.indexOf(document.activeElement as HTMLButtonElement);
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          const step = e.key === "ArrowDown" ? 1 : -1;
+          options[(i + step + options.length) % options.length].focus();
+        } else if (e.key === "Escape") {
+          button.focus();
+        }
       });
 
       for (const option of options) {
         option.addEventListener("click", () => {
-          const id = option.dataset.skinId!;
-          menu.hidePopover();
-          if (id === root.dataset.skin) return;
-
-          const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (!document.startViewTransition || reduced) return apply(id);
-
-          // The new skin is revealed from the button (see global.css).
-          const rect = button.getBoundingClientRect();
-          root.style.setProperty("--switch-x", `${rect.left + rect.width / 2}px`);
-          root.style.setProperty("--switch-y", `${rect.top + rect.height / 2}px`);
-          root.dataset.skinSwitching = "";
-
-          const transition = document.startViewTransition(() => {
-            apply(id);
-            const text = option.dataset.intro;
-            if (!text) return;
-            const intro = document.createElement("div");
-            intro.className = "skin-intro";
-            intro.textContent = text;
-            intro.setAttribute("aria-hidden", "true");
-            const remove = () => intro.remove();
-            intro.addEventListener("animationend", remove);
-            setTimeout(remove, 2000);
-            document.body.append(intro);
-          });
-          // Rejects when the browser skips the animation; the skin still applies.
-          transition.ready.catch(() => {});
-          transition.finished.finally(() => delete root.dataset.skinSwitching);
+          close();
+          switchTo(option);
         });
       }
 
