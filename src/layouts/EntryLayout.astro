@@ -45,7 +45,7 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
 <BaseLayout title={title} description={description} image={img}>
   <div class="stack gap-20">
     <div class="stack gap-15">
-      <header>
+      <header class="entry-header">
         <div class="wrapper stack gap-2">
           <a class="back-link" href={back.href}
             ><Icon icon="arrow-left" /> {back.label}</a
@@ -71,7 +71,7 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
         </div>
       </header>
       <main class:list={["wrapper", { wide }]}>
-        <div class="stack gap-10 content">
+        <div class="stack gap-10 entry-content">
           {
             img && (
               <Image
@@ -84,7 +84,7 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
               />
             )
           }
-          <div class="content">
+          <div class="entry-content">
             <slot />
           </div>
 
@@ -118,24 +118,22 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
 </BaseLayout>
 
 <style>
-  /* ===== Normal style ===== */
-
-  :global(html:not(.comic)) header {
+  .entry-header {
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--gray-800);
+    border-bottom: var(--line);
   }
 
-  :global(html:not(.comic)) .caption {
+  .caption {
     font-size: var(--text-base);
     color: var(--gray-500);
     text-align: center;
   }
 
-  :global(html:not(.comic)) .back-link {
+  .back-link {
     display: none;
   }
 
-  :global(html:not(.comic)) .details {
+  .details {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
@@ -144,224 +142,83 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
     align-items: center;
   }
 
-  :global(html:not(.comic)) .tags {
+  .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  :global(html:not(.comic)) .wide .content {
+  .wide .entry-content {
     max-width: none;
   }
 
-  :global(html:not(.comic)) .description {
+  .description {
     font-size: var(--text-lg);
     max-width: 54ch;
   }
 
-  :global(html:not(.comic)) .content {
+  .entry-content {
     max-width: 65ch;
     margin-inline: auto;
   }
 
-  :global(html:not(.comic)) .content > :global(* + *) {
+  .entry-content > :global(* + *) {
     margin-top: 1rem;
   }
 
-  :global(html:not(.comic)) .content :global(h1),
-  :global(html:not(.comic)) .content :global(h2),
-  :global(html:not(.comic)) .content :global(h3),
-  :global(html:not(.comic)) .content :global(h4),
-  :global(html:not(.comic)) .content :global(h5) {
+  .entry-content :global(h1),
+  .entry-content :global(h2),
+  .entry-content :global(h3),
+  .entry-content :global(h4),
+  .entry-content :global(h5) {
     margin: 1.5rem 0;
   }
 
-  :global(html:not(.comic)) .content :global(img) {
-    border-radius: 1.5rem;
+  .entry-content :global(img) {
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    background: var(--gradient-subtle);
-    border: 1px solid var(--gray-800);
+    background: var(--surface);
+    border: var(--line);
   }
 
-  :global(html:not(.comic)) .content :global(blockquote) {
+  .entry-content :global(blockquote) {
     font-size: var(--text-lg);
     font-family: var(--font-brand);
-    font-weight: 600;
+    font-weight: var(--heading-weight);
+    text-transform: var(--heading-case);
     line-height: 1.1;
     padding-inline-start: 1.5rem;
     border-inline-start: 0.25rem solid var(--accent-dark);
     color: var(--gray-0);
   }
 
-  :global(html:not(.comic)) .back-link,
-  :global(html:not(.comic)) .content :global(a) {
+  .back-link,
+  .entry-content :global(a) {
     text-decoration: 1px solid underline transparent;
     text-underline-offset: 0.25em;
-    transition: text-decoration-color var(--theme-transition);
+    transition: text-decoration-color var(--ui-transition);
   }
 
-  :global(html:not(.comic)) .back-link:hover,
-  :global(html:not(.comic)) .back-link:focus,
-  :global(html:not(.comic)) .content :global(a:hover),
-  :global(html:not(.comic)) .content :global(a:focus) {
+  .back-link:hover,
+  .back-link:focus,
+  .entry-content :global(a:hover),
+  .entry-content :global(a:focus) {
     text-decoration-color: currentColor;
   }
 
   @media (min-width: 50em) {
-    :global(html:not(.comic)) .back-link {
+    .back-link {
       display: block;
       align-self: flex-start;
     }
 
-    :global(html:not(.comic)) .details {
+    .details {
       flex-direction: row;
       gap: 2.5rem;
     }
 
-    :global(html:not(.comic)) .content :global(blockquote) {
+    .entry-content :global(blockquote) {
       font-size: var(--text-2xl);
     }
   }
-
-  /* ===== Comic style ===== */
-
-  :global(html.comic) header {
-    padding-bottom: 2.5rem;
-    border-bottom: var(--border);
-  }
-
-  :global(html.comic) .caption {
-    font-size: var(--text-base);
-    color: var(--gray-500);
-    text-align: center;
-  }
-
-  :global(html.comic) .back-link {
-    display: none;
-  }
-
-  :global(html.comic) .details {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    gap: 1.5rem;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  :global(html.comic) .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  :global(html.comic) .wide .content {
-    max-width: none;
-  }
-
-  :global(html.comic) .description {
-    font-size: var(--text-lg);
-    max-width: 54ch;
-  }
-
-  :global(html.comic) .content {
-    max-width: 65ch;
-    margin-inline: auto;
-  }
-
-  :global(html.comic) .content > :global(* + *) {
-    margin-top: 1rem;
-  }
-
-  :global(html.comic) .content :global(h1),
-  :global(html.comic) .content :global(h2),
-  :global(html.comic) .content :global(h3),
-  :global(html.comic) .content :global(h4),
-  :global(html.comic) .content :global(h5) {
-    margin: 1.5rem 0;
-  }
-
-  :global(html.comic) .content :global(img),
-  :global(html.comic) .content :global(video) {
-    box-shadow: var(--pop);
-    background: var(--panel);
-    border: var(--border);
-  }
-
-  :global(html.comic) .content :global(h2),
-  :global(html.comic) .content :global(h3) {
-    width: fit-content;
-    padding: 0 0.25em;
-    background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
-  }
-
-  :global(html.comic) .content :global(h2) {
-    font-size: var(--text-3xl);
-  }
-
-  /* Blockquotes become speech balloons. */
-  :global(html.comic) .content :global(blockquote) {
-    position: relative;
-    margin-block: 2rem;
-    padding: 1.25rem 1.5rem;
-    font-size: var(--text-lg);
-    font-family: var(--font-brand);
-    text-transform: uppercase;
-    line-height: 1.2;
-    color: var(--gray-0);
-    background: var(--panel);
-    border: var(--border);
-    border-radius: 1.5rem;
-    box-shadow: var(--pop-sm);
-  }
-
-  :global(html.comic) .content :global(code) {
-    padding: 0.1em 0.35em;
-    background: var(--gray-900);
-    border: 1px solid var(--gray-600);
-  }
-
-  :global(html.comic) .content :global(pre) {
-    padding: 1rem;
-    border: var(--border);
-    box-shadow: var(--pop-sm);
-    overflow-x: auto;
-  }
-
-  :global(html.comic) .back-link {
-    font-family: var(--font-brand);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  :global(html.comic) .back-link,
-  :global(html.comic) .content :global(a) {
-    text-decoration: 2px solid underline transparent;
-    text-underline-offset: 0.25em;
-    transition: text-decoration-color var(--theme-transition);
-  }
-
-  :global(html.comic) .back-link:hover,
-  :global(html.comic) .back-link:focus,
-  :global(html.comic) .content :global(a:hover),
-  :global(html.comic) .content :global(a:focus) {
-    text-decoration-color: currentColor;
-  }
-
-  @media (min-width: 50em) {
-    :global(html.comic) .back-link {
-      display: block;
-      align-self: flex-start;
-    }
-
-    :global(html.comic) .details {
-      flex-direction: row;
-      gap: 2.5rem;
-    }
-
-    :global(html.comic) .content :global(blockquote) {
-      font-size: var(--text-2xl);
-    }
-  }
-
 </style>

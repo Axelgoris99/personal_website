@@ -1,0 +1,770 @@
+/* Comic skin: Spider-Verse / Hi-Fi Rush inspired. Ink outlines, hard offset
+   shadows, halftone dots, off-register print, beat-synced bounces. */
+
+@import "@fontsource/anton/400.css";
+@import "@fontsource/bangers/400.css";
+
+/* ---------- Tokens ---------- */
+
+:root[data-skin="comic"] {
+	--paper: #fbf5e8;
+	--panel: #ffffff;
+	--ink: #14121a;
+	--ink-shadow: #14121a;
+	--magenta: #ff2e88;
+	--cyan: #00c8f0;
+	--yellow: #ffe14d;
+	--violet: #7b3cff;
+	--on-accent: #14121a;
+	--dot: rgba(20, 18, 26, 0.13);
+	--halftone: radial-gradient(var(--dot) 1.4px, transparent 1.6px) 0 0 / 12px 12px;
+	--line-thin: 2px solid var(--ink);
+	/* One beat at 120 BPM. */
+	--beat: 0.5s;
+
+	--gray-0: #14121a;
+	--gray-50: #1c1924;
+	--gray-100: #14121a;
+	--gray-200: #2b2733;
+	--gray-300: #48434f;
+	--gray-400: #5e5866;
+	--gray-500: #7a7482;
+	--gray-600: #a39dab;
+	--gray-700: #c9c3cf;
+	--gray-800: #14121a;
+	--gray-900: #f3ecdc;
+	--gray-999-basis: 42, 70%, 95%;
+	--gray-999: #fbf5e8;
+
+	--accent-light: var(--cyan);
+	--accent-regular: var(--magenta);
+	--accent-dark: var(--violet);
+	--accent-overlay: rgba(255, 46, 136, 0.25);
+	--accent-subtle-overlay: var(--yellow);
+	--accent-text-over: var(--on-accent);
+	--link-color: #d10063;
+	--gradient-stop-1: var(--magenta);
+	--gradient-stop-2: var(--violet);
+	--gradient-stop-3: var(--cyan);
+
+	--shadow-sm: 3px 3px 0 var(--ink-shadow);
+	--shadow-md: 6px 6px 0 var(--ink-shadow);
+	--shadow-lg: 10px 10px 0 var(--ink-shadow);
+
+	--radius-xs: 0;
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-pill: 0;
+	--line: 3px solid var(--ink);
+
+	--surface: var(--panel);
+	--surface-muted: var(--panel);
+	--label-bg: var(--yellow);
+	--label-fg: var(--on-accent);
+	--badge-bg: var(--cyan);
+	--badge-fg: var(--on-accent);
+	--pill-bg: var(--yellow);
+	--pill-fg: var(--on-accent);
+	--pill-line: var(--line-thin);
+	--cta-bg: var(--magenta);
+	--cta-fg: var(--on-accent);
+	--cta-hover-overlay: transparent;
+	--nav-bg: var(--panel);
+	--nav-ring: var(--ink);
+	--nav-ring-width: 3px;
+	--nav-hover-bg: var(--yellow);
+	--nav-active-bg: var(--magenta);
+	--nav-active-fg: var(--on-accent);
+
+	--font-brand: Anton, Impact, var(--font-system);
+	--font-label: Bangers, var(--font-brand);
+	--heading-weight: 400;
+	--heading-case: uppercase;
+	--heading-tracking: 0.02em;
+	/* "Animated on twos": hovers snap in a few frames instead of easing. */
+	--ui-transition: 0.18s steps(3, end);
+}
+
+/* Night: Miles-at-night. Light ink lines, neon offset shadows. */
+:root[data-skin="comic"].theme-dark {
+	--paper: #110e1f;
+	--panel: #1d1830;
+	--ink: #f4eedf;
+	--ink-shadow: var(--magenta);
+	--dot: rgba(123, 60, 255, 0.28);
+	--yellow: #ffd60a;
+
+	--gray-0: #fbf5e8;
+	--gray-50: #f4eedf;
+	--gray-100: #fbf5e8;
+	--gray-200: #e0d9e8;
+	--gray-300: #c2bacc;
+	--gray-400: #a69eb2;
+	--gray-500: #8a8296;
+	--gray-600: #615a70;
+	--gray-700: #3c3550;
+	--gray-800: #f4eedf;
+	--gray-900: #1d1830;
+	--gray-999-basis: 252, 36%, 9%;
+	--gray-999: #110e1f;
+	--link-color: var(--cyan);
+}
+
+/* ---------- Page ---------- */
+
+:root[data-skin="comic"] .backgrounds {
+	position: relative;
+	background: var(--paper);
+	background-blend-mode: normal;
+}
+
+/* Halftone dots fading in from the corners, plus paper grain. */
+:root[data-skin="comic"] .backgrounds::before,
+:root[data-skin="comic"] .backgrounds::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+}
+
+:root[data-skin="comic"] .backgrounds::before {
+	background: var(--halftone);
+	mask-image: radial-gradient(ellipse 90% 60% at 100% 0%, #000 10%, transparent 70%),
+		radial-gradient(ellipse 70% 40% at 0% 100%, #000 10%, transparent 70%);
+}
+
+:root[data-skin="comic"] .backgrounds::after {
+	background: url('/assets/backgrounds/noise.webp') top center/220px repeat;
+	mix-blend-mode: overlay;
+	opacity: 0.6;
+}
+
+:root[data-skin="comic"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="comic"] a {
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+
+:root[data-skin="comic"] ::selection {
+	background: var(--yellow);
+	color: var(--on-accent);
+}
+
+:root[data-skin="comic"] :focus-visible {
+	outline: 3px solid var(--magenta);
+	outline-offset: 3px;
+}
+
+/* Off-register print: magenta and cyan plates slightly misaligned. */
+:root[data-skin="comic"] .site-name,
+:root[data-skin="comic"] .hero-title,
+:root[data-skin="comic"] .contact-title {
+	text-shadow:
+		-0.04em 0.02em 0 var(--magenta),
+		0.04em -0.02em 0 var(--cyan);
+}
+
+/* Bounce on every other beat (Hi-Fi Rush style). */
+@keyframes comic-beat {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	12% {
+		transform: scale(1.14) rotate(-4deg);
+	}
+	30% {
+		transform: scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="comic"] .logo,
+	:root[data-skin="comic"] .portrait::before,
+	:root[data-skin="comic"] .skin-button svg {
+		animation: comic-beat calc(var(--beat) * 2) infinite;
+	}
+}
+
+/* Toggles and floating buttons become ink-outlined stickers. */
+:root[data-skin="comic"] .logo,
+:root[data-skin="comic"] .skin-button,
+:root[data-skin="comic"] theme-toggle button,
+:root[data-skin="comic"] .toTop {
+	border: var(--line-thin);
+	box-shadow: var(--shadow-sm);
+}
+
+:root[data-skin="comic"] .logo {
+	padding: 0.35rem;
+	color: var(--on-accent);
+	background: var(--yellow);
+}
+
+:root[data-skin="comic"] .logo svg,
+:root[data-skin="comic"] .badge svg {
+	stroke: currentColor;
+	fill: currentColor;
+}
+
+:root[data-skin="comic"] .logo svg {
+	width: 1.1em;
+	height: 1.1em;
+}
+
+:root[data-skin="comic"] .skin-button,
+:root[data-skin="comic"] .toTop {
+	color: var(--on-accent);
+	background: var(--yellow);
+}
+
+:root[data-skin="comic"] .skin-option {
+	font-size: var(--text-lg);
+	letter-spacing: 0.05em;
+}
+
+:root[data-skin="comic"] .toTop:hover {
+	transform: translate(-2px, -2px) rotate(-6deg);
+	box-shadow: var(--shadow-md);
+}
+
+/* ---------- Nav ---------- */
+
+:root[data-skin="comic"] .site-title {
+	gap: 0.6rem;
+	font-size: var(--text-lg);
+}
+
+:root[data-skin="comic"] .menu-footer {
+	border-bottom: var(--line);
+	box-shadow: 0 8px 0 var(--ink-shadow);
+}
+
+:root[data-skin="comic"] .social:hover,
+:root[data-skin="comic"] .social:focus {
+	color: var(--magenta);
+	transform: rotate(-8deg) scale(1.15);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .site-title {
+		font-size: var(--text-xl);
+	}
+
+	:root[data-skin="comic"] .nav-items {
+		gap: 0.25rem;
+		font-size: var(--text-md);
+		padding: 0.4rem;
+		box-shadow: var(--shadow-md);
+		transform: skewX(-8deg);
+	}
+
+	:root[data-skin="comic"] .link {
+		padding: 0.35rem 1rem;
+	}
+
+	:root[data-skin="comic"] .link:hover,
+	:root[data-skin="comic"] .link:focus {
+		color: var(--on-accent);
+		transform: translateY(-2px);
+	}
+
+	:root[data-skin="comic"] .link.active {
+		box-shadow: inset 0 0 0 2px var(--ink);
+	}
+
+	:root[data-skin="comic"] .menu-footer {
+		border: 0;
+		box-shadow: none;
+	}
+}
+
+/* ---------- Hero ---------- */
+
+:root[data-skin="comic"] .hero-title {
+	font-size: var(--text-4xl);
+	line-height: 0.95;
+}
+
+/* Tagline as a comic narration box. */
+:root[data-skin="comic"] .hero-tagline span {
+	padding: 0.15em 0.5em;
+	line-height: 1.9;
+	color: var(--on-accent);
+	background: var(--yellow);
+	border: var(--line-thin);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .hero-title {
+		font-size: calc(var(--text-5xl) * 1.25);
+	}
+
+	:root[data-skin="comic"] .roles {
+		justify-content: flex-start;
+	}
+}
+
+/* Portrait as a comic frame with an off-register cyan plate behind it. */
+:root[data-skin="comic"] .portrait {
+	max-width: 30rem;
+}
+
+:root[data-skin="comic"] .portrait img {
+	border: var(--line);
+	box-shadow:
+		12px 12px 0 var(--cyan),
+		12px 12px 0 3px var(--ink);
+	transform: rotate(2deg);
+}
+
+/* "Hi!" starburst sticker. */
+:root[data-skin="comic"] .portrait::before {
+	content: 'Hi!';
+	position: absolute;
+	z-index: 1;
+	top: -1.5rem;
+	left: -1.5rem;
+	display: grid;
+	place-items: center;
+	width: 6rem;
+	aspect-ratio: 1;
+	font-family: var(--font-label);
+	font-size: 2rem;
+	letter-spacing: 0.05em;
+	color: var(--on-accent);
+	background: var(--magenta);
+	clip-path: var(--starburst);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .portrait::before {
+		width: 7.5rem;
+		font-size: 2.6rem;
+	}
+}
+
+:root[data-skin="comic"] {
+	--starburst: polygon(
+		50% 0%, 61% 18%, 82% 7%, 79% 30%, 100% 34%, 84% 50%, 100% 66%, 79% 70%,
+		82% 93%, 61% 82%, 50% 100%, 39% 82%, 18% 93%, 21% 70%, 0% 66%, 16% 50%,
+		0% 34%, 21% 30%, 18% 7%, 39% 18%
+	);
+}
+
+/* ---------- Pills & buttons ---------- */
+
+:root[data-skin="comic"] .pill {
+	align-items: center;
+	padding: 0.3rem 0.8rem;
+	gap: 0.4rem;
+	box-shadow: var(--shadow-sm);
+	font-size: var(--text-lg);
+	letter-spacing: 0.06em;
+	line-height: 1.2;
+	transform: rotate(-2deg);
+	transition: transform var(--ui-transition);
+}
+
+/* Stickers slapped on at different angles, in different inks. */
+:root[data-skin="comic"] .pill:nth-child(3n + 2) {
+	background-color: var(--cyan);
+	transform: rotate(1.5deg);
+}
+
+:root[data-skin="comic"] .pill:nth-child(3n) {
+	background-color: var(--magenta);
+	transform: rotate(-1deg);
+}
+
+:root[data-skin="comic"] .pill:hover {
+	transform: rotate(0) scale(1.08);
+}
+
+:root[data-skin="comic"] .cta {
+	align-items: center;
+	gap: 0.6em;
+	padding: 0.6em 1.8em;
+	font-family: var(--font-brand);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border: var(--line);
+	transform: skewX(-8deg);
+}
+
+:root[data-skin="comic"] .cta:hover,
+:root[data-skin="comic"] .cta:focus-visible {
+	background: var(--yellow);
+	transform: skewX(-8deg) translate(-3px, -3px);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="comic"] .cta:active {
+	transform: skewX(-8deg) translate(4px, 4px);
+	box-shadow: none;
+}
+
+/* Halftone sheen across the button. */
+:root[data-skin="comic"] .cta::after {
+	background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.4px, transparent 1.6px);
+	background-size: 8px 8px;
+	mask-image: linear-gradient(110deg, transparent 40%, #000);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .cta {
+		padding: 1rem 2.4rem;
+	}
+}
+
+/* ---------- Cards ---------- */
+
+:root[data-skin="comic"] .card {
+	border: var(--line);
+	box-shadow: var(--shadow-md);
+	letter-spacing: 0.02em;
+}
+
+/* Halftone shading over the art, lifted on hover. */
+:root[data-skin="comic"] .card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: radial-gradient(rgba(20, 18, 26, 0.35) 1.5px, transparent 1.8px) 0 0 / 7px 7px;
+	mask-image: linear-gradient(200deg, transparent 35%, #000 100%);
+	transition: opacity var(--ui-transition);
+}
+
+:root[data-skin="comic"] .card:hover,
+:root[data-skin="comic"] .card:focus-visible {
+	transform: translate(-4px, -4px) rotate(-1deg);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="comic"] .card:hover::after,
+:root[data-skin="comic"] .card:focus-visible::after {
+	opacity: 0;
+}
+
+:root[data-skin="comic"] .card:hover img {
+	transform: scale(1.04);
+}
+
+:root[data-skin="comic"] .card-title {
+	margin: 0.6rem;
+	padding: 0.3rem 0.8rem;
+	border: var(--line-thin);
+	box-shadow: var(--shadow-sm);
+}
+
+:root[data-skin="comic"] .card-dates,
+:root[data-skin="comic"] .card-count,
+:root[data-skin="comic"] .card-favorite,
+:root[data-skin="comic"] .card-video {
+	border: var(--line-thin);
+}
+
+:root[data-skin="comic"] .card-dates,
+:root[data-skin="comic"] .card-count {
+	font-size: var(--text-md);
+	letter-spacing: 0.06em;
+	transform: rotate(-3deg);
+}
+
+/* Render gallery: mismatched panel angles. */
+:root[data-skin="comic"] .render-gallery {
+	gap: 1.75rem;
+}
+
+:root[data-skin="comic"] .render-gallery .card:nth-child(even) {
+	transform: rotate(0.6deg);
+}
+
+:root[data-skin="comic"] .render-gallery .card:nth-child(3n) {
+	transform: rotate(-0.8deg);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .card-title {
+		font-size: var(--text-xl);
+	}
+}
+
+/* ---------- Sections ---------- */
+
+/* Skills: three separate panels instead of one box. */
+:root[data-skin="comic"] .skills.box {
+	gap: 2rem;
+	padding: 0;
+	border: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root[data-skin="comic"] .panel {
+	--tint: var(--yellow);
+	position: relative;
+	padding: 1.5rem;
+	background: var(--panel);
+	border: var(--line);
+	box-shadow: var(--shadow-md);
+}
+
+:root[data-skin="comic"] .panel:nth-child(2) {
+	--tint: var(--cyan);
+}
+
+:root[data-skin="comic"] .panel:nth-child(3) {
+	--tint: var(--magenta);
+}
+
+:root[data-skin="comic"] .panel::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: radial-gradient(var(--tint) 2px, transparent 2.3px) 0 0 / 10px 10px;
+	mask-image: radial-gradient(circle at 100% 0%, #000, transparent 60%);
+}
+
+:root[data-skin="comic"] .panel p {
+	position: relative;
+	color: var(--gray-300);
+}
+
+:root[data-skin="comic"] .badge {
+	padding: 0.5rem;
+	color: var(--on-accent);
+	background: var(--tint);
+	border: var(--line-thin);
+	box-shadow: var(--shadow-sm);
+	transform: rotate(-4deg);
+}
+
+:root[data-skin="comic"] .badge svg {
+	width: 2rem;
+	height: 2rem;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .skills.box {
+		gap: 2.5rem;
+	}
+
+	:root[data-skin="comic"] .panel {
+		padding: 2.25rem;
+	}
+
+	:root[data-skin="comic"] .panel:nth-child(1) {
+		transform: rotate(-1deg);
+	}
+	:root[data-skin="comic"] .panel:nth-child(2) {
+		transform: translateY(1.5rem) rotate(0.8deg);
+	}
+	:root[data-skin="comic"] .panel:nth-child(3) {
+		transform: rotate(-0.5deg);
+	}
+}
+
+/* Home section titles sit on a highlighter stroke, a different ink each. */
+:root[data-skin="comic"] .section-header h3,
+:root[data-skin="comic"] .entry-content h2,
+:root[data-skin="comic"] .entry-content h3 {
+	--marker: var(--magenta);
+	width: fit-content;
+	padding: 0 0.3em;
+	background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 90%, transparent 90%);
+}
+
+:root[data-skin="comic"] .section-header h3 {
+	margin-inline: auto;
+}
+
+:root[data-skin="comic"] .section:nth-of-type(2) .section-header h3 {
+	--marker: var(--cyan);
+}
+
+:root[data-skin="comic"] .section:nth-of-type(3) .section-header h3,
+:root[data-skin="comic"] .entry-content h2,
+:root[data-skin="comic"] .entry-content h3 {
+	--marker: var(--yellow);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .with-cta .section-header h3 {
+		margin-inline: 0;
+	}
+
+	:root[data-skin="comic"] .section-cta {
+		align-self: center;
+	}
+}
+
+/* Contact banner: yellow with speed lines radiating from the button. */
+:root[data-skin="comic"] .contact {
+	position: relative;
+	border-block: var(--line);
+	background: var(--yellow);
+	overflow: hidden;
+	isolation: isolate;
+}
+
+:root[data-skin="comic"] .contact::before {
+	content: '';
+	position: absolute;
+	inset: -50%;
+	z-index: -1;
+	background: repeating-conic-gradient(
+		from 0deg at 70% 50%,
+		rgba(255, 255, 255, 0.55) 0deg 4deg,
+		transparent 4deg 12deg
+	);
+}
+
+:root[data-skin="comic"] .contact-title {
+	font-size: var(--text-3xl);
+	color: var(--on-accent);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="comic"] .contact-title {
+		font-size: var(--text-5xl);
+	}
+}
+
+:root[data-skin="comic"] footer {
+	background: var(--panel);
+	font-weight: 700;
+}
+
+/* ---------- Entry & about pages ---------- */
+
+:root[data-skin="comic"] .entry-header {
+	border-bottom: var(--line);
+}
+
+:root[data-skin="comic"] .back-link {
+	font-family: var(--font-brand);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+:root[data-skin="comic"] .entry-content img,
+:root[data-skin="comic"] .entry-content video {
+	box-shadow: var(--shadow-md);
+	border: var(--line);
+}
+
+/* Blockquotes become speech balloons. */
+:root[data-skin="comic"] .entry-content blockquote {
+	margin-block: 2rem;
+	padding: 1.25rem 1.5rem;
+	line-height: 1.2;
+	background: var(--panel);
+	border: var(--line);
+	border-radius: 1.5rem;
+	box-shadow: var(--shadow-sm);
+}
+
+:root[data-skin="comic"] .about img {
+	border: var(--line);
+	box-shadow:
+		12px 12px 0 var(--magenta),
+		12px 12px 0 3px var(--ink);
+	transform: rotate(-1deg);
+}
+
+:root[data-skin="comic"] .about-title {
+	align-self: start;
+	width: fit-content;
+	padding: 0.1em 0.4em;
+	font-size: var(--text-2xl);
+	color: var(--on-accent);
+	background: var(--cyan);
+	border: var(--line);
+	box-shadow: var(--shadow-sm);
+	transform: rotate(-3deg);
+}
+
+:root[data-skin="comic"] .education {
+	padding: 1.25rem 1.5rem;
+	background: var(--panel);
+	border: var(--line);
+	box-shadow: var(--shadow-md);
+	text-indent: 0;
+}
+
+:root[data-skin="comic"] .education a {
+	text-decoration: none;
+}
+
+/* ---------- Transitions ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	/* Page navigation: the next page slams in like the next panel. */
+	:root[data-skin="comic"]:not([data-skin-switching])::view-transition-old(root) {
+		animation: none;
+	}
+	:root[data-skin="comic"]:not([data-skin-switching])::view-transition-new(root) {
+		animation: comic-panel-wipe 0.32s steps(6, end);
+	}
+
+	/* Switching to comic: the reveal is choppy, on twos. */
+	:root[data-skin="comic"][data-skin-switching]::view-transition-new(root) {
+		animation-timing-function: steps(7, end);
+	}
+}
+
+@keyframes comic-panel-wipe {
+	from {
+		clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%);
+	}
+	to {
+		clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%);
+	}
+}
+
+/* "BIM!" burst. */
+:root[data-skin="comic"] .skin-intro {
+	display: grid;
+	place-items: center;
+	width: min(60vw, 22rem);
+	aspect-ratio: 1;
+	font-family: var(--font-label);
+	font-size: min(16vw, 6rem);
+	letter-spacing: 0.04em;
+	color: var(--on-accent);
+	background: var(--yellow);
+	clip-path: var(--starburst);
+	text-shadow:
+		-0.04em 0.02em 0 var(--magenta),
+		0.04em -0.02em 0 var(--cyan);
+	animation: comic-bim 0.9s steps(9, end) forwards;
+}
+
+@keyframes comic-bim {
+	0% {
+		transform: translate(-50%, -50%) scale(0) rotate(-30deg);
+	}
+	25% {
+		transform: translate(-50%, -50%) scale(1.15) rotate(-8deg);
+	}
+	40%,
+	75% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1) rotate(-6deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.3) rotate(-2deg);
+	}
+}

@@ -38,6 +38,14 @@ Dates use `z.coerce.date()` — YAML values like `2025-10` are accepted. Omit `e
 
 Light/dark mode is driven entirely by CSS custom properties defined in `BaseLayout.astro`. Background images are lazy-loaded (swapped in once the `loaded` class is set on `<html>`). No CSS framework is used — styling is scoped per component via Astro's `<style>` blocks plus global CSS variables.
 
+### Skins
+
+The site has switchable skins (picker in the nav, saved in `localStorage.skin`, applied as `<html data-skin="…">` before first paint by `MainHead.astro`). Light/dark (`.theme-dark`) is independent and every skin supports both.
+
+- `src/styles/global.css` holds the classic look as tokens (`--radius-*`, `--line`, `--surface`, `--label-*`, `--pill-*`, `--cta-*`, `--nav-*`, `--heading-*`, `--font-*`, `--ui-transition`). Components style themselves only through these tokens.
+- `src/styles/skins/<id>.css` overrides tokens under `:root[data-skin="<id>"]` (and `…].theme-dark`), plus any decoration, prefixing selectors with `:root[data-skin="<id>"]` so they beat component styles. Components expose stable hook classes for this (`.card`, `.card-title`, `.hero-title`, `.panel`, `.cta`, `.pill`, `.contact`, `.portrait`, …).
+- Add a skin: create the CSS file, `@import` it in `src/styles/skins/index.css`, and list it in `src/skins.ts` (optional `intro` text flashes as `.skin-intro` when switching).
+
 ### Adding New Content
 
 To add a new entry (e.g. a new project), create a `.md` file in the appropriate `src/content/<collection>/` directory with frontmatter matching the Zod schema in `src/content.config.ts`. Content images go in `src/assets/` and are referenced with a relative path (`img: ../../assets/...`) so Astro optimizes them. Videos and backgrounds stay in `public/assets/`.

@@ -11,7 +11,7 @@ const { data, id: slug } = Astro.props.education;
 
 <div class="education">
   <a href={`/education/${slug}`}>
-    <h3 class="title">{data.title}</h3>
+    <h3 class="edu-title">{data.title}</h3>
   </a>
   <span class="dateLocation"
     >{data.beginYear.getFullYear()} - {data.endYear.getFullYear()} | {
@@ -24,43 +24,16 @@ const { data, id: slug } = Astro.props.education;
   </div>
 </div>
 <style>
-  /* ===== Normal style ===== */
-
-  :global(html:not(.comic)) .title {
+  .edu-title {
     font-size: var(--text-lg);
     color: var(--gray-0);
   }
-  :global(html:not(.comic)) .dateLocation {
-    font-size: var(--text-base);
-    color: var(--gray-2);
-    padding-left: 2rem;
-  }
-  :global(html:not(.comic)) .tags {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    text-indent: 0px;
-  }
-  @media (min-width: 50em) {
-  :global(html:not(.comic)) .education {
-    margin-bottom: 2rem;
-  }
-  }
-
-  /* ===== Comic style ===== */
-
-  :global(html.comic) .title {
-    font-size: var(--text-lg);
-    color: var(--gray-0);
-  }
-  :global(html.comic) .dateLocation {
+  .dateLocation {
     font-size: var(--text-base);
     color: var(--gray-400);
     padding-left: 2rem;
   }
-  :global(html.comic) .tags {
+  .tags {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     display: flex;
@@ -68,20 +41,7 @@ const { data, id: slug } = Astro.props.education;
     gap: 0.5rem;
     text-indent: 0px;
   }
-  :global(html.comic) .education {
-    position: relative;
+  .education {
     margin-bottom: 2rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--panel);
-    border: var(--border);
-    box-shadow: var(--pop);
-    text-indent: 0;
   }
-  :global(html.comic) .education a {
-    text-decoration: none;
-  }
-  :global(html.comic) .education a:hover .title {
-    color: var(--magenta);
-  }
-
 </style>

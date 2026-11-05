@@ -112,41 +112,7 @@ const { title, description, image } = Astro.props;
 					/*header2*/ normal,
 					/*base*/ normal;
 			}
-			/* Comic mode: flat paper with halftone dots fading in from the corners. */
-			:global(.comic) .backgrounds {
-				position: relative;
-				background: var(--paper);
-				background-blend-mode: normal;
-			}
-
-			:global(.comic) .backgrounds::before,
-			:global(.comic) .backgrounds::after {
-				content: '';
-				position: absolute;
-				inset: 0;
-				z-index: -1;
-				pointer-events: none;
-			}
-
-			:global(.comic) .backgrounds::before {
-				background: var(--halftone);
-				mask-image: radial-gradient(ellipse 90% 60% at 100% 0%, #000 10%, transparent 70%),
-					radial-gradient(ellipse 70% 40% at 0% 100%, #000 10%, transparent 70%);
-			}
-
-			/* Paper grain. */
-			:global(.comic) .backgrounds::after {
-				background: url('/assets/backgrounds/noise.webp') top center/220px repeat;
-				mix-blend-mode: overlay;
-				opacity: 0.6;
-			}
-
 			@media (forced-colors: active) {
-				:global(.comic) .backgrounds::before,
-				:global(.comic) .backgrounds::after {
-					display: none;
-				}
-
 				/* Deactivate custom backgrounds for high contrast users. */
 				.backgrounds {
 					background: none;

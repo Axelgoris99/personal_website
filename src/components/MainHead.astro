@@ -7,9 +7,10 @@ import "@fontsource/public-sans/400-italic.css";
 import "@fontsource/public-sans/700.css";
 import "@fontsource/rubik/500.css";
 import "@fontsource/rubik/600.css";
-import "@fontsource/anton/400.css";
-import "@fontsource/bangers/400.css";
 import "../styles/global.css";
+// Skin stylesheets load after global.css so skin tokens win.
+import "../styles/skins/index.css";
+import { defaultSkin, skins } from "../skins";
 import portrait from "../assets/portrait.webp";
 
 interface Props {
@@ -67,13 +68,6 @@ const imageURL = new URL(ogImage.src, Astro.site);
   const isDark = getThemePreference() === "dark";
   document.documentElement.classList[isDark ? "add" : "remove"]("theme-dark");
 
-  // Comic mode is opt-in, remembered across pages.
-  try {
-    if (localStorage.getItem("style") === "comic") {
-      document.documentElement.classList.add("comic");
-    }
-  } catch {}
-
   if (typeof localStorage !== "undefined") {
     // Watch the document element and persist user preference when it changes.
     const observer = new MutationObserver(() => {
@@ -85,4 +79,13 @@ const imageURL = new URL(ogImage.src, Astro.site);
       attributeFilter: ["class"],
     });
   }
+</script>
+<script is:inline define:vars={{ skinIds: skins.map((s) => s.id), defaultSkin }}>
+  // Apply the saved skin before first paint.
+  let skin = defaultSkin;
+  try {
+    const saved = localStorage.getItem("skin");
+    if (skinIds.includes(saved)) skin = saved;
+  } catch {}
+  document.documentElement.dataset.skin = skin;
 </script>

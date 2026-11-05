@@ -68,7 +68,7 @@ const projects = (await getCollection("project"))
   />
   <div class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
-      <header class="hero">
+      <header class="home-hero">
         <Hero
           title="Hello There! I'm Axel Goris"
           tagline="I am a Software Engineer. Currently based in France."
@@ -92,8 +92,7 @@ const projects = (await getCollection("project"))
         </Hero>
 
         <div class="portrait">
-          <span class="burst on-beat" aria-hidden="true">Hi!</span>
-          <Image
+        <Image
           alt="Axel Goris smiling in a winter coat with the swedish parliament in the background"
           src={portrait}
           widths={[480, 960]}
@@ -126,7 +125,7 @@ const projects = (await getCollection("project"))
           </Grid>
         </div>
 
-        <div class="cta">
+        <div class="section-cta">
           <CallToAction href="/work/">
             View All
             <Icon icon="arrow-right" size="1.2em" />
@@ -152,7 +151,7 @@ const projects = (await getCollection("project"))
           </Grid>
         </div>
 
-        <div class="cta">
+        <div class="section-cta">
           <CallToAction href="/project/">
             View All
             <Icon icon="arrow-right" size="1.2em" />
@@ -169,7 +168,7 @@ const projects = (await getCollection("project"))
           </p>
         </header>
 
-        <div class="cta">
+        <div class="section-cta">
           <CallToAction href="/render/">
             View All
             <Icon icon="arrow-right" size="1.2em" />
@@ -205,27 +204,27 @@ const projects = (await getCollection("project"))
 </BaseLayout>
 
 <style>
-  :global(html:not(.comic)) .burst {
-    display: none;
-  }
-  /* ===== Normal style ===== */
-
-  :global(html:not(.comic)) .hero {
+  .home-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
   }
 
-  :global(html:not(.comic)) .hero img {
+  .portrait {
+    position: relative;
+  }
+
+  .portrait img {
+    display: block;
     aspect-ratio: 5 / 4;
     object-fit: cover;
     object-position: top;
-    border-radius: 1.5rem;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
 
-  :global(html:not(.comic)) .roles {
+  .roles {
       margin-top: 0.5rem;
       display: flex;
       gap: 0.5rem;
@@ -235,32 +234,32 @@ const projects = (await getCollection("project"))
    }
 
   @media (min-width: 50em) {
-    :global(html:not(.comic)) .hero {
+    .home-hero {
       display: grid;
       grid-template-columns: 6fr 4fr;
       padding-inline: 2.5rem;
       gap: 3.75rem;
     }
 
-    :global(html:not(.comic)) .hero img {
+    .portrait img {
       aspect-ratio: 3 / 4;
-      border-radius: 4.5rem;
+      border-radius: var(--radius-xl);
       object-fit: cover;
     }
   }
 
   /* ====================================================== */
 
-  :global(html:not(.comic)) .section {
+  .section {
     display: grid;
     gap: 2rem;
   }
 
-  :global(html:not(.comic)) .with-background {
+  .with-background {
     position: relative;
   }
 
-  :global(html:not(.comic)) .with-background::before {
+  .with-background::before {
     --hero-bg: var(--bg-image-subtle-2);
 
     content: "";
@@ -280,11 +279,11 @@ const projects = (await getCollection("project"))
     z-index: -1;
   }
 
-  :global(html:not(.comic)) .with-background.bg-variant::before {
+  .with-background.bg-variant::before {
     --hero-bg: var(--bg-image-subtle-1);
   }
 
-  :global(html:not(.comic)) .section-header {
+  .section-header {
     justify-self: center;
     text-align: center;
     max-width: 50ch;
@@ -292,216 +291,63 @@ const projects = (await getCollection("project"))
     color: var(--gray-300);
   }
 
-  :global(html:not(.comic)) .section-header h3 {
+  .section-header h3 {
     font-size: var(--text-2xl);
   }
 
   @media (min-width: 50em) {
-    :global(html:not(.comic)) .section {
+    .section {
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas: "header header header header" "gallery gallery gallery gallery";
       gap: 5rem;
     }
 
-    :global(html:not(.comic)) .section.with-cta {
+    .section.with-cta {
       grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
     }
 
-    :global(html:not(.comic)) .section-header {
+    .section-header {
       grid-area: header;
       font-size: var(--text-lg);
     }
 
-    :global(html:not(.comic)) .section-header h3 {
+    .section-header h3 {
       font-size: var(--text-4xl);
     }
 
-    :global(html:not(.comic)) .with-cta .section-header {
+    .with-cta .section-header {
       justify-self: flex-start;
       text-align: left;
     }
 
-    :global(html:not(.comic)) .gallery {
+    .gallery {
       grid-area: gallery;
     }
 
-    :global(html:not(.comic)) .cta {
+    .section-cta {
       grid-area: cta;
     }
   }
 
   /* ====================================================== */
 
-  :global(html:not(.comic)) .mention-card {
+  .mention-card {
     display: flex;
     height: 7rem;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--gray-800);
-    border-radius: 1.5rem;
+    border: var(--line);
+    border-radius: var(--radius-lg);
     color: var(--gray-300);
     background: var(--gradient-subtle);
     box-shadow: var(--shadow-sm);
   }
 
   @media (min-width: 50em) {
-    :global(html:not(.comic)) .mention-card {
+    .mention-card {
       border-radius: 1.5rem;
       height: 9.5rem;
     }
   }
-
-  /* ===== Comic style ===== */
-
-  :global(html.comic) .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  :global(html.comic) .portrait {
-    position: relative;
-    max-width: 30rem;
-  }
-
-  /* Portrait as a comic frame with an off-register cyan plate behind it. */
-  :global(html.comic) .portrait :global(img) {
-    display: block;
-    aspect-ratio: 5 / 4;
-    object-fit: cover;
-    object-position: top;
-    border: var(--border);
-    box-shadow:
-      12px 12px 0 var(--cyan),
-      12px 12px 0 3px var(--ink);
-    transform: rotate(2deg);
-  }
-
-  /* Starburst sticker. */
-  :global(html.comic) .burst {
-    position: absolute;
-    z-index: 1;
-    top: -1.5rem;
-    left: -1.5rem;
-    display: grid;
-    place-items: center;
-    width: 6rem;
-    aspect-ratio: 1;
-    font-family: var(--font-sticker);
-    font-size: 2rem;
-    letter-spacing: 0.05em;
-    color: var(--on-accent);
-    background: var(--magenta);
-    clip-path: polygon(
-      50% 0%, 61% 18%, 82% 7%, 79% 30%, 100% 34%, 84% 50%, 100% 66%, 79% 70%,
-      82% 93%, 61% 82%, 50% 100%, 39% 82%, 18% 93%, 21% 70%, 0% 66%, 16% 50%,
-      0% 34%, 21% 30%, 18% 7%, 39% 18%
-    );
-  }
-
-  :global(html.comic) .roles {
-    margin-top: 0.5rem;
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-  }
-
-  @media (min-width: 50em) {
-    :global(html.comic) .hero {
-      display: grid;
-      grid-template-columns: 6fr 4fr;
-      padding-inline: 2.5rem;
-      gap: 3.75rem;
-    }
-
-    :global(html.comic) .roles {
-      justify-content: flex-start;
-    }
-
-    :global(html.comic) .portrait :global(img) {
-      aspect-ratio: 3 / 4;
-    }
-
-    :global(html.comic) .burst {
-      width: 7.5rem;
-      font-size: 2.6rem;
-    }
-  }
-
-  /* ====================================================== */
-
-  :global(html.comic) .section {
-    display: grid;
-    gap: 2rem;
-  }
-
-  :global(html.comic) .section-header {
-    justify-self: center;
-    text-align: center;
-    max-width: 50ch;
-    font-size: var(--text-md);
-    color: var(--gray-300);
-  }
-
-  /* Section titles sit on a skewed highlighter stroke. */
-  :global(html.comic) .section-header h3 {
-    justify-self: inherit;
-    width: fit-content;
-    margin-inline: auto;
-    font-size: var(--text-3xl);
-    padding: 0 0.3em;
-    background: linear-gradient(transparent 55%, var(--magenta) 55%, var(--magenta) 90%, transparent 90%);
-  }
-
-  @media (min-width: 50em) {
-    :global(html.comic) .section {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-areas: "header header header header" "gallery gallery gallery gallery";
-      gap: 4rem;
-    }
-
-    :global(html.comic) .section.with-cta {
-      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
-    }
-
-    :global(html.comic) .section-header {
-      grid-area: header;
-      font-size: var(--text-lg);
-    }
-
-    :global(html.comic) .section-header h3 {
-      font-size: var(--text-5xl);
-    }
-
-    :global(html.comic) .with-cta .section-header {
-      justify-self: flex-start;
-      text-align: left;
-    }
-
-    :global(html.comic) .with-cta .section-header h3 {
-      margin-inline: 0;
-    }
-
-    :global(html.comic) .gallery {
-      grid-area: gallery;
-    }
-
-    :global(html.comic) .cta {
-      grid-area: cta;
-      align-self: center;
-    }
-  }
-
-  /* Alternate the highlighter colour per section. */
-  :global(html.comic) .section:nth-of-type(2) .section-header h3 {
-    background: linear-gradient(transparent 55%, var(--cyan) 55%, var(--cyan) 90%, transparent 90%);
-  }
-  :global(html.comic) .section:nth-of-type(3) .section-header h3 {
-    background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
-  }
-
 </style>

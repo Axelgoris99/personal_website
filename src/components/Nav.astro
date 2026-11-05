@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
+import SkinPicker from "./SkinPicker.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import ComicToggle from "./ComicToggle.astro";
 import type { iconPaths } from "./IconPaths";
 
 /** Main menu items */
@@ -38,7 +38,7 @@ const iconLinks: {
 <nav>
   <div class="menu-header">
     <a href="/" class="site-title">
-      <span class="logo on-beat"
+      <span class="logo"
         ><Icon
           icon="terminal-window"
           color="var(--accent-regular)"
@@ -46,7 +46,7 @@ const iconLinks: {
           gradient
         /></span
       >
-      <span class="misprint">Axel Goris</span>
+      <span class="site-name">Axel Goris</span>
     </a>
     <menu-button>
       <template>
@@ -130,8 +130,8 @@ const iconLinks: {
         }
       </div>
 
-      <div class="theme-toggle">
-        <ComicToggle />
+      <div class="toggles">
+        <SkinPicker />
         <ThemeToggle />
       </div>
     </div>
@@ -176,32 +176,24 @@ const iconLinks: {
 </script>
 
 <style>
-  .logo {
-    display: flex;
-  }
-
-  .theme-toggle {
-    gap: 0.5rem;
-  }
-
-  /* ===== Normal style ===== */
-
-  :global(html:not(.comic)) nav {
+  nav {
     z-index: 9999;
     position: relative;
     font-family: var(--font-brand);
     font-weight: 500;
+    text-transform: var(--heading-case);
+    letter-spacing: var(--heading-tracking);
     margin-bottom: 3.5rem;
   }
 
-  :global(html:not(.comic)) .menu-header {
+  .menu-header {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
     padding: 1.5rem;
   }
 
-  :global(html:not(.comic)) .site-title {
+  .site-title {
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -210,45 +202,49 @@ const iconLinks: {
     text-decoration: none;
   }
 
-  :global(html:not(.comic)) .menu-button {
+  .logo {
+    display: flex;
+  }
+
+  .menu-button {
     position: relative;
     display: flex;
     border: 0;
-    border-radius: 999rem;
+    border-radius: var(--radius-pill);
     padding: 0.5rem;
     font-size: 1.5rem;
     color: var(--gray-300);
-    background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+    background: var(--nav-bg);
     box-shadow: var(--shadow-md);
   }
 
-  :global(html:not(.comic)) .menu-button[aria-expanded="true"] {
+  .menu-button[aria-expanded="true"] {
     color: var(--gray-0);
     background:
       linear-gradient(180deg, var(--gray-600), transparent),
       radial-gradient(var(--gray-900), var(--gray-800) 150%);
   }
 
-  :global(html:not(.comic)) .menu-button[hidden] {
+  .menu-button[hidden] {
     display: none;
   }
 
-  :global(html:not(.comic)) .menu-button::before {
+  .menu-button::before {
     position: absolute;
-    inset: -1px;
+    inset: calc(-1 * var(--nav-ring-width));
     content: "";
-    background: var(--gradient-stroke);
-    border-radius: 999rem;
+    background: var(--nav-ring);
+    border-radius: var(--radius-pill);
     z-index: -1;
   }
 
-  :global(html:not(.comic)) .menu-content {
+  .menu-content {
     position: absolute;
     left: 0;
     right: 0;
   }
 
-  :global(html:not(.comic)) .nav-items {
+  .nav-items {
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -258,20 +254,20 @@ const iconLinks: {
     list-style: none;
     padding: 2rem;
     background-color: var(--gray-999);
-    border-bottom: 1px solid var(--gray-800);
+    border-bottom: var(--line);
   }
 
-  :global(html:not(.comic)) .link {
+  .link {
     display: inline-block;
     color: var(--gray-300);
     text-decoration: none;
   }
 
-  :global(html:not(.comic)) .link.active {
+  .link.active {
     color: var(--gray-0);
   }
 
-  :global(html:not(.comic)) .menu-footer {
+  .menu-footer {
     --icon-size: var(--text-xl);
     --icon-padding: 0.5rem;
 
@@ -280,38 +276,41 @@ const iconLinks: {
     gap: 0.75rem;
     padding: 1.5rem 2rem 1.5rem 1.5rem;
     background-color: var(--gray-999);
-    border-radius: 0 0 0.75rem 0.75rem;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
     box-shadow: var(--shadow-lg);
   }
 
-  :global(html:not(.comic)) .socials {
+  .socials {
     display: flex;
     flex-wrap: wrap;
     gap: 0.625rem;
     font-size: var(--icon-size);
   }
 
-  :global(html:not(.comic)) .social {
+  .social {
     display: flex;
     padding: var(--icon-padding);
     text-decoration: none;
     color: var(--accent-dark);
-    transition: color var(--theme-transition);
+    transition:
+      color var(--ui-transition),
+      transform var(--ui-transition);
   }
 
-  :global(html:not(.comic)) .social:hover,
-  :global(html:not(.comic)) .social:focus {
+  .social:hover,
+  .social:focus {
     color: var(--accent-text-over);
   }
 
-  :global(html:not(.comic)) .theme-toggle {
+  .toggles {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
     height: calc(var(--icon-size) + 2 * var(--icon-padding));
   }
 
   @media (min-width: 50em) {
-    :global(html:not(.comic)) nav {
+    nav {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -319,58 +318,59 @@ const iconLinks: {
       gap: 1rem;
     }
 
-    :global(html:not(.comic)) .menu-header {
+    .menu-header {
       padding: 0;
     }
 
-    :global(html:not(.comic)) .site-title {
+    .site-title {
       font-size: var(--text-lg);
     }
 
-    :global(html:not(.comic)) .menu-content {
+    .menu-content {
       display: contents;
     }
 
-    :global(html:not(.comic)) .nav-items {
+    .nav-items {
       position: relative;
       flex-direction: row;
       font-size: var(--text-sm);
-      border-radius: 999rem;
+      border-radius: var(--radius-pill);
       border: 0;
       padding: 0.5rem 0.5625rem;
-      background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+      background: var(--nav-bg);
       box-shadow: var(--shadow-md);
     }
 
-    :global(html:not(.comic)) .nav-items::before {
+    .nav-items::before {
       position: absolute;
-      inset: -1px;
+      inset: calc(-1 * var(--nav-ring-width));
       content: "";
-      background: var(--gradient-stroke);
-      border-radius: 999rem;
+      background: var(--nav-ring);
+      border-radius: var(--radius-pill);
       z-index: -1;
     }
 
-    :global(html:not(.comic)) .link {
+    .link {
       padding: 0.5rem 1rem;
-      border-radius: 999rem;
+      border-radius: var(--radius-pill);
       transition:
-        color var(--theme-transition),
-        background-color var(--theme-transition);
+        color var(--ui-transition),
+        background-color var(--ui-transition),
+        transform var(--ui-transition);
     }
 
-    :global(html:not(.comic)) .link:hover,
-  :global(html:not(.comic)) .link:focus {
+    .link:hover,
+    .link:focus {
       color: var(--gray-100);
-      background-color: var(--accent-subtle-overlay);
+      background-color: var(--nav-hover-bg);
     }
 
-    :global(html:not(.comic)) .link.active {
-      color: var(--accent-text-over);
-      background-color: var(--accent-regular);
+    .link.active {
+      color: var(--nav-active-fg);
+      background-color: var(--nav-active-bg);
     }
 
-    :global(html:not(.comic)) .menu-footer {
+    .menu-footer {
       --icon-padding: 0.375rem;
 
       justify-self: flex-end;
@@ -380,239 +380,21 @@ const iconLinks: {
       box-shadow: none;
     }
 
-    :global(html:not(.comic)) .socials {
+    .socials {
       display: none;
     }
   }
 
   @media (min-width: 60em) {
-    :global(html:not(.comic)) .socials {
+    .socials {
       display: flex;
       justify-content: flex-end;
       gap: 0;
     }
   }
   @media (forced-colors: active) {
-    :global(html:not(.comic)) .link.active {
+    .link.active {
       color: SelectedItem;
     }
   }
-
-  /* ===== Comic style ===== */
-
-  :global(html.comic) nav {
-    z-index: 9999;
-    position: relative;
-    font-family: var(--font-brand);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin-bottom: 3.5rem;
-  }
-
-  :global(html.comic) .menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-  }
-
-  :global(html.comic) .site-title {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    line-height: 1.1;
-    font-size: var(--text-lg);
-    color: var(--gray-0);
-    text-decoration: none;
-  }
-
-  :global(html.comic) .logo {
-    display: flex;
-    padding: 0.35rem;
-    color: var(--on-accent);
-    background: var(--yellow);
-    border: var(--border-thin);
-    box-shadow: var(--pop-sm);
-  }
-
-  :global(html.comic) .logo :global(svg) {
-    width: 1.1em;
-    height: 1.1em;
-    stroke: currentColor;
-    fill: currentColor;
-  }
-
-  :global(html.comic) .menu-button {
-    position: relative;
-    display: flex;
-    border: var(--border);
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    color: var(--gray-0);
-    background: var(--panel);
-    box-shadow: var(--pop-sm);
-  }
-
-  :global(html.comic) .menu-button[aria-expanded="true"] {
-    color: var(--on-accent);
-    background: var(--yellow);
-  }
-
-  :global(html.comic) .menu-button[hidden] {
-    display: none;
-  }
-
-  :global(html.comic) .menu-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-  }
-
-  :global(html.comic) .nav-items {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-size: var(--text-xl);
-    line-height: 1.2;
-    list-style: none;
-    padding: 2rem;
-    background-color: var(--panel);
-    border-block: var(--border);
-  }
-
-  :global(html.comic) .link {
-    display: inline-block;
-    color: var(--gray-300);
-    text-decoration: none;
-  }
-
-  :global(html.comic) .link.active {
-    color: var(--gray-0);
-  }
-
-  :global(html.comic) .menu-footer {
-    --icon-size: var(--text-xl);
-    --icon-padding: 0.5rem;
-
-    display: flex;
-    justify-content: space-between;
-    gap: 0.75rem;
-    padding: 1.5rem 2rem 1.5rem 1.5rem;
-    background-color: var(--panel);
-    border-bottom: var(--border);
-    box-shadow: 0 8px 0 var(--ink-shadow);
-  }
-
-  :global(html.comic) .socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.625rem;
-    font-size: var(--icon-size);
-  }
-
-  :global(html.comic) .social {
-    display: flex;
-    padding: var(--icon-padding);
-    text-decoration: none;
-    color: var(--gray-0);
-    transition: transform var(--snap), color var(--snap);
-  }
-
-  :global(html.comic) .social:hover,
-  :global(html.comic) .social:focus {
-    color: var(--magenta);
-    transform: rotate(-8deg) scale(1.15);
-  }
-
-  :global(html.comic) .theme-toggle {
-    display: flex;
-    align-items: center;
-    height: calc(var(--icon-size) + 2 * var(--icon-padding));
-  }
-
-  @media (min-width: 50em) {
-    :global(html.comic) nav {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      padding: 2.5rem 5rem;
-      gap: 1rem;
-    }
-
-    :global(html.comic) .menu-header {
-      padding: 0;
-    }
-
-    :global(html.comic) .site-title {
-      font-size: var(--text-xl);
-    }
-
-    :global(html.comic) .menu-content {
-      display: contents;
-    }
-
-    :global(html.comic) .nav-items {
-      position: relative;
-      flex-direction: row;
-      gap: 0.25rem;
-      font-size: var(--text-md);
-      border: var(--border);
-      padding: 0.4rem;
-      background: var(--panel);
-      box-shadow: var(--pop);
-      transform: skewX(-8deg);
-    }
-
-    :global(html.comic) .link {
-      padding: 0.35rem 1rem;
-      transition:
-        color var(--snap),
-        background-color var(--snap),
-        transform var(--snap);
-    }
-
-    :global(html.comic) .link:hover,
-  :global(html.comic) .link:focus {
-      color: var(--on-accent);
-      background-color: var(--yellow);
-      transform: translateY(-2px);
-    }
-
-    :global(html.comic) .link.active {
-      color: var(--on-accent);
-      background-color: var(--magenta);
-      box-shadow: inset 0 0 0 2px var(--ink);
-    }
-
-    :global(html.comic) .menu-footer {
-      --icon-padding: 0.375rem;
-
-      justify-self: flex-end;
-      align-items: center;
-      padding: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-    }
-
-    :global(html.comic) .socials {
-      display: none;
-    }
-  }
-
-  @media (min-width: 60em) {
-    :global(html.comic) .socials {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0;
-    }
-  }
-  @media (forced-colors: active) {
-    :global(html.comic) .link.active {
-      color: SelectedItem;
-    }
-  }
-
 </style>
