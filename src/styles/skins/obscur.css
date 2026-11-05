@@ -182,15 +182,27 @@
 	content: '';
 	position: absolute;
 	z-index: -1;
-	left: 50%;
-	bottom: 8%;
-	width: min(140vw, 1500px);
+	right: -12%;
+	bottom: 4%;
+	width: min(110vw, 1100px);
 	aspect-ratio: 200 / 102;
-	transform: translateX(-50%);
 	pointer-events: none;
 	background: var(--deco-line);
-	mask: url(/assets/skins/obscur/fan.svg) center bottom / contain no-repeat;
-	opacity: 0.55;
+	/* Rising behind the portrait, fading out before it reaches the text. */
+	mask:
+		url(/assets/skins/obscur/fan.svg) center bottom / contain no-repeat,
+		linear-gradient(90deg, transparent 38%, #000 72%);
+	mask-composite: intersect;
+	opacity: 0.5;
+}
+
+/* On narrow screens the portrait sits below the text: keep the sun faint. */
+@media (max-width: 50em) {
+	:root[data-skin="obscur"] .home-hero::before {
+		right: 50%;
+		transform: translateX(50%);
+		opacity: 0.25;
+	}
 }
 
 :root[data-skin="obscur"] .home-hero::after {
