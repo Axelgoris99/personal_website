@@ -52,8 +52,10 @@ To add a new entry (e.g. a new project), create a `.md` file in the appropriate 
 
 ### Resume PDF
 
-`public/Axel_Goris_Resume.pdf` is built from the Typst repo at `../resume` with the phone number hidden:
+The public resume PDFs are built from the Typst repo at `../resume` with the phone number hidden, one per skin in `../resume/skins/` (`Axel_Goris_Resume.pdf` is classic, others are `Axel_Goris_Resume-<skin>.pdf`):
 
 ```bash
-typst compile --root ../resume --input public=true ../resume/resume/Axel_Goris_Resume.typ public/Axel_Goris_Resume.pdf
+./scripts/build-resume.sh
 ```
+
+Resume buttons carry `data-resume`; `SkinPicker` points them at the current skin's PDF, falling back to classic when a skin has none.

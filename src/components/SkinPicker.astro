@@ -1,5 +1,12 @@
 ---
+import { existsSync } from "node:fs";
 import { skins } from "../skins";
+
+// Each skin's resume PDF (built by scripts/build-resume.sh), else the classic one.
+const resumeHref = (id: string) => {
+  const file = `/Axel_Goris_Resume-${id}.pdf`;
+  return existsSync(`public${file}`) ? file : "/Axel_Goris_Resume.pdf";
+};
 ---
 
 <skin-picker>
@@ -26,7 +33,12 @@ import { skins } from "../skins";
       {
         skins.map(({ id, label, intro }) => (
           <li>
-            <button class="skin-option" data-skin-id={id} data-intro={intro}>
+            <button
+              class="skin-option"
+              data-skin-id={id}
+              data-intro={intro}
+              data-resume={resumeHref(id)}
+            >
               {label}
             </button>
           </li>
@@ -127,8 +139,13 @@ import { skins } from "../skins";
       const options = [...this.querySelectorAll<HTMLButtonElement>(".skin-option")];
 
       const sync = () => {
+        const current = options.find((o) => o.dataset.skinId === root.dataset.skin);
         for (const option of options) {
-          option.setAttribute("aria-pressed", String(option.dataset.skinId === root.dataset.skin));
+          option.setAttribute("aria-pressed", String(option === current));
+        }
+        // Resume buttons download the PDF styled like the current skin.
+        for (const link of document.querySelectorAll<HTMLAnchorElement>("a[data-resume]")) {
+          if (current) link.href = current.dataset.resume!;
         }
       };
 
