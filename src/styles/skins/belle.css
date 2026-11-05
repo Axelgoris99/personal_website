@@ -1,0 +1,365 @@
+/* Belle Époque skin (Clair Obscur: Expedition 33 inspired). A painted canvas
+   in muted crimson, gold and blue-grey, Art Nouveau whiplash ornaments, an
+   arched portrait, and petals drifting down. Switching in is a Gommage: the
+   old page dissolves away in a storm of petals. Artwork in
+   public/assets/skins/belle/. */
+
+@import "@fontsource/playfair-display/600-italic.css";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/500-italic.css";
+@import "@fontsource/cormorant-garamond/700.css";
+
+:root[data-skin="belle"] {
+	--crimson: #a3262a;
+	--gold: #a98443;
+	--slate: #6f7f8c;
+	--canvas: #ebe3d3;
+	--panel: rgba(250, 245, 235, 0.72);
+	--petal: #f6e7e4;
+
+	--gray-0: #1e1b18;
+	--gray-50: #24201c;
+	--gray-100: #2a2622;
+	--gray-200: #3a3530;
+	--gray-300: #574f47;
+	--gray-400: #6e655b;
+	--gray-500: #8c8276;
+	--gray-600: #ada293;
+	--gray-700: #c9bfae;
+	--gray-800: rgba(169, 132, 67, 0.55);
+	--gray-900: #ddd3c1;
+	--gray-999-basis: 40, 33%, 87%;
+	--gray-999: var(--canvas);
+
+	--accent-light: var(--gold);
+	--accent-regular: var(--crimson);
+	--accent-dark: var(--crimson);
+	--accent-overlay: rgba(169, 132, 67, 0.4);
+	--accent-subtle-overlay: rgba(163, 38, 42, 0.08);
+	--accent-text-over: var(--petal);
+	--link-color: var(--crimson);
+	--gradient-stop-1: #d8b56e;
+	--gradient-stop-2: var(--gold);
+	--gradient-stop-3: var(--crimson);
+
+	--shadow-sm: 0 1px 3px rgba(40, 30, 20, 0.15);
+	--shadow-md: 0 10px 26px -12px rgba(40, 30, 20, 0.35);
+	--shadow-lg: 0 20px 40px -16px rgba(40, 30, 20, 0.45);
+
+	--radius-xs: 1px;
+	--radius-sm: 2px;
+	--radius-md: 2px;
+	--radius-lg: 2px;
+	--radius-xl: 2px;
+	--radius-pill: 2px;
+	--line: 1px solid var(--gray-800);
+
+	--surface: var(--panel);
+	--surface-muted: var(--panel);
+	--label-bg: rgba(250, 245, 235, 0.92);
+	--label-fg: var(--crimson);
+	--badge-bg: rgba(250, 245, 235, 0.92);
+	--badge-fg: var(--gray-200);
+	--pill-bg: transparent;
+	--pill-fg: var(--gray-200);
+	--pill-line: 1px solid var(--gold);
+	--cta-bg: var(--crimson);
+	--cta-fg: var(--petal);
+	--cta-hover-overlay: transparent;
+	--nav-bg: transparent;
+	--nav-ring: transparent;
+	--nav-hover-bg: transparent;
+	--nav-active-bg: transparent;
+	--nav-active-fg: var(--crimson);
+
+	--font-body: 'Cormorant Garamond', Georgia, serif;
+	--font-brand: 'Playfair Display', Georgia, serif;
+	--font-label: 'Cormorant Garamond', Georgia, serif;
+	--heading-weight: 600;
+	--heading-case: none;
+	--heading-tracking: 0;
+	--ui-transition: 0.35s ease;
+}
+
+:root[data-skin="belle"].theme-dark {
+	--crimson: #c94a4a;
+	--gold: #c9a35a;
+	--slate: #5c6b78;
+	--canvas: #15161a;
+	--panel: rgba(32, 33, 38, 0.75);
+
+	--gray-0: #f5eee2;
+	--gray-50: #f0e9dc;
+	--gray-100: #ece4d6;
+	--gray-200: #d9d0c1;
+	--gray-300: #b5ab9b;
+	--gray-400: #978d7e;
+	--gray-500: #776f63;
+	--gray-600: #58524a;
+	--gray-700: #3c3934;
+	--gray-800: rgba(201, 163, 90, 0.4);
+	--gray-900: #202126;
+	--gray-999-basis: 228, 10%, 9%;
+
+	--label-bg: rgba(21, 22, 26, 0.9);
+	--badge-bg: rgba(21, 22, 26, 0.9);
+	--cta-fg: #15161a;
+}
+
+/* ---------- The painted canvas ---------- */
+
+:root[data-skin="belle"] .backgrounds {
+	position: relative;
+	background:
+		url(/assets/skins/belle/canvas.svg) 0 0 / 300px 300px repeat,
+		radial-gradient(ellipse 60% 40% at 85% 5%, rgba(111, 127, 140, 0.35), transparent 70%),
+		radial-gradient(ellipse 50% 35% at 5% 45%, rgba(163, 38, 42, 0.12), transparent 70%),
+		radial-gradient(ellipse 60% 40% at 90% 85%, rgba(169, 132, 67, 0.16), transparent 70%),
+		var(--canvas);
+	background-blend-mode: multiply, normal, normal, normal, normal;
+}
+
+:root[data-skin="belle"].theme-dark .backgrounds {
+	background-blend-mode: overlay, screen, screen, screen, normal;
+}
+
+:root[data-skin="belle"] .with-background::before {
+	display: none;
+}
+
+/* Petals drifting down behind everything. */
+:root[data-skin="belle"] .backgrounds::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background:
+		url(/assets/skins/belle/petals.svg) 0 0 / 420px 420px,
+		url(/assets/skins/belle/petals.svg) 130px 90px / 260px 260px;
+	opacity: 0.7;
+}
+
+:root[data-skin="belle"].theme-dark .backgrounds::before {
+	opacity: 0.3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="belle"] .backgrounds::before {
+		animation: belle-fall 40s linear infinite;
+	}
+}
+
+@keyframes belle-fall {
+	to {
+		background-position:
+			-420px 840px,
+			390px 610px;
+	}
+}
+
+:root[data-skin="belle"] body {
+	font-size: 1.15rem;
+}
+
+:root[data-skin="belle"] ::selection {
+	background: var(--crimson);
+	color: var(--petal);
+}
+
+/* ---------- Ornaments ---------- */
+
+/* Gold flourish under the big titles. */
+:root[data-skin="belle"] .hero-title::after,
+:root[data-skin="belle"] .section-header h3::after,
+:root[data-skin="belle"] .contact-title::after {
+	content: '';
+	display: block;
+	width: 12rem;
+	max-width: 100%;
+	height: 1.1rem;
+	margin-top: 0.6rem;
+	background: var(--gold);
+	mask: url(/assets/skins/belle/flourish.svg) left center / contain no-repeat;
+}
+
+:root[data-skin="belle"] .section-header h3::after {
+	margin-inline: auto;
+	mask-position: center;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="belle"] .with-cta .section-header h3::after {
+		margin-inline: 0;
+		mask-position: left center;
+	}
+}
+
+/* Whiplash corners on panels and cards. */
+:root[data-skin="belle"] .box,
+:root[data-skin="belle"] .education {
+	position: relative;
+}
+
+:root[data-skin="belle"] .box::before,
+:root[data-skin="belle"] .box::after,
+:root[data-skin="belle"] .education::before,
+:root[data-skin="belle"] .card::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	width: 4.5rem;
+	aspect-ratio: 1;
+	pointer-events: none;
+	background: var(--gold);
+	mask: url(/assets/skins/belle/corner.svg) center / contain no-repeat;
+}
+
+:root[data-skin="belle"] .box::before,
+:root[data-skin="belle"] .education::before {
+	left: 0.4rem;
+	bottom: 0.4rem;
+}
+
+:root[data-skin="belle"] .box::after {
+	right: 0.4rem;
+	top: 0.4rem;
+	transform: rotate(180deg);
+}
+
+:root[data-skin="belle"] .card::before {
+	right: 0.5rem;
+	top: 0.5rem;
+	width: 3.5rem;
+	transform: rotate(180deg);
+	background: var(--petal);
+	opacity: 0.9;
+}
+
+:root[data-skin="belle"] .education {
+	padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+	background: var(--panel);
+	border: var(--line);
+}
+
+/* ---------- Pieces ---------- */
+
+:root[data-skin="belle"] .link {
+	font-family: var(--font-label);
+	font-style: italic;
+	font-size: 1.05em;
+}
+
+:root[data-skin="belle"] .link.active {
+	box-shadow: inset 0 -1px 0 var(--gold);
+}
+
+:root[data-skin="belle"] .link:hover,
+:root[data-skin="belle"] .link:focus {
+	color: var(--crimson);
+}
+
+:root[data-skin="belle"] .pill,
+:root[data-skin="belle"] .card-dates {
+	font-style: italic;
+}
+
+:root[data-skin="belle"] .card img {
+	filter: saturate(0.75) sepia(0.15);
+}
+
+:root[data-skin="belle"] .card:hover img,
+:root[data-skin="belle"] .card:focus-visible img {
+	filter: none;
+}
+
+:root[data-skin="belle"] .card-title {
+	font-style: italic;
+	border-bottom: 1px solid var(--gold);
+}
+
+:root[data-skin="belle"] .cta {
+	font-family: var(--font-brand);
+	font-style: italic;
+	box-shadow: inset 0 0 0 3px var(--crimson), inset 0 0 0 4px rgba(246, 231, 228, 0.55), var(--shadow-md);
+}
+
+:root[data-skin="belle"] .cta:hover,
+:root[data-skin="belle"] .cta:focus-visible {
+	background: var(--gold);
+	color: #15161a;
+	box-shadow: inset 0 0 0 3px var(--gold), inset 0 0 0 4px rgba(21, 22, 26, 0.4), var(--shadow-lg);
+}
+
+/* Portrait in an arched Art Nouveau window. */
+:root[data-skin="belle"] .portrait img {
+	border-radius: 50% 50% 2px 2px / 32% 32% 2px 2px;
+	outline: 1px solid var(--gold);
+	outline-offset: 8px;
+	filter: saturate(0.85);
+}
+
+:root[data-skin="belle"] .contact {
+	background: linear-gradient(180deg, transparent, rgba(111, 127, 140, 0.18) 50%, transparent);
+	border-color: var(--gray-800);
+}
+
+:root[data-skin="belle"] .contact-title,
+:root[data-skin="belle"] .about-title {
+	color: var(--crimson);
+}
+
+:root[data-skin="belle"] .entry-content blockquote {
+	font-style: italic;
+	border-inline-start-color: var(--gold);
+}
+
+/* ---------- Switching in: the Gommage ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	/* The old page sits on top and dissolves away. */
+	:root[data-skin="belle"][data-skin-switching]::view-transition-old(root) {
+		z-index: 1;
+		animation: belle-gommage 1.2s ease-in forwards;
+	}
+	:root[data-skin="belle"][data-skin-switching]::view-transition-new(root) {
+		animation: none;
+	}
+}
+
+@keyframes belle-gommage {
+	60% {
+		opacity: 0.6;
+	}
+	to {
+		opacity: 0;
+		filter: blur(10px) sepia(0.5) brightness(1.3);
+		transform: translateY(-40px) scale(1.03);
+	}
+}
+
+/* A storm of petals rising across the screen. */
+:root[data-skin="belle"] .skin-intro {
+	width: 100vw;
+	height: 100vh;
+	color: transparent;
+	background:
+		url(/assets/skins/belle/petals.svg) 0 0 / 300px 300px,
+		url(/assets/skins/belle/petals.svg) 90px 140px / 200px 200px,
+		url(/assets/skins/belle/petals.svg) 40px 60px / 140px 140px;
+	animation: belle-storm 1.6s ease-out forwards;
+}
+
+@keyframes belle-storm {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -30%);
+	}
+	25% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -80%);
+	}
+}

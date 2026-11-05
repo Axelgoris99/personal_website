@@ -21,6 +21,7 @@ export const skins: Skin[] = [
   { id: "spirited", label: "Spirited", intro: "🍃", swatch: ["#6fb7e6", "#3f7d3a", "#fdf8ee"] },
   { id: "retro", label: "Retro RPG", intro: "LEVEL UP!", swatch: ["#0a1262", "#3346c2", "#ffe066"] },
   { id: "parchment", label: "Parchment", swatch: ["#f3e6c6", "#8b1e1e", "#2e2416"] },
+  { id: "belle", label: "Belle Époque", intro: "✿", swatch: ["#1a1b1f", "#b8954a", "#a3262a"] },
 ];
 
 export const defaultSkin = "classic";
