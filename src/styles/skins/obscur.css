@@ -1,52 +1,54 @@
-/* Clair Obscur skin (Clair Obscur: Expedition 33 inspired). Chiaroscuro:
-   painted near-black lit by a single shaft of light, bone white, thin gold,
-   crimson petals, and a huge brush-painted "33" looming like the Monolith.
-   Light mode inverts to bone canvas and black ink. Switching in is a Gommage:
-   the old page dissolves into red petals. Artwork in
+/* Clair Obscur skin (Clair Obscur: Expedition 33 inspired), using the game's
+   own (free) typefaces: Cinzel for titles, IM Fell Double Pica for text,
+   Bebas Neue for numbers, EB Garamond for dialogue. Its menus are flat
+   charcoal with crisp white serif type, thin grey rules between rows and small
+   uppercase labels; crimson only for the Gommage's petals. Light mode is the
+   "clair" side: bone paper and charcoal ink. Artwork in
    public/assets/skins/obscur/. */
 
-@import "@fontsource/marcellus/400.css";
-@import "@fontsource/eb-garamond/400.css";
+@import "@fontsource/cinzel/400.css";
+@import "@fontsource/cinzel/600.css";
+@import "@fontsource/im-fell-double-pica/400.css";
+@import "@fontsource/im-fell-double-pica/400-italic.css";
+@import "@fontsource/bebas-neue/400.css";
 @import "@fontsource/eb-garamond/400-italic.css";
-@import "@fontsource/eb-garamond/700.css";
 
 :root[data-skin="obscur"] {
 	--crimson: #a3101f;
-	--gold: #8c6c34;
-	--bone: #ece6da;
-	--ink: #0b0a09;
-	--paint: rgba(11, 10, 9, 0.09);
-	--light: rgba(255, 246, 225, 0.6);
-	--panel: rgba(255, 252, 245, 0.6);
+	--charcoal: #1e1d1c;
+	--white: #f2efe9;
+	--rule: rgba(30, 29, 28, 0.22);
+	--numeral: rgba(30, 29, 28, 0.06);
+	--panel: transparent;
 
-	--gray-0: #050403;
-	--gray-50: #0b0a09;
-	--gray-100: #141210;
-	--gray-200: #2a2622;
-	--gray-300: #4a443d;
-	--gray-400: #625b52;
-	--gray-500: #857d72;
-	--gray-600: #a79f93;
-	--gray-700: #c8c0b3;
-	--gray-800: rgba(11, 10, 9, 0.4);
-	--gray-900: #dfd8ca;
-	--gray-999-basis: 40, 26%, 89%;
-	--gray-999: var(--bone);
+	--gray-0: #0f0e0d;
+	--gray-50: #161514;
+	--gray-100: var(--charcoal);
+	--gray-200: #2c2a28;
+	--gray-300: #4b4845;
+	--gray-400: #625f5b;
+	--gray-500: #85817c;
+	--gray-600: #a7a39d;
+	--gray-700: #c6c2bb;
+	--gray-800: var(--rule);
+	--gray-900: #e2ddd4;
+	--gray-999-basis: 40, 22%, 90%;
+	--gray-999: #ece8e0;
 
-	--accent-light: var(--gold);
-	--accent-regular: var(--crimson);
+	--accent-light: var(--gray-500);
+	--accent-regular: var(--charcoal);
 	--accent-dark: var(--crimson);
-	--accent-overlay: rgba(140, 108, 52, 0.4);
-	--accent-subtle-overlay: rgba(163, 16, 31, 0.08);
-	--accent-text-over: var(--bone);
-	--link-color: var(--crimson);
-	--gradient-stop-1: var(--ink);
-	--gradient-stop-2: var(--ink);
-	--gradient-stop-3: var(--crimson);
+	--accent-overlay: var(--rule);
+	--accent-subtle-overlay: rgba(30, 29, 28, 0.06);
+	--accent-text-over: var(--white);
+	--link-color: var(--charcoal);
+	--gradient-stop-1: var(--charcoal);
+	--gradient-stop-2: var(--charcoal);
+	--gradient-stop-3: var(--charcoal);
 
 	--shadow-sm: none;
-	--shadow-md: 0 18px 40px -20px rgba(0, 0, 0, 0.5);
-	--shadow-lg: 0 24px 50px -18px rgba(0, 0, 0, 0.6);
+	--shadow-md: none;
+	--shadow-lg: none;
 
 	--radius-xs: 0;
 	--radius-sm: 0;
@@ -54,125 +56,117 @@
 	--radius-lg: 0;
 	--radius-xl: 0;
 	--radius-pill: 0;
-	--line: 1px solid var(--gray-800);
+	--line: 1px solid var(--rule);
 
-	--surface: var(--ink);
-	--surface-muted: var(--panel);
-	--label-bg: var(--ink);
-	--label-fg: var(--bone);
-	--badge-bg: var(--ink);
-	--badge-fg: var(--bone);
+	--surface: var(--charcoal);
+	--surface-muted: transparent;
+	--label-bg: var(--charcoal);
+	--label-fg: var(--white);
+	--badge-bg: var(--charcoal);
+	--badge-fg: var(--white);
 	--pill-bg: transparent;
 	--pill-fg: var(--gray-200);
-	--pill-line: 1px solid var(--gray-800);
+	--pill-line: 1px solid var(--rule);
 	--cta-bg: transparent;
-	--cta-fg: var(--ink);
+	--cta-fg: var(--charcoal);
 	--cta-hover-overlay: transparent;
 	--nav-bg: transparent;
 	--nav-ring: transparent;
 	--nav-hover-bg: transparent;
 	--nav-active-bg: transparent;
-	--nav-active-fg: var(--crimson);
+	--nav-active-fg: var(--gray-0);
 
-	--font-body: 'EB Garamond', Georgia, serif;
-	--font-brand: Marcellus, Georgia, serif;
-	--font-label: Marcellus, Georgia, serif;
+	--font-body: 'IM Fell Double Pica', Georgia, serif;
+	--font-brand: Cinzel, Georgia, serif;
+	--font-label: 'Bebas Neue', 'Arial Narrow', sans-serif;
+	--font-dialogue: 'EB Garamond', Georgia, serif;
 	--heading-weight: 400;
-	--heading-case: uppercase;
-	--heading-tracking: 0.2em;
-	--ui-transition: 0.45s ease;
+	--heading-case: none;
+	--heading-tracking: 0.04em;
+	--ui-transition: 0.35s ease;
 }
 
-/* Obscur: the main mode. */
+/* Obscur: the game's menus. */
 :root[data-skin="obscur"].theme-dark {
 	--crimson: #c8172e;
-	--gold: #c8a46a;
-	--paint: rgba(236, 230, 218, 0.07);
-	--light: rgba(255, 238, 200, 0.16);
-	--panel: rgba(20, 18, 16, 0.7);
+	--rule: rgba(242, 239, 233, 0.16);
+	--numeral: rgba(242, 239, 233, 0.045);
 
-	--gray-0: #fbf7ef;
-	--gray-50: #f5f0e6;
-	--gray-100: var(--bone);
-	--gray-200: #d6cfc2;
-	--gray-300: #aea698;
-	--gray-400: #8f877a;
-	--gray-500: #6f685d;
-	--gray-600: #514b43;
-	--gray-700: #36322d;
-	--gray-800: rgba(236, 230, 218, 0.28);
-	--gray-900: #161412;
-	--gray-999-basis: 30, 10%, 4%;
-	--gray-999: var(--ink);
+	--gray-0: #ffffff;
+	--gray-50: #faf8f4;
+	--gray-100: var(--white);
+	--gray-200: #dcd8d1;
+	--gray-300: #b3aea6;
+	--gray-400: #918c85;
+	--gray-500: #706c66;
+	--gray-600: #55524d;
+	--gray-700: #3a3835;
+	--gray-900: #252423;
+	--gray-999-basis: 30, 4%, 11%;
+	--gray-999: var(--charcoal);
 
-	--surface: #141210;
-	--accent-text-over: var(--ink);
-	--label-bg: rgba(11, 10, 9, 0.88);
-	--badge-bg: rgba(11, 10, 9, 0.88);
-	--cta-fg: var(--bone);
+	--accent-light: var(--gray-400);
+	--accent-regular: var(--white);
+	--accent-text-over: var(--charcoal);
+	--link-color: var(--white);
+	--gradient-stop-1: var(--white);
+	--gradient-stop-2: var(--white);
+	--gradient-stop-3: var(--white);
+	--surface: #252423;
+	--label-bg: rgba(30, 29, 28, 0.92);
+	--badge-bg: rgba(30, 29, 28, 0.92);
+	--cta-fg: var(--white);
 }
 
-/* ---------- The painting ---------- */
+/* ---------- Page ---------- */
 
-/* A single shaft of light falling from the top left across painted dark,
-   with canvas grain and a heavy vignette. */
+/* Flat charcoal (or bone) with a little canvas grain. */
 :root[data-skin="obscur"] .backgrounds {
 	position: relative;
 	background:
 		url(/assets/skins/obscur/canvas.svg) 0 0 / 300px 300px repeat,
-		linear-gradient(118deg, var(--light) 0, transparent 38%),
-		radial-gradient(ellipse 90% 70% at 30% 20%, transparent 40%, rgba(0, 0, 0, 0.12) 100%) fixed,
 		var(--gray-999);
-	background-blend-mode: multiply, normal, normal, normal;
+	background-blend-mode: multiply, normal;
 }
 
 :root[data-skin="obscur"].theme-dark .backgrounds {
-	background:
-		url(/assets/skins/obscur/canvas.svg) 0 0 / 300px 300px repeat,
-		linear-gradient(118deg, var(--light) 0, transparent 40%),
-		radial-gradient(ellipse 90% 70% at 30% 20%, transparent 30%, rgba(0, 0, 0, 0.7) 100%) fixed,
-		var(--ink);
-	background-blend-mode: overlay, normal, normal, normal;
+	background-blend-mode: overlay, normal;
 }
 
-/* The Monolith's number, painted huge behind the hero. */
+/* The Monolith's number, huge and faint behind the hero. */
 :root[data-skin="obscur"] .backgrounds::before {
-	content: '';
+	content: '33';
 	position: absolute;
-	top: 40px;
-	right: -4vw;
-	width: min(78vw, 1000px);
-	aspect-ratio: 230 / 170;
+	top: -0.12em;
+	right: -0.04em;
 	z-index: -1;
 	pointer-events: none;
-	background: var(--paint);
-	mask: url(/assets/skins/obscur/monolith.svg) center / contain no-repeat;
+	font-family: var(--font-label);
+	font-size: min(60vw, 52rem);
+	line-height: 1;
+	color: var(--numeral);
 }
 
-/* Crimson petals drifting down. */
+/* A few crimson petals drifting down. */
 :root[data-skin="obscur"] .backgrounds::after {
 	content: '';
 	position: fixed;
 	inset: 0;
 	z-index: -1;
 	pointer-events: none;
-	background:
-		url(/assets/skins/obscur/petals.svg) 0 0 / 520px 520px,
-		url(/assets/skins/obscur/petals.svg) 170px 110px / 300px 300px;
-	opacity: 0.55;
+	background: url(/assets/skins/obscur/petals.svg) 0 0 / 640px 640px;
+	opacity: 0.35;
 }
 
 @media (prefers-reduced-motion: no-preference) {
 	:root[data-skin="obscur"] .backgrounds::after {
-		animation: obscur-fall 45s linear infinite;
+		animation: obscur-fall 60s linear infinite;
 	}
 }
 
 @keyframes obscur-fall {
 	to {
-		background-position:
-			-520px 1040px,
-			470px 710px;
+		background-position: -640px 1280px;
 	}
 }
 
@@ -185,106 +179,97 @@
 }
 
 :root[data-skin="obscur"] ::selection {
-	background: var(--crimson);
-	color: var(--bone);
+	background: var(--gray-100);
+	color: var(--gray-999);
 }
 
-/* ---------- Type ---------- */
+/* ---------- Rows and rules, like the game's menus ---------- */
 
-:root[data-skin="obscur"] .hero-title {
-	font-size: clamp(2.2rem, 5vw, 4.2rem);
-	line-height: 1.15;
+/* Section titles sit on a full-width hairline. */
+:root[data-skin="obscur"] .section-header,
+:root[data-skin="obscur"] .about-title {
+	padding-bottom: 1rem;
+	border-bottom: var(--line);
 }
 
-:root[data-skin="obscur"] .skills h2 {
-	font-size: var(--text-lg);
-	letter-spacing: 0.14em;
+:root[data-skin="obscur"] .section-header {
+	justify-self: stretch;
+	max-width: none;
 }
 
-/* A thin gold rule ending in a crimson diamond under the titles. */
-:root[data-skin="obscur"] .hero-title::after,
-:root[data-skin="obscur"] .section-header h3::after,
-:root[data-skin="obscur"] .contact-title::after {
-	content: '';
-	display: block;
-	width: 9rem;
-	max-width: 100%;
-	height: 7px;
-	margin-top: 1rem;
-	background:
-		linear-gradient(45deg, transparent 40%, var(--crimson) 40% 60%, transparent 60%) left center / 7px 7px no-repeat,
-		linear-gradient(90deg, var(--gold), transparent) 12px center / calc(100% - 12px) 1px no-repeat;
-}
-
-:root[data-skin="obscur"] .section-header h3::after {
-	margin-inline: auto;
-}
-
-@media (min-width: 50em) {
-	:root[data-skin="obscur"] .with-cta .section-header h3::after {
-		margin-inline: 0;
-	}
-}
-
+/* Small uppercase labels: nav, pills, dates, buttons. */
 :root[data-skin="obscur"] .link,
-:root[data-skin="obscur"] .pill,
-:root[data-skin="obscur"] .card-title,
-:root[data-skin="obscur"] .card-dates,
-:root[data-skin="obscur"] .cta {
+:root[data-skin="obscur"] .cta,
+:root[data-skin="obscur"] .skin-option {
+	font-family: var(--font-brand);
 	text-transform: uppercase;
-	letter-spacing: 0.18em;
+	letter-spacing: 0.08em;
 }
 
 :root[data-skin="obscur"] .pill,
-:root[data-skin="obscur"] .card-title,
-:root[data-skin="obscur"] .card-dates {
-	font-size: 0.72rem;
+:root[data-skin="obscur"] .card-dates,
+:root[data-skin="obscur"] .card-count {
+	font-family: var(--font-label);
+	font-size: 1rem;
+	letter-spacing: 0.08em;
 }
 
 :root[data-skin="obscur"] .link.active {
-	box-shadow: inset 0 -1px 0 var(--crimson);
+	box-shadow: inset 0 -1px 0 var(--gray-100);
 }
 
 :root[data-skin="obscur"] .link:hover,
 :root[data-skin="obscur"] .link:focus {
-	color: var(--crimson);
+	color: var(--gray-0);
 }
 
-/* ---------- Pieces ---------- */
-
-/* Work shown in black and white until you look at it. */
-:root[data-skin="obscur"] .card img,
-:root[data-skin="obscur"] .portrait img {
-	filter: grayscale(1) contrast(1.15);
+/* The skills read as three columns of a menu, divided by rules. */
+:root[data-skin="obscur"] .skills.box {
+	padding: 2rem 0;
+	border: 0;
+	border-block: var(--line);
+	background: transparent;
 }
 
-:root[data-skin="obscur"] .card:hover img,
-:root[data-skin="obscur"] .card:focus-visible img {
-	filter: grayscale(0.2) contrast(1.05);
+@media (min-width: 50em) {
+	:root[data-skin="obscur"] .skills .panel + .panel {
+		padding-left: 2.5rem;
+		border-left: var(--line);
+	}
+
+	:root[data-skin="obscur"] .skills.box {
+		gap: 2.5rem;
+	}
+}
+
+:root[data-skin="obscur"] .badge {
+	color: var(--gray-300);
+}
+
+:root[data-skin="obscur"] .badge svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+/* Education entries as menu rows. */
+:root[data-skin="obscur"] .education {
+	padding-bottom: 1.5rem;
+	border-bottom: var(--line);
+}
+
+:root[data-skin="obscur"] .card {
+	border: var(--line);
+}
+
+:root[data-skin="obscur"] .card-title {
+	font-family: var(--font-brand);
+	font-size: var(--text-md);
+	letter-spacing: 0.04em;
 }
 
 :root[data-skin="obscur"] .card:hover,
 :root[data-skin="obscur"] .card:focus-visible {
-	border-color: var(--crimson);
-	box-shadow: var(--shadow-lg);
-}
-
-:root[data-skin="obscur"] .card-title {
-	border-bottom: 1px solid var(--crimson);
-}
-
-/* Portrait: a black-and-white canvas, lit from the side, a crimson edge. */
-:root[data-skin="obscur"] .portrait img {
-	border-inline-start: 3px solid var(--crimson);
-	box-shadow: var(--shadow-lg);
-}
-
-:root[data-skin="obscur"] .portrait::after {
-	content: '';
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background: linear-gradient(118deg, rgba(255, 238, 200, 0.18), transparent 45%);
+	border-color: var(--gray-100);
 }
 
 :root[data-skin="obscur"] .cta {
@@ -293,39 +278,25 @@
 
 :root[data-skin="obscur"] .cta:hover,
 :root[data-skin="obscur"] .cta:focus-visible {
-	color: var(--bone);
-	background: var(--crimson);
-	border-color: var(--crimson);
+	color: var(--gray-999);
+	background: var(--gray-100);
 }
 
-:root[data-skin="obscur"] .box,
-:root[data-skin="obscur"] .education {
-	background: var(--panel);
-	border: var(--line);
-	border-inline-start: 2px solid var(--gold);
-}
-
-:root[data-skin="obscur"] .education {
-	padding: 1.25rem 1.5rem;
-}
-
-:root[data-skin="obscur"] .badge {
-	color: var(--crimson);
-}
-
-:root[data-skin="obscur"] .badge svg {
-	fill: currentColor;
-	stroke: currentColor;
+:root[data-skin="obscur"] .portrait img {
+	filter: saturate(0.7) contrast(1.05);
 }
 
 :root[data-skin="obscur"] .contact {
-	background: linear-gradient(118deg, var(--light), transparent 50%);
-	border-color: var(--gray-800);
+	border-block: var(--line);
+	background: transparent;
 }
 
+/* Dialogue (quotes) in EB Garamond, like the cutscenes. */
 :root[data-skin="obscur"] .entry-content blockquote {
+	font-family: var(--font-dialogue);
 	font-style: italic;
-	border-inline-start-color: var(--crimson);
+	text-transform: none;
+	border-inline-start-color: var(--rule);
 }
 
 /* ---------- Switching in: the Gommage ---------- */
