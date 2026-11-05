@@ -31,7 +31,7 @@ const resumeHref = (id: string) => {
   <div id="skin-menu" class="skin-menu" popover>
     <ul>
       {
-        skins.map(({ id, label, intro }) => (
+        skins.map(({ id, label, intro, swatch: [a, b, c] }) => (
           <li>
             <button
               class="skin-option"
@@ -39,6 +39,7 @@ const resumeHref = (id: string) => {
               data-intro={intro}
               data-resume={resumeHref(id)}
             >
+              <span class="swatch" style={`--a: ${a}; --b: ${b}; --c: ${c}`} />
               {label}
             </button>
           </li>
@@ -86,8 +87,8 @@ const resumeHref = (id: string) => {
     position: fixed;
     inset: auto;
     margin: 0;
-    padding: 0.4rem;
-    min-width: 9rem;
+    padding: 0.5rem;
+    width: min(20rem, calc(100vw - 1rem));
     color: var(--gray-200);
     background: var(--gray-999);
     border: var(--line);
@@ -95,18 +96,22 @@ const resumeHref = (id: string) => {
     box-shadow: var(--shadow-lg);
   }
 
+  /* A grid of tiles, each with a three-colour swatch of its skin. */
   ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
   .skin-option {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
     width: 100%;
-    padding: 0.45rem 0.8rem;
+    padding: 0.45rem 0.6rem;
     border: 0;
     border-radius: var(--radius-xs);
     font: inherit;
@@ -115,6 +120,15 @@ const resumeHref = (id: string) => {
     color: inherit;
     background: none;
     cursor: pointer;
+  }
+
+  .swatch {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: conic-gradient(var(--a) 0 50%, var(--b) 0 75%, var(--c) 0);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
   }
 
   .skin-option:hover,
@@ -244,9 +258,10 @@ const resumeHref = (id: string) => {
       });
       menu.addEventListener("keydown", (e) => {
         const i = options.indexOf(document.activeElement as HTMLButtonElement);
-        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        const steps: Record<string, number> = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: 2, ArrowUp: -2 };
+        if (e.key in steps) {
           e.preventDefault();
-          const step = e.key === "ArrowDown" ? 1 : -1;
+          const step = steps[e.key];
           options[(i + step + options.length) % options.length].focus();
         } else if (e.key === "Escape") {
           button.focus();
