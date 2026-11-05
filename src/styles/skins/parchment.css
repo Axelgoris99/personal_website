@@ -1,0 +1,262 @@
+/* Parchment skin (Lord of the Rings inspired). Aged parchment with a dark
+   vignette, uncial headings, map-style double borders, illuminated red
+   initials. Dark is the same book read by candlelight. */
+
+@import "@fontsource/uncial-antiqua/400.css";
+@import "@fontsource/im-fell-english/400.css";
+@import "@fontsource/im-fell-english/400-italic.css";
+
+:root[data-skin="parchment"] {
+	--ink: #2e2416;
+	--red: #8b1e1e;
+	--gold: #a0782c;
+	--sheet: #f3e6c6;
+	--sheet-edge: #d4ba86;
+	--panel: rgba(255, 248, 230, 0.55);
+	--ink-line: rgba(46, 36, 22, 0.55);
+
+	--gray-0: #1f180e;
+	--gray-50: #261e12;
+	--gray-100: #2e2416;
+	--gray-200: #3b3020;
+	--gray-300: #554731;
+	--gray-400: #6b5b40;
+	--gray-500: #8a7856;
+	--gray-600: #a8956e;
+	--gray-700: #c4ae82;
+	--gray-800: var(--ink-line);
+	--gray-900: #e7d6ad;
+	--gray-999-basis: 43, 66%, 86%;
+	--gray-999: var(--sheet);
+
+	--accent-light: var(--gold);
+	--accent-regular: var(--red);
+	--accent-dark: var(--red);
+	--accent-overlay: var(--ink-line);
+	--accent-subtle-overlay: rgba(139, 30, 30, 0.08);
+	--accent-text-over: #f6ebcf;
+	--link-color: var(--red);
+	--gradient-stop-1: var(--red);
+	--gradient-stop-2: #5a1414;
+	--gradient-stop-3: var(--ink);
+
+	--shadow-sm: 0 1px 2px rgba(60, 40, 10, 0.2);
+	--shadow-md: 0 4px 14px rgba(60, 40, 10, 0.25);
+	--shadow-lg: 0 10px 30px rgba(60, 40, 10, 0.35);
+
+	--radius-xs: 1px;
+	--radius-sm: 2px;
+	--radius-md: 2px;
+	--radius-lg: 2px;
+	--radius-xl: 2px;
+	--radius-pill: 2px;
+	--line: 1px solid var(--ink-line);
+
+	--surface: var(--panel);
+	--surface-muted: var(--panel);
+	--label-bg: #f6ebcf;
+	--label-fg: var(--red);
+	--badge-bg: #f6ebcf;
+	--badge-fg: var(--ink);
+	--pill-bg: transparent;
+	--pill-fg: var(--ink);
+	--pill-line: 1px solid var(--ink-line);
+	--cta-bg: var(--red);
+	--cta-fg: #f6ebcf;
+	--cta-hover-overlay: rgba(255, 240, 200, 0.15);
+	--nav-bg: transparent;
+	--nav-ring: transparent;
+	--nav-hover-bg: transparent;
+	--nav-active-bg: transparent;
+	--nav-active-fg: var(--red);
+
+	--font-body: 'IM Fell English', Georgia, serif;
+	--font-brand: 'Uncial Antiqua', Georgia, serif;
+	--font-label: 'IM Fell English', Georgia, serif;
+	--heading-weight: 400;
+	--heading-case: none;
+	--heading-tracking: 0.02em;
+	--ui-transition: 0.3s ease;
+}
+
+:root[data-skin="parchment"].theme-dark {
+	--ink: #e8dcc0;
+	--red: #d0573f;
+	--gold: #c9a050;
+	--sheet: #1c160e;
+	--sheet-edge: #0a0805;
+	--panel: rgba(40, 31, 19, 0.6);
+	--ink-line: rgba(232, 220, 192, 0.3);
+
+	--gray-0: #f3e9d2;
+	--gray-50: #eee3c9;
+	--gray-100: #e8dcc0;
+	--gray-200: #d8cbad;
+	--gray-300: #b8aa8a;
+	--gray-400: #9a8d70;
+	--gray-500: #7c7058;
+	--gray-600: #5e5442;
+	--gray-700: #40382b;
+	--gray-900: #2a2117;
+	--gray-999-basis: 36, 33%, 8%;
+
+	--accent-text-over: #1c160e;
+	--label-bg: #2a2117;
+	--badge-bg: #2a2117;
+	--cta-fg: #1c160e;
+	--gradient-stop-1: var(--gold);
+	--gradient-stop-2: var(--red);
+	--gradient-stop-3: #8f3424;
+
+	--shadow-lg: 0 0 30px rgba(201, 160, 80, 0.2);
+}
+
+/* Parchment darkening towards the edges, with grain. */
+:root[data-skin="parchment"] .backgrounds {
+	background:
+		url('/assets/backgrounds/noise.webp') top center / 220px repeat,
+		radial-gradient(ellipse 75% 70% at 50% 45%, var(--sheet) 45%, var(--sheet-edge) 100%) fixed,
+		var(--sheet);
+	background-blend-mode: multiply, normal, normal;
+}
+
+/* Candlelight: a warm glow near the top. */
+:root[data-skin="parchment"].theme-dark .backgrounds {
+	background:
+		url('/assets/backgrounds/noise.webp') top center / 220px repeat,
+		radial-gradient(circle at 50% 10%, rgba(201, 160, 80, 0.16), transparent 50%) fixed,
+		radial-gradient(ellipse 75% 70% at 50% 45%, var(--sheet) 45%, var(--sheet-edge) 100%) fixed,
+		var(--sheet);
+	background-blend-mode: overlay, normal, normal, normal;
+}
+
+:root[data-skin="parchment"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="parchment"] body {
+	font-size: 1.1rem;
+}
+
+/* Illuminated initials. */
+:root[data-skin="parchment"] .hero-title::first-letter,
+:root[data-skin="parchment"] .section-header h3::first-letter,
+:root[data-skin="parchment"] .contact-title::first-letter {
+	color: var(--red);
+}
+
+:root[data-skin="parchment"] .entry-content > p:first-of-type::first-letter {
+	float: left;
+	margin: 0.08em 0.12em 0 0;
+	font-family: var(--font-brand);
+	font-size: 3.4em;
+	line-height: 0.85;
+	color: var(--red);
+}
+
+/* Ornamental rule under section titles. */
+:root[data-skin="parchment"] .section-header h3::after {
+	content: '';
+	display: block;
+	width: 9rem;
+	height: 9px;
+	margin: 0.7rem auto 0;
+	background:
+		linear-gradient(45deg, transparent 40%, var(--red) 40% 60%, transparent 60%) center / 9px 9px no-repeat,
+		linear-gradient(var(--ink-line), var(--ink-line)) left center / calc(50% - 10px) 1px no-repeat,
+		linear-gradient(var(--ink-line), var(--ink-line)) right center / calc(50% - 10px) 1px no-repeat;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="parchment"] .with-cta .section-header h3::after {
+		margin-inline: 0;
+	}
+}
+
+/* Map-style double borders. */
+:root[data-skin="parchment"] .box,
+:root[data-skin="parchment"] .education,
+:root[data-skin="parchment"] .contact {
+	border: 1px solid var(--ink-line);
+	box-shadow: inset 0 0 0 4px var(--sheet), inset 0 0 0 5px var(--ink-line);
+}
+
+:root[data-skin="parchment"] .education {
+	padding: 1.25rem 1.5rem;
+	background: var(--panel);
+}
+
+:root[data-skin="parchment"] .contact {
+	margin-inline: 1rem;
+	background: var(--panel);
+}
+
+:root[data-skin="parchment"] .card::after {
+	content: '';
+	position: absolute;
+	inset: 5px;
+	z-index: 1;
+	pointer-events: none;
+	border: 1px solid rgba(246, 235, 207, 0.8);
+}
+
+:root[data-skin="parchment"] .card img,
+:root[data-skin="parchment"] .portrait img {
+	filter: sepia(0.35) saturate(0.85);
+}
+
+:root[data-skin="parchment"] .card:hover img,
+:root[data-skin="parchment"] .card:focus-visible img {
+	filter: none;
+}
+
+:root[data-skin="parchment"] .card-title {
+	font-size: var(--text-md);
+	border: 1px solid var(--ink-line);
+}
+
+:root[data-skin="parchment"] .portrait img {
+	border: 1px solid var(--ink-line);
+	outline: 1px solid var(--ink-line);
+	outline-offset: 6px;
+}
+
+:root[data-skin="parchment"] .pill {
+	font-style: italic;
+}
+
+:root[data-skin="parchment"] .cta {
+	font-family: var(--font-brand);
+	box-shadow: inset 0 0 0 2px var(--red), inset 0 0 0 3px rgba(246, 235, 207, 0.5), var(--shadow-md);
+}
+
+:root[data-skin="parchment"] .link.active {
+	text-decoration: underline;
+	text-decoration-color: var(--red);
+	text-underline-offset: 0.35em;
+}
+
+:root[data-skin="parchment"] .link:hover,
+:root[data-skin="parchment"] .link:focus {
+	color: var(--red);
+}
+
+:root[data-skin="parchment"] .entry-content blockquote {
+	font-family: var(--font-body);
+	font-style: italic;
+	border-inline-start-color: var(--red);
+}
+
+/* Switching in: the page burns in like an old photograph developing. */
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="parchment"][data-skin-switching]::view-transition-new(root) {
+		animation: parchment-burn 0.9s ease;
+	}
+}
+
+@keyframes parchment-burn {
+	from {
+		opacity: 0;
+		filter: sepia(1) brightness(1.6) blur(2px);
+	}
+}

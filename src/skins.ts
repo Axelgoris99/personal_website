@@ -17,6 +17,7 @@ export const skins: Skin[] = [
   { id: "undercity", label: "Undercity" },
   { id: "spirited", label: "Spirited", intro: "🍃" },
   { id: "retro", label: "Retro RPG", intro: "LEVEL UP!" },
+  { id: "parchment", label: "Parchment" },
 ];
 
 export const defaultSkin = "classic";
