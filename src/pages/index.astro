@@ -205,20 +205,169 @@ const projects = (await getCollection("project"))
 </BaseLayout>
 
 <style>
-  .hero {
+  :global(html:not(.comic)) .burst {
+    display: none;
+  }
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  :global(html:not(.comic)) .hero img {
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  :global(html:not(.comic)) .roles {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+   }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .hero {
+      display: grid;
+      grid-template-columns: 6fr 4fr;
+      padding-inline: 2.5rem;
+      gap: 3.75rem;
+    }
+
+    :global(html:not(.comic)) .hero img {
+      aspect-ratio: 3 / 4;
+      border-radius: 4.5rem;
+      object-fit: cover;
+    }
+  }
+
+  /* ====================================================== */
+
+  :global(html:not(.comic)) .section {
+    display: grid;
+    gap: 2rem;
+  }
+
+  :global(html:not(.comic)) .with-background {
+    position: relative;
+  }
+
+  :global(html:not(.comic)) .with-background::before {
+    --hero-bg: var(--bg-image-subtle-2);
+
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    width: 100vw;
+    aspect-ratio: calc(2.25 / var(--bg-scale));
+    top: 0;
+    transform: translateY(-75%) translateX(-50%);
+    background:
+      url("/assets/backgrounds/noise.webp") top center/220px repeat,
+      var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+      var(--gray-999);
+    background-blend-mode: overlay, normal, normal, normal;
+    mix-blend-mode: var(--bg-blend-mode);
+    z-index: -1;
+  }
+
+  :global(html:not(.comic)) .with-background.bg-variant::before {
+    --hero-bg: var(--bg-image-subtle-1);
+  }
+
+  :global(html:not(.comic)) .section-header {
+    justify-self: center;
+    text-align: center;
+    max-width: 50ch;
+    font-size: var(--text-md);
+    color: var(--gray-300);
+  }
+
+  :global(html:not(.comic)) .section-header h3 {
+    font-size: var(--text-2xl);
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .section {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: "header header header header" "gallery gallery gallery gallery";
+      gap: 5rem;
+    }
+
+    :global(html:not(.comic)) .section.with-cta {
+      grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
+    }
+
+    :global(html:not(.comic)) .section-header {
+      grid-area: header;
+      font-size: var(--text-lg);
+    }
+
+    :global(html:not(.comic)) .section-header h3 {
+      font-size: var(--text-4xl);
+    }
+
+    :global(html:not(.comic)) .with-cta .section-header {
+      justify-self: flex-start;
+      text-align: left;
+    }
+
+    :global(html:not(.comic)) .gallery {
+      grid-area: gallery;
+    }
+
+    :global(html:not(.comic)) .cta {
+      grid-area: cta;
+    }
+  }
+
+  /* ====================================================== */
+
+  :global(html:not(.comic)) .mention-card {
+    display: flex;
+    height: 7rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--gray-800);
+    border-radius: 1.5rem;
+    color: var(--gray-300);
+    background: var(--gradient-subtle);
+    box-shadow: var(--shadow-sm);
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .mention-card {
+      border-radius: 1.5rem;
+      height: 9.5rem;
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2.5rem;
   }
 
-  .portrait {
+  :global(html.comic) .portrait {
     position: relative;
     max-width: 30rem;
   }
 
   /* Portrait as a comic frame with an off-register cyan plate behind it. */
-  .portrait :global(img) {
+  :global(html.comic) .portrait :global(img) {
     display: block;
     aspect-ratio: 5 / 4;
     object-fit: cover;
@@ -231,7 +380,7 @@ const projects = (await getCollection("project"))
   }
 
   /* Starburst sticker. */
-  .burst {
+  :global(html.comic) .burst {
     position: absolute;
     z-index: 1;
     top: -1.5rem;
@@ -252,7 +401,7 @@ const projects = (await getCollection("project"))
     );
   }
 
-  .roles {
+  :global(html.comic) .roles {
     margin-top: 0.5rem;
     display: flex;
     gap: 0.75rem;
@@ -262,22 +411,22 @@ const projects = (await getCollection("project"))
   }
 
   @media (min-width: 50em) {
-    .hero {
+    :global(html.comic) .hero {
       display: grid;
       grid-template-columns: 6fr 4fr;
       padding-inline: 2.5rem;
       gap: 3.75rem;
     }
 
-    .roles {
+    :global(html.comic) .roles {
       justify-content: flex-start;
     }
 
-    .portrait :global(img) {
+    :global(html.comic) .portrait :global(img) {
       aspect-ratio: 3 / 4;
     }
 
-    .burst {
+    :global(html.comic) .burst {
       width: 7.5rem;
       font-size: 2.6rem;
     }
@@ -285,12 +434,12 @@ const projects = (await getCollection("project"))
 
   /* ====================================================== */
 
-  .section {
+  :global(html.comic) .section {
     display: grid;
     gap: 2rem;
   }
 
-  .section-header {
+  :global(html.comic) .section-header {
     justify-self: center;
     text-align: center;
     max-width: 50ch;
@@ -299,7 +448,7 @@ const projects = (await getCollection("project"))
   }
 
   /* Section titles sit on a skewed highlighter stroke. */
-  .section-header h3 {
+  :global(html.comic) .section-header h3 {
     justify-self: inherit;
     width: fit-content;
     margin-inline: auto;
@@ -309,49 +458,50 @@ const projects = (await getCollection("project"))
   }
 
   @media (min-width: 50em) {
-    .section {
+    :global(html.comic) .section {
       grid-template-columns: repeat(4, 1fr);
       grid-template-areas: "header header header header" "gallery gallery gallery gallery";
       gap: 4rem;
     }
 
-    .section.with-cta {
+    :global(html.comic) .section.with-cta {
       grid-template-areas: "header header header cta" "gallery gallery gallery gallery";
     }
 
-    .section-header {
+    :global(html.comic) .section-header {
       grid-area: header;
       font-size: var(--text-lg);
     }
 
-    .section-header h3 {
+    :global(html.comic) .section-header h3 {
       font-size: var(--text-5xl);
     }
 
-    .with-cta .section-header {
+    :global(html.comic) .with-cta .section-header {
       justify-self: flex-start;
       text-align: left;
     }
 
-    .with-cta .section-header h3 {
+    :global(html.comic) .with-cta .section-header h3 {
       margin-inline: 0;
     }
 
-    .gallery {
+    :global(html.comic) .gallery {
       grid-area: gallery;
     }
 
-    .cta {
+    :global(html.comic) .cta {
       grid-area: cta;
       align-self: center;
     }
   }
 
   /* Alternate the highlighter colour per section. */
-  .section:nth-of-type(2) .section-header h3 {
+  :global(html.comic) .section:nth-of-type(2) .section-header h3 {
     background: linear-gradient(transparent 55%, var(--cyan) 55%, var(--cyan) 90%, transparent 90%);
   }
-  .section:nth-of-type(3) .section-header h3 {
+  :global(html.comic) .section:nth-of-type(3) .section-header h3 {
     background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
   }
+
 </style>

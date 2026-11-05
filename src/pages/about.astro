@@ -73,13 +73,77 @@ const educations = (await getCollection("education")).sort(
 </BaseLayout>
 
 <style>
-  .about {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .about {
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
   }
 
-  img {
+  :global(html:not(.comic)) img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  :global(html:not(.comic)) section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+  :global(html:not(.comic)) p {
+    margin-bottom: 1rem;
+  }
+
+  :global(html:not(.comic)) .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  :global(html:not(.comic)) .content {
+    grid-column: 2 / 4;
+    text-indent: 20px;
+  }
+
+  :global(html:not(.comic)) .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  :global(html:not(.comic)) .content :global(a:hover),
+  :global(html:not(.comic)) .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    :global(html:not(.comic)) .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    :global(html:not(.comic)) section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  :global(html.comic) img {
     margin-top: 1.5rem;
     border: var(--border);
     box-shadow:
@@ -88,17 +152,17 @@ const educations = (await getCollection("education")).sort(
     transform: rotate(-1deg);
   }
 
-  section {
+  :global(html.comic) section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     color: var(--gray-200);
   }
-  p {
+  :global(html.comic) p {
     margin-bottom: 1rem;
   }
 
-  .section-title {
+  :global(html.comic) .section-title {
     grid-column-start: 1;
     align-self: start;
     width: fit-content;
@@ -111,35 +175,36 @@ const educations = (await getCollection("education")).sort(
     transform: rotate(-3deg);
   }
 
-  .content {
+  :global(html.comic) .content {
     grid-column: 2 / 4;
     text-indent: 20px;
   }
 
-  .content :global(a) {
+  :global(html.comic) .content :global(a) {
     text-decoration: 2px solid underline transparent;
     text-underline-offset: 0.25em;
     transition: text-decoration-color var(--theme-transition);
   }
 
-  .content :global(a:hover),
-  .content :global(a:focus) {
+  :global(html.comic) .content :global(a:hover),
+  :global(html.comic) .content :global(a:focus) {
     text-decoration-color: currentColor;
   }
 
   @media (min-width: 50em) {
-    .about {
+    :global(html.comic) .about {
       display: grid;
       grid-template-columns: 1fr 60% 1fr;
     }
 
-    .about > :global(:first-child) {
+    :global(html.comic) .about > :global(:first-child) {
       grid-column-start: 2;
     }
 
-    section {
+    :global(html.comic) section {
       display: contents;
       font-size: var(--text-lg);
     }
   }
+
 </style>

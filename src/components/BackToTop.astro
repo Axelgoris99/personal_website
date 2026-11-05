@@ -30,7 +30,25 @@ import Icon from "./Icon.astro";
 </script>
 
 <style>
-  .toTop {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .toTop {
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -45,8 +63,9 @@ import Icon from "./Icon.astro";
     transition: transform var(--snap), box-shadow var(--snap);
   }
 
-  .toTop:hover {
+  :global(html.comic) .toTop:hover {
     transform: translate(-2px, -2px) rotate(-6deg);
     box-shadow: var(--pop);
   }
+
 </style>

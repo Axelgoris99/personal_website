@@ -9,7 +9,56 @@ const { href, ...attrs } = Astro.props;
 <a href={href} {...attrs}><slot /></a>
 
 <style>
-  a {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) a {
+    position: relative;
+    display: flex;
+    place-content: center;
+    text-align: center;
+    padding: 0.56em 2em;
+    gap: 0.8em;
+    color: var(--accent-text-over);
+    text-decoration: none;
+    line-height: 1.1;
+    border-radius: 999rem;
+    overflow: hidden;
+    background: var(--gradient-accent-orange);
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+  }
+
+  @media (min-width: 20em) {
+    :global(html:not(.comic)) a {
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* Overlay for hover effects. */
+  :global(html:not(.comic)) a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transition: background-color var(--theme-transition);
+    mix-blend-mode: overlay;
+  }
+
+  :global(html:not(.comic)) a:focus::after,
+  :global(html:not(.comic)) a:hover::after {
+    background-color: hsla(var(--gray-999-basis), 0.3);
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) a {
+      padding: 1.125rem 2.5rem;
+      font-size: var(--text-xl);
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) a {
     position: relative;
     display: flex;
     place-content: center;
@@ -35,25 +84,25 @@ const { href, ...attrs } = Astro.props;
   }
 
   @media (min-width: 20em) {
-    a {
+    :global(html.comic) a {
       font-size: var(--text-lg);
     }
   }
 
-  a:hover,
-  a:focus-visible {
+  :global(html.comic) a:hover,
+  :global(html.comic) a:focus-visible {
     background: var(--yellow);
     transform: skewX(-8deg) translate(-3px, -3px);
     box-shadow: var(--pop-lg);
   }
 
-  a:active {
+  :global(html.comic) a:active {
     transform: skewX(-8deg) translate(4px, 4px);
     box-shadow: 0 0 0 var(--ink-shadow);
   }
 
   /* Halftone sheen across the button. */
-  a::after {
+  :global(html.comic) a::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -63,9 +112,10 @@ const { href, ...attrs } = Astro.props;
   }
 
   @media (min-width: 50em) {
-    a {
+    :global(html.comic) a {
       padding: 1rem 2.4rem;
       font-size: var(--text-xl);
     }
   }
+
 </style>

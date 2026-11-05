@@ -1,7 +1,24 @@
 <div class="pill"><slot /></div>
 
 <style>
-  .pill {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .pill {
+    display: flex;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+    color: var(--accent-text-over);
+    border: 1px solid var(--accent-regular);
+    background-color: var(--accent-regular);
+    border-radius: 999rem;
+    font-size: var(--text-md);
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .pill {
     display: flex;
     align-items: center;
     padding: 0.3rem 0.8rem;
@@ -20,16 +37,17 @@
   }
 
   /* Stickers slapped on at slightly different angles, in different inks. */
-  .pill:nth-child(3n + 2) {
+  :global(html.comic) .pill:nth-child(3n + 2) {
     background-color: var(--cyan);
     transform: rotate(1.5deg);
   }
-  .pill:nth-child(3n) {
+  :global(html.comic) .pill:nth-child(3n) {
     background-color: var(--magenta);
     transform: rotate(-1deg);
   }
 
-  .pill:hover {
+  :global(html.comic) .pill:hover {
     transform: rotate(0) scale(1.08);
   }
+
 </style>

@@ -2,20 +2,20 @@
 import Icon from "./Icon.astro";
 ---
 
-<section class="skills">
+<section class="box skills">
   <div class="panel stack gap-2 lg:gap-4">
-    <span class="badge"><Icon icon="terminal-window" size="2rem" /></span>
+    <span class="badge"><Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient /></span>
     <h2>Full Stack</h2>
     <p>C# - C++ - Python - Angular - React - Kotlin. But also a bit of Golang, a bit of Rust, a lot of GDScript, some plantUml for diagrams, some svg icons design in code, etc. Tell me what you want</p>
     <p>I'll help you achieve it.</p>
   </div>
   <div class="panel stack gap-2 lg:gap-4">
-    <span class="badge"><Icon icon="trophy" size="2rem" /></span>
+    <span class="badge"><Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient /></span>
     <h2>High-Stakes Software</h2>
     <p>Railway simulators, defence, and now healthcare AI. Software where getting it wrong is not an option.</p>
   </div>
   <div class="panel stack gap-2 lg:gap-4">
-    <span class="badge"><Icon icon="strategy" size="2rem" /></span>
+    <span class="badge"><Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient /></span>
     <h2>Dev Ops</h2>
     <p>
       CI/CD, Docker, on-site deployments. At home: two Proxmox servers and a VPS running 30+ self-hosted services, from Home Assistant to game servers. <a href="/project/homelab">More here</a>.
@@ -24,13 +24,60 @@ import Icon from "./Icon.astro";
 </section>
 
 <style>
-  .skills {
+  .badge {
+    display: flex;
+  }
+
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .box {
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background-color: var(--gray-999_40);
+    box-shadow: var(--shadow-sm);
+  }
+
+  :global(html:not(.comic)) .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  :global(html:not(.comic)) .skills h2 {
+    font-size: var(--text-lg);
+  }
+
+  :global(html:not(.comic)) .skills p {
+    color: var(--gray-400);
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .box {
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+
+    :global(html:not(.comic)) .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5rem;
+    }
+
+    :global(html:not(.comic)) .skills h2 {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .skills {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
-  .panel {
+  :global(html.comic) .panel {
     --tint: var(--yellow);
     position: relative;
     padding: 1.5rem;
@@ -39,15 +86,15 @@ import Icon from "./Icon.astro";
     box-shadow: var(--pop);
   }
 
-  .panel:nth-child(2) {
+  :global(html.comic) .panel:nth-child(2) {
     --tint: var(--cyan);
   }
-  .panel:nth-child(3) {
+  :global(html.comic) .panel:nth-child(3) {
     --tint: var(--magenta);
   }
 
   /* Halftone in the panel's ink colour, bleeding from the corner. */
-  .panel::before {
+  :global(html.comic) .panel::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -56,7 +103,7 @@ import Icon from "./Icon.astro";
     mask-image: radial-gradient(circle at 100% 0%, #000, transparent 60%);
   }
 
-  .badge {
+  :global(html.comic) .badge {
     display: flex;
     align-self: flex-start;
     padding: 0.5rem;
@@ -67,39 +114,47 @@ import Icon from "./Icon.astro";
     transform: rotate(-4deg);
   }
 
-  .skills h2 {
+  :global(html.comic) .badge :global(svg) {
+    width: 2rem;
+    height: 2rem;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+
+  :global(html.comic) .skills h2 {
     font-size: var(--text-xl);
   }
 
-  .skills p {
+  :global(html.comic) .skills p {
     position: relative;
     color: var(--gray-300);
   }
 
   @media (min-width: 50em) {
-    .skills {
+    :global(html.comic) .skills {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
     }
 
-    .panel {
+    :global(html.comic) .panel {
       padding: 2.25rem;
     }
 
     /* Mismatched panel angles. */
-    .panel:nth-child(1) {
+    :global(html.comic) .panel:nth-child(1) {
       transform: rotate(-1deg);
     }
-    .panel:nth-child(2) {
+    :global(html.comic) .panel:nth-child(2) {
       transform: translateY(1.5rem) rotate(0.8deg);
     }
-    .panel:nth-child(3) {
+    :global(html.comic) .panel:nth-child(3) {
       transform: rotate(-0.5deg);
     }
 
-    .skills h2 {
+    :global(html.comic) .skills h2 {
       font-size: var(--text-2xl);
     }
   }
+
 </style>

@@ -1,0 +1,104 @@
+<comic-toggle>
+  <button aria-pressed="false" title="Comic mode">
+    <span class="sr-only">Comic mode</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13.5 2 4 14h6.5L9 22l11-13h-7l2.5-7z" />
+    </svg>
+  </button>
+</comic-toggle>
+
+<style>
+  button {
+    display: flex;
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 999rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+  }
+
+  :global(html:not(.comic)) button {
+    color: var(--accent-regular);
+    background-color: var(--gray-999);
+    box-shadow: inset 0 0 0 1px var(--accent-overlay);
+    transition:
+      color var(--theme-transition),
+      background-color var(--theme-transition);
+  }
+
+  :global(html:not(.comic)) button:hover,
+  :global(html:not(.comic)) button:focus-visible {
+    color: var(--accent-text-over);
+    background-color: var(--accent-regular);
+  }
+
+  :global(html.comic) button {
+    border-radius: 0;
+    color: var(--on-accent);
+    background-color: var(--yellow);
+    border: var(--border-thin);
+    box-shadow: var(--pop-sm);
+    transform: rotate(-6deg);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(html.comic) svg {
+      animation: beat calc(var(--beat) * 2) infinite;
+    }
+  }
+</style>
+
+<script>
+  class ComicToggle extends HTMLElement {
+    constructor() {
+      super();
+
+      const root = document.documentElement;
+      const button = this.querySelector("button")!;
+      const isComic = () => root.classList.contains("comic");
+      const sync = () => button.setAttribute("aria-pressed", String(isComic()));
+
+      const setComic = (on: boolean) => {
+        root.classList.toggle("comic", on);
+        try {
+          localStorage.setItem("style", on ? "comic" : "normal");
+        } catch {}
+        sync();
+      };
+
+      button.addEventListener("click", () => {
+        const on = !isComic();
+        const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (!document.startViewTransition || reduced) return setComic(on);
+
+        // Reveal the new look as a circle bursting out of this button.
+        const { left, top, width, height } = button.getBoundingClientRect();
+        root.style.setProperty("--switch-x", `${left + width / 2}px`);
+        root.style.setProperty("--switch-y", `${top + height / 2}px`);
+        root.classList.add("comic-switching");
+
+        const transition = document.startViewTransition(() => {
+          setComic(on);
+          if (on) {
+            const bim = document.createElement("div");
+            bim.className = "bim";
+            bim.textContent = "BIM!";
+            bim.setAttribute("aria-hidden", "true");
+            bim.addEventListener("animationend", () => bim.remove());
+            document.body.append(bim);
+          }
+        });
+        transition.finished.finally(() => root.classList.remove("comic-switching"));
+      });
+
+      sync();
+    }
+  }
+  customElements.define("comic-toggle", ComicToggle);
+</script>

@@ -24,16 +24,18 @@ const { data, id: slug } = Astro.props.education;
   </div>
 </div>
 <style>
-  .title {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .title {
     font-size: var(--text-lg);
     color: var(--gray-0);
   }
-  .dateLocation {
+  :global(html:not(.comic)) .dateLocation {
     font-size: var(--text-base);
-    color: var(--gray-400);
+    color: var(--gray-2);
     padding-left: 2rem;
   }
-  .tags {
+  :global(html:not(.comic)) .tags {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     display: flex;
@@ -41,7 +43,32 @@ const { data, id: slug } = Astro.props.education;
     gap: 0.5rem;
     text-indent: 0px;
   }
-  .education {
+  @media (min-width: 50em) {
+  :global(html:not(.comic)) .education {
+    margin-bottom: 2rem;
+  }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .title {
+    font-size: var(--text-lg);
+    color: var(--gray-0);
+  }
+  :global(html.comic) .dateLocation {
+    font-size: var(--text-base);
+    color: var(--gray-400);
+    padding-left: 2rem;
+  }
+  :global(html.comic) .tags {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    text-indent: 0px;
+  }
+  :global(html.comic) .education {
     position: relative;
     margin-bottom: 2rem;
     padding: 1.25rem 1.5rem;
@@ -50,10 +77,11 @@ const { data, id: slug } = Astro.props.education;
     box-shadow: var(--pop);
     text-indent: 0;
   }
-  .education a {
+  :global(html.comic) .education a {
     text-decoration: none;
   }
-  .education a:hover .title {
+  :global(html.comic) .education a:hover .title {
     color: var(--magenta);
   }
+
 </style>

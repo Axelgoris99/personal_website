@@ -16,7 +16,65 @@ const currentYear = new Date().getFullYear();
   </p>
 </footer>
 <style>
-  footer {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) footer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: auto;
+    padding: 3rem 2rem 3rem;
+    text-align: center;
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+  }
+
+  :global(html:not(.comic)) footer a {
+    color: var(--gray-400);
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  :global(html:not(.comic)) footer a:hover,
+  :global(html:not(.comic)) footer a:focus {
+    text-decoration-color: currentColor;
+  }
+
+  :global(html:not(.comic)) .group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :global(html:not(.comic)) .socials {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) footer {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2.5rem 5rem;
+    }
+
+    :global(html:not(.comic)) .group {
+      flex-direction: row;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    :global(html:not(.comic)) .socials {
+      justify-content: flex-end;
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) footer {
     background: var(--panel);
     display: flex;
     flex-direction: column;
@@ -29,25 +87,25 @@ const currentYear = new Date().getFullYear();
     font-weight: 700;
   }
 
-  footer a {
+  :global(html.comic) footer a {
     color: var(--gray-400);
     text-decoration: 2px solid underline transparent;
     text-underline-offset: 0.25em;
     transition: text-decoration-color var(--theme-transition);
   }
 
-  footer a:hover,
-  footer a:focus {
+  :global(html.comic) footer a:hover,
+  :global(html.comic) footer a:focus {
     text-decoration-color: currentColor;
   }
 
-  .group {
+  :global(html.comic) .group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .socials {
+  :global(html.comic) .socials {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -55,20 +113,21 @@ const currentYear = new Date().getFullYear();
   }
 
   @media (min-width: 50em) {
-    footer {
+    :global(html.comic) footer {
       flex-direction: row;
       justify-content: space-between;
       padding: 2.5rem 5rem;
     }
 
-    .group {
+    :global(html.comic) .group {
       flex-direction: row;
       gap: 1rem;
       flex-wrap: wrap;
     }
 
-    .socials {
+    :global(html.comic) .socials {
       justify-content: flex-end;
     }
   }
+
 </style>

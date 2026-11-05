@@ -1,67 +1,56 @@
 /* Global variables */
 :root {
-	/* Comic palette: paper, ink, and three print colors (magenta, cyan, yellow). */
-	--paper: #fbf5e8;
-	--panel: #ffffff;
-	--ink: #14121a;
-	--ink-shadow: #14121a;
-	--magenta: #ff2e88;
-	--cyan: #00c8f0;
-	--yellow: #ffe14d;
-	--violet: #7b3cff;
-	--on-accent: #14121a;
-	--dot: rgba(20, 18, 26, 0.13);
-
-	--border: 3px solid var(--ink);
-	--border-thin: 2px solid var(--ink);
-	--pop: 6px 6px 0 var(--ink-shadow);
-	--pop-sm: 3px 3px 0 var(--ink-shadow);
-	--pop-lg: 10px 10px 0 var(--ink-shadow);
-	--halftone: radial-gradient(var(--dot) 1.4px, transparent 1.6px) 0 0 / 12px 12px;
-
-	/* One beat at 120 BPM. Pulsing elements sync to it. */
-	--beat: 0.5s;
-	/* "Animated on twos": hovers snap in a few frames instead of easing smoothly. */
-	--snap: 0.18s steps(3, end);
-
-	/* Legacy gray scale, retuned warm and inky. */
-	--gray-0: #14121a;
-	--gray-50: #1c1924;
-	--gray-100: #14121a;
-	--gray-200: #2b2733;
-	--gray-300: #48434f;
-	--gray-400: #5e5866;
-	--gray-500: #7a7482;
-	--gray-600: #a39dab;
-	--gray-700: #c9c3cf;
-	--gray-800: #14121a;
-	--gray-900: #f3ecdc;
-	--gray-999-basis: 42, 70%, 95%;
+	/* Colors */
+	--gray-0: #090b11;
+	--gray-50: #141925;
+	--gray-100: #283044;
+	--gray-200: #3d4663;
+	--gray-300: #505d84;
+	--gray-400: #6474a2;
+	--gray-500: #8490b5;
+	--gray-600: #a3acc8;
+	--gray-700: #c3cadb;
+	--gray-800: #e3e6ee;
+	--gray-900: #f3f4f7;
+	--gray-999-basis: 0, 0%, 100%;
 	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
-	--gray-999: #fbf5e8;
+	--gray-999: #ffffff;
 
-	--accent-light: var(--cyan);
-	--accent-regular: var(--magenta);
-	--accent-dark: var(--violet);
-	--accent-overlay: rgba(255, 46, 136, 0.25);
-	--accent-subtle-overlay: var(--yellow);
-	--accent-text-over: var(--on-accent);
+	--accent-light: #c561f6;
+	--accent-regular: #5c4e63;
+	--accent-dark: #1c0056;
+	--accent-overlay: hsla(280, 89%, 67%, 0.33);
+	--accent-subtle-overlay: var(--accent-overlay);
+	--accent-text-over: var(--gray-999);
 
-	--link-color: #d10063;
+	--link-color: var(--accent-regular);
 
-	/* Gradients (used by icons) */
-	--gradient-stop-1: var(--magenta);
-	--gradient-stop-2: var(--violet);
-	--gradient-stop-3: var(--cyan);
-	--gradient-subtle: var(--panel);
-	--gradient-accent: linear-gradient(150deg, var(--magenta), var(--violet), var(--cyan));
-	--gradient-accent-orange: var(--magenta);
-	--gradient-stroke: var(--ink);
+	/* Gradients */
+	--gradient-stop-1: var(--accent-light);
+	--gradient-stop-2: var(--accent-regular);
+	--gradient-stop-3: var(--accent-dark);
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 150%);
+	--gradient-accent: linear-gradient(
+		150deg,
+		var(--gradient-stop-1),
+		var(--gradient-stop-2),
+		var(--gradient-stop-3)
+	);
+	--gradient-accent-orange: linear-gradient(
+		150deg,
+		#ca7879,
+		var(--accent-regular),
+		var(--accent-dark)
+	);
+	--gradient-stroke: linear-gradient(180deg, var(--gray-900), var(--gray-700));
 
 	/* Shadows */
-	--shadow-sm: var(--pop-sm);
-	--shadow-md: var(--pop);
-	--shadow-lg: var(--pop-lg);
+	--shadow-sm: 0px 6px 3px rgba(9, 11, 17, 0.01), 0px 4px 2px rgba(9, 11, 17, 0.01),
+		0px 2px 2px rgba(9, 11, 17, 0.02), 0px 0px 1px rgba(9, 11, 17, 0.03);
+	--shadow-md: 0px 28px 11px rgba(9, 11, 17, 0.01), 0px 16px 10px rgba(9, 11, 17, 0.03),
+		0px 7px 7px rgba(9, 11, 17, 0.05), 0px 2px 4px rgba(9, 11, 17, 0.06);
+	--shadow-lg: 0px 62px 25px rgba(9, 11, 17, 0.01), 0px 35px 21px rgba(9, 11, 17, 0.05),
+		0px 16px 16px rgba(9, 11, 17, 0.1), 0px 4px 9px rgba(9, 11, 17, 0.12);
 
 	/* Text Sizes */
 	--text-sm: 0.875rem;
@@ -78,37 +67,52 @@
 	--font-system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-body: 'Public Sans', var(--font-system);
-	--font-brand: Anton, Impact, var(--font-system);
-	--font-sticker: Bangers, var(--font-brand);
+	--font-brand: Rubik, var(--font-system);
 
 	/* Transitions */
 	--theme-transition: 0.2s ease-in-out;
 }
 
-/* Night mode: Miles-at-night. Light ink lines, neon offset shadows. */
 :root.theme-dark {
-	--paper: #110e1f;
-	--panel: #1d1830;
-	--ink: #f4eedf;
-	--ink-shadow: var(--magenta);
-	--dot: rgba(123, 60, 255, 0.28);
-	--yellow: #ffd60a;
+	--gray-0: #ffffff;
+	--gray-50: #f3f4f7;
+	--gray-100: #e3e6ee;
+	--gray-200: #c3cadb;
+	--gray-300: #a3acc8;
+	--gray-400: #8490b5;
+	--gray-500: #6474a2;
+	--gray-600: #505d84;
+	--gray-700: #3d4663;
+	--gray-800: #283044;
+	--gray-900: #141925;
+	--gray-999-basis: 225, 31%, 5%;
+	--gray-999: #090b11;
 
-	--gray-0: #fbf5e8;
-	--gray-50: #f4eedf;
-	--gray-100: #fbf5e8;
-	--gray-200: #e0d9e8;
-	--gray-300: #c2bacc;
-	--gray-400: #a69eb2;
-	--gray-500: #8a8296;
-	--gray-600: #615a70;
-	--gray-700: #3c3550;
-	--gray-800: #f4eedf;
-	--gray-900: #1d1830;
-	--gray-999-basis: 252, 36%, 9%;
-	--gray-999: #110e1f;
+	--accent-light: #1c0056;
+	--accent-regular: #5c4e63;
+	--accent-dark: #c561f6;
+	--accent-overlay: hsla(280, 89%, 67%, 0.33);
+	--accent-subtle-overlay: hsla(281, 81%, 36%, 0.33);
+	--accent-text-over: var(--gray-0);
 
-	--link-color: var(--cyan);
+	--link-color: var(--accent-dark);
+
+	--gradient-stop-1: #4c11c6;
+	--gradient-subtle: linear-gradient(150deg, var(--gray-900) 19%, var(--gray-999) 81%);
+	--gradient-accent-orange: linear-gradient(
+		150deg,
+		#ca7879,
+		var(--accent-regular),
+		var(--accent-light)
+	);
+	--gradient-stroke: linear-gradient(180deg, var(--gray-600), var(--gray-800));
+
+	--shadow-sm: 0px 6px 3px rgba(255, 255, 255, 0.01), 0px 4px 2px rgba(255, 255, 255, 0.01),
+		0px 2px 2px rgba(255, 255, 255, 0.02), 0px 0px 1px rgba(255, 255, 255, 0.03);
+	--shadow-md: 0px 28px 11px rgba(255, 255, 255, 0.01), 0px 16px 10px rgba(255, 255, 255, 0.03),
+		0px 7px 7px rgba(255, 255, 255, 0.05), 0px 2px 4px rgba(255, 255, 255, 0.06);
+	--shadow-lg: 0px 62px 25px rgba(255, 255, 255, 0.01), 0px 35px 21px rgba(255, 255, 255, 0.05),
+		0px 16px 16px rgba(255, 255, 255, 0.1), 0px 4px 9px rgba(255, 255, 255, 0.12);
 }
 
 /* Keep overflow on html only: it applies to the viewport, so the window stays
@@ -147,18 +151,6 @@ img {
 
 a {
 	color: var(--link-color);
-	text-decoration-thickness: 2px;
-	text-underline-offset: 0.2em;
-}
-
-::selection {
-	background: var(--yellow);
-	color: var(--on-accent);
-}
-
-:focus-visible {
-	outline: 3px solid var(--magenta);
-	outline-offset: 3px;
 }
 
 h1,
@@ -168,9 +160,7 @@ h4,
 h5 {
 	line-height: 1.1;
 	font-family: var(--font-brand);
-	font-weight: 400;
-	text-transform: uppercase;
-	letter-spacing: 0.01em;
+	font-weight: 600;
 	color: var(--gray-100);
 }
 
@@ -272,10 +262,139 @@ h5 {
 	}
 }
 
+/* Animate navigations between pages (no-op in browsers without support). */
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
+}
+
+/* ==========================================================================
+   Comic mode (html.comic): Spider-Verse / Hi-Fi Rush inspired skin.
+   ========================================================================== */
+
+:root.comic {
+	/* Comic palette: paper, ink, and three print colors (magenta, cyan, yellow). */
+	--paper: #fbf5e8;
+	--panel: #ffffff;
+	--ink: #14121a;
+	--ink-shadow: #14121a;
+	--magenta: #ff2e88;
+	--cyan: #00c8f0;
+	--yellow: #ffe14d;
+	--violet: #7b3cff;
+	--on-accent: #14121a;
+	--dot: rgba(20, 18, 26, 0.13);
+
+	--border: 3px solid var(--ink);
+	--border-thin: 2px solid var(--ink);
+	--pop: 6px 6px 0 var(--ink-shadow);
+	--pop-sm: 3px 3px 0 var(--ink-shadow);
+	--pop-lg: 10px 10px 0 var(--ink-shadow);
+	--halftone: radial-gradient(var(--dot) 1.4px, transparent 1.6px) 0 0 / 12px 12px;
+
+	/* One beat at 120 BPM. Pulsing elements sync to it. */
+	--beat: 0.5s;
+	/* "Animated on twos": hovers snap in a few frames instead of easing smoothly. */
+	--snap: 0.18s steps(3, end);
+
+	/* Legacy gray scale, retuned warm and inky. */
+	--gray-0: #14121a;
+	--gray-50: #1c1924;
+	--gray-100: #14121a;
+	--gray-200: #2b2733;
+	--gray-300: #48434f;
+	--gray-400: #5e5866;
+	--gray-500: #7a7482;
+	--gray-600: #a39dab;
+	--gray-700: #c9c3cf;
+	--gray-800: #14121a;
+	--gray-900: #f3ecdc;
+	--gray-999-basis: 42, 70%, 95%;
+	--gray-999_40: hsla(var(--gray-999-basis), 0.4);
+	--gray-999: #fbf5e8;
+
+	--accent-light: var(--cyan);
+	--accent-regular: var(--magenta);
+	--accent-dark: var(--violet);
+	--accent-overlay: rgba(255, 46, 136, 0.25);
+	--accent-subtle-overlay: var(--yellow);
+	--accent-text-over: var(--on-accent);
+
+	--link-color: #d10063;
+
+	/* Gradients (used by icons) */
+	--gradient-stop-1: var(--magenta);
+	--gradient-stop-2: var(--violet);
+	--gradient-stop-3: var(--cyan);
+	--gradient-subtle: var(--panel);
+	--gradient-accent: linear-gradient(150deg, var(--magenta), var(--violet), var(--cyan));
+	--gradient-accent-orange: var(--magenta);
+	--gradient-stroke: var(--ink);
+
+	/* Shadows */
+	--shadow-sm: var(--pop-sm);
+	--shadow-md: var(--pop);
+	--shadow-lg: var(--pop-lg);
+	--font-brand: Anton, Impact, var(--font-system);
+	--font-sticker: Bangers, var(--font-brand);
+}
+
+/* Night mode: Miles-at-night. Light ink lines, neon offset shadows. */
+:root.comic.theme-dark {
+	--paper: #110e1f;
+	--panel: #1d1830;
+	--ink: #f4eedf;
+	--ink-shadow: var(--magenta);
+	--dot: rgba(123, 60, 255, 0.28);
+	--yellow: #ffd60a;
+
+	--gray-0: #fbf5e8;
+	--gray-50: #f4eedf;
+	--gray-100: #fbf5e8;
+	--gray-200: #e0d9e8;
+	--gray-300: #c2bacc;
+	--gray-400: #a69eb2;
+	--gray-500: #8a8296;
+	--gray-600: #615a70;
+	--gray-700: #3c3550;
+	--gray-800: #f4eedf;
+	--gray-900: #1d1830;
+	--gray-999-basis: 252, 36%, 9%;
+	--gray-999: #110e1f;
+
+	--link-color: var(--cyan);
+}
+
+.comic h1,
+.comic h2,
+.comic h3,
+.comic h4,
+.comic h5 {
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.01em;
+}
+
+.comic a {
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.2em;
+}
+
+.comic ::selection {
+	background: var(--yellow);
+	color: var(--on-accent);
+}
+
+.comic :focus-visible {
+	outline: 3px solid var(--magenta);
+	outline-offset: 3px;
+}
+
 /* Comic effects */
 
 /* Spider-Verse misprint: magenta and cyan plates slightly off-register. */
-.misprint {
+.comic .misprint {
 	text-shadow:
 		-0.04em 0.02em 0 var(--magenta),
 		0.04em -0.02em 0 var(--cyan);
@@ -296,22 +415,17 @@ h5 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-	.on-beat {
+	.comic .on-beat {
 		animation: beat calc(var(--beat) * 2) infinite;
 	}
 }
 
-/* Animate navigations between pages (no-op in browsers without support). */
 @media (prefers-reduced-motion: no-preference) {
-	@view-transition {
-		navigation: auto;
-	}
-
-	/* New page slams in like the next comic panel, wiping diagonally. */
-	::view-transition-old(root) {
+	/* In comic mode, a new page slams in like the next panel, wiping diagonally. */
+	:root.comic::view-transition-old(root) {
 		animation: none;
 	}
-	::view-transition-new(root) {
+	:root.comic::view-transition-new(root) {
 		animation: panel-wipe 0.32s steps(6, end);
 	}
 	@keyframes panel-wipe {
@@ -321,5 +435,72 @@ h5 {
 		to {
 			clip-path: polygon(0 0, 130% 0, 100% 100%, -30% 100%);
 		}
+	}
+
+	/* Switching modes: the new look bursts out of the toggle button. */
+	:root.comic-switching::view-transition-old(root) {
+		animation: none;
+	}
+	:root.comic-switching::view-transition-new(root) {
+		animation: comic-reveal 0.42s steps(7, end);
+	}
+	@keyframes comic-reveal {
+		from {
+			clip-path: circle(0 at var(--switch-x, 50%) var(--switch-y, 0));
+		}
+		to {
+			clip-path: circle(150vmax at var(--switch-x, 50%) var(--switch-y, 0));
+		}
+	}
+	::view-transition-new(bim) {
+		animation: none;
+	}
+}
+
+/* "BIM!" burst shown when comic mode switches on. */
+.bim {
+	position: fixed;
+	z-index: 10000;
+	top: 50%;
+	left: 50%;
+	display: grid;
+	place-items: center;
+	width: min(60vw, 22rem);
+	aspect-ratio: 1;
+	font-family: var(--font-sticker);
+	font-size: min(16vw, 6rem);
+	letter-spacing: 0.04em;
+	color: var(--on-accent);
+	background: var(--yellow);
+	clip-path: polygon(
+		50% 0%, 61% 18%, 82% 7%, 79% 30%, 100% 34%, 84% 50%, 100% 66%, 79% 70%,
+		82% 93%, 61% 82%, 50% 100%, 39% 82%, 18% 93%, 21% 70%, 0% 66%, 16% 50%,
+		0% 34%, 21% 30%, 18% 7%, 39% 18%
+	);
+	text-shadow:
+		-0.04em 0.02em 0 var(--magenta),
+		0.04em -0.02em 0 var(--cyan);
+	pointer-events: none;
+	view-transition-name: bim;
+	animation: bim 0.9s steps(9, end) forwards;
+}
+
+@keyframes bim {
+	0% {
+		transform: translate(-50%, -50%) scale(0) rotate(-30deg);
+	}
+	25% {
+		transform: translate(-50%, -50%) scale(1.15) rotate(-8deg);
+	}
+	40% {
+		transform: translate(-50%, -50%) scale(1) rotate(-6deg);
+	}
+	75% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1) rotate(-6deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.3) rotate(-2deg);
 	}
 }

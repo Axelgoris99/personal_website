@@ -118,22 +118,24 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
 </BaseLayout>
 
 <style>
-  header {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) header {
     padding-bottom: 2.5rem;
-    border-bottom: var(--border);
+    border-bottom: 1px solid var(--gray-800);
   }
 
-  .caption {
+  :global(html:not(.comic)) .caption {
     font-size: var(--text-base);
     color: var(--gray-500);
     text-align: center;
   }
 
-  .back-link {
+  :global(html:not(.comic)) .back-link {
     display: none;
   }
 
-  .details {
+  :global(html:not(.comic)) .details {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
@@ -142,58 +144,163 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
     align-items: center;
   }
 
-  .tags {
+  :global(html:not(.comic)) .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
 
-  .wide .content {
+  :global(html:not(.comic)) .wide .content {
     max-width: none;
   }
 
-  .description {
+  :global(html:not(.comic)) .description {
     font-size: var(--text-lg);
     max-width: 54ch;
   }
 
-  .content {
+  :global(html:not(.comic)) .content {
     max-width: 65ch;
     margin-inline: auto;
   }
 
-  .content > :global(* + *) {
+  :global(html:not(.comic)) .content > :global(* + *) {
     margin-top: 1rem;
   }
 
-  .content :global(h1),
-  .content :global(h2),
-  .content :global(h3),
-  .content :global(h4),
-  .content :global(h5) {
+  :global(html:not(.comic)) .content :global(h1),
+  :global(html:not(.comic)) .content :global(h2),
+  :global(html:not(.comic)) .content :global(h3),
+  :global(html:not(.comic)) .content :global(h4),
+  :global(html:not(.comic)) .content :global(h5) {
     margin: 1.5rem 0;
   }
 
-  .content :global(img),
-  .content :global(video) {
+  :global(html:not(.comic)) .content :global(img) {
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    background: var(--gradient-subtle);
+    border: 1px solid var(--gray-800);
+  }
+
+  :global(html:not(.comic)) .content :global(blockquote) {
+    font-size: var(--text-lg);
+    font-family: var(--font-brand);
+    font-weight: 600;
+    line-height: 1.1;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 0.25rem solid var(--accent-dark);
+    color: var(--gray-0);
+  }
+
+  :global(html:not(.comic)) .back-link,
+  :global(html:not(.comic)) .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  :global(html:not(.comic)) .back-link:hover,
+  :global(html:not(.comic)) .back-link:focus,
+  :global(html:not(.comic)) .content :global(a:hover),
+  :global(html:not(.comic)) .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .back-link {
+      display: block;
+      align-self: flex-start;
+    }
+
+    :global(html:not(.comic)) .details {
+      flex-direction: row;
+      gap: 2.5rem;
+    }
+
+    :global(html:not(.comic)) .content :global(blockquote) {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) header {
+    padding-bottom: 2.5rem;
+    border-bottom: var(--border);
+  }
+
+  :global(html.comic) .caption {
+    font-size: var(--text-base);
+    color: var(--gray-500);
+    text-align: center;
+  }
+
+  :global(html.comic) .back-link {
+    display: none;
+  }
+
+  :global(html.comic) .details {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  :global(html.comic) .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  :global(html.comic) .wide .content {
+    max-width: none;
+  }
+
+  :global(html.comic) .description {
+    font-size: var(--text-lg);
+    max-width: 54ch;
+  }
+
+  :global(html.comic) .content {
+    max-width: 65ch;
+    margin-inline: auto;
+  }
+
+  :global(html.comic) .content > :global(* + *) {
+    margin-top: 1rem;
+  }
+
+  :global(html.comic) .content :global(h1),
+  :global(html.comic) .content :global(h2),
+  :global(html.comic) .content :global(h3),
+  :global(html.comic) .content :global(h4),
+  :global(html.comic) .content :global(h5) {
+    margin: 1.5rem 0;
+  }
+
+  :global(html.comic) .content :global(img),
+  :global(html.comic) .content :global(video) {
     box-shadow: var(--pop);
     background: var(--panel);
     border: var(--border);
   }
 
-  .content :global(h2),
-  .content :global(h3) {
+  :global(html.comic) .content :global(h2),
+  :global(html.comic) .content :global(h3) {
     width: fit-content;
     padding: 0 0.25em;
     background: linear-gradient(transparent 55%, var(--yellow) 55%, var(--yellow) 90%, transparent 90%);
   }
 
-  .content :global(h2) {
+  :global(html.comic) .content :global(h2) {
     font-size: var(--text-3xl);
   }
 
   /* Blockquotes become speech balloons. */
-  .content :global(blockquote) {
+  :global(html.comic) .content :global(blockquote) {
     position: relative;
     margin-block: 2rem;
     padding: 1.25rem 1.5rem;
@@ -208,52 +315,53 @@ const sizes = wide ? "100vw" : "(min-width: 50em) 65ch, 100vw";
     box-shadow: var(--pop-sm);
   }
 
-  .content :global(code) {
+  :global(html.comic) .content :global(code) {
     padding: 0.1em 0.35em;
     background: var(--gray-900);
     border: 1px solid var(--gray-600);
   }
 
-  .content :global(pre) {
+  :global(html.comic) .content :global(pre) {
     padding: 1rem;
     border: var(--border);
     box-shadow: var(--pop-sm);
     overflow-x: auto;
   }
 
-  .back-link {
+  :global(html.comic) .back-link {
     font-family: var(--font-brand);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
 
-  .back-link,
-  .content :global(a) {
+  :global(html.comic) .back-link,
+  :global(html.comic) .content :global(a) {
     text-decoration: 2px solid underline transparent;
     text-underline-offset: 0.25em;
     transition: text-decoration-color var(--theme-transition);
   }
 
-  .back-link:hover,
-  .back-link:focus,
-  .content :global(a:hover),
-  .content :global(a:focus) {
+  :global(html.comic) .back-link:hover,
+  :global(html.comic) .back-link:focus,
+  :global(html.comic) .content :global(a:hover),
+  :global(html.comic) .content :global(a:focus) {
     text-decoration-color: currentColor;
   }
 
   @media (min-width: 50em) {
-    .back-link {
+    :global(html.comic) .back-link {
       display: block;
       align-self: flex-start;
     }
 
-    .details {
+    :global(html.comic) .details {
       flex-direction: row;
       gap: 2.5rem;
     }
 
-    .content :global(blockquote) {
+    :global(html.comic) .content :global(blockquote) {
       font-size: var(--text-2xl);
     }
   }
+
 </style>

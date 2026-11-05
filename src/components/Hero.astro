@@ -17,25 +17,64 @@ const { align = "center", tagline, title } = Astro.props;
 </div>
 
 <style>
-  .hero {
+  /* ===== Normal style ===== */
+
+  :global(html:not(.comic)) .hero {
     font-size: var(--text-lg);
     text-align: center;
   }
 
-  .title,
-  .tagline {
+  :global(html:not(.comic)) .title,
+  :global(html:not(.comic)) .tagline {
     max-width: 37ch;
     margin-inline: auto;
   }
 
-  .title {
+  :global(html:not(.comic)) .title {
+    font-size: var(--text-3xl);
+    color: var(--gray-0);
+  }
+
+  @media (min-width: 50em) {
+    :global(html:not(.comic)) .hero {
+      font-size: var(--text-xl);
+    }
+
+    :global(html:not(.comic)) .start {
+      text-align: start;
+    }
+
+    :global(html:not(.comic)) .start .title,
+  :global(html:not(.comic)) .start .tagline {
+      margin-inline: unset;
+    }
+
+    :global(html:not(.comic)) .title {
+      font-size: var(--text-5xl);
+    }
+  }
+
+  /* ===== Comic style ===== */
+
+  :global(html.comic) .hero {
+    font-size: var(--text-lg);
+    text-align: center;
+  }
+
+  :global(html.comic) .title,
+  :global(html.comic) .tagline {
+    max-width: 37ch;
+    margin-inline: auto;
+  }
+
+  :global(html.comic) .title {
     font-size: var(--text-4xl);
     line-height: 0.95;
     color: var(--gray-0);
   }
 
   /* Tagline as a comic narration box. */
-  .tagline span {
+  :global(html.comic) .tagline span {
     display: inline;
     padding: 0.15em 0.5em;
     line-height: 1.9;
@@ -47,21 +86,22 @@ const { align = "center", tagline, title } = Astro.props;
   }
 
   @media (min-width: 50em) {
-    .hero {
+    :global(html.comic) .hero {
       font-size: var(--text-xl);
     }
 
-    .start {
+    :global(html.comic) .start {
       text-align: start;
     }
 
-    .start .title,
-    .start .tagline {
+    :global(html.comic) .start .title,
+  :global(html.comic) .start .tagline {
       margin-inline: unset;
     }
 
-    .title {
+    :global(html.comic) .title {
       font-size: calc(var(--text-5xl) * 1.25);
     }
   }
+
 </style>
