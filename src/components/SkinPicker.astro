@@ -10,24 +10,33 @@ const resumeHref = (id: string) => {
 ---
 
 <skin-picker>
-  <button
-    class="skin-button"
-    aria-haspopup="true"
-    aria-controls="skin-menu"
-    title="Random style (hover for the list)"
-  >
-    <span class="sr-only">Random style (arrow down for the list)</span>
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        class="palette"
-        d="M12 3a9 9 0 0 0 0 18c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7H16a5 5 0 0 0 5-5c0-4-4-7.2-9-7.2z"
-      ></path>
-      <circle cx="7.5" cy="11.5" r="1.4"></circle>
-      <circle cx="10" cy="7.5" r="1.4"></circle>
-      <circle cx="14.5" cy="7.5" r="1.4"></circle>
-      <circle cx="17" cy="11" r="1.4"></circle>
-    </svg>
-  </button>
+  <div class="skin-controls">
+    <button class="skin-button skin-random" title="Random style">
+      <span class="sr-only">Random style</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          class="palette"
+          d="M12 3a9 9 0 0 0 0 18c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7H16a5 5 0 0 0 5-5c0-4-4-7.2-9-7.2z"
+        ></path>
+        <circle cx="7.5" cy="11.5" r="1.4"></circle>
+        <circle cx="10" cy="7.5" r="1.4"></circle>
+        <circle cx="14.5" cy="7.5" r="1.4"></circle>
+        <circle cx="17" cy="11" r="1.4"></circle>
+      </svg>
+    </button>
+    <button
+      class="skin-button skin-more"
+      popovertarget="skin-menu"
+      aria-haspopup="true"
+      aria-expanded="false"
+      title="Choose a style"
+    >
+      <span class="sr-only">Choose a style</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path class="chevron" d="M6 9l6 6 6-6"></path>
+      </svg>
+    </button>
+  </div>
   <div id="skin-menu" class="skin-menu" popover>
     <ul>
       {
@@ -50,6 +59,12 @@ const resumeHref = (id: string) => {
 </skin-picker>
 
 <style>
+  /* Two buttons: the palette picks a random skin, the chevron opens the list. */
+  .skin-controls {
+    display: flex;
+    gap: 0.2rem;
+  }
+
   .skin-button {
     display: flex;
     padding: 0.5rem;
@@ -76,10 +91,36 @@ const resumeHref = (id: string) => {
     fill: currentColor;
   }
 
-  .palette {
+  .skin-more {
+    padding-inline: 0.3rem;
+  }
+
+  .skin-more svg {
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+
+  .palette,
+  .chevron {
     fill: none;
     stroke: currentColor;
     stroke-width: 1.8;
+  }
+
+  .chevron {
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform var(--ui-transition);
+  }
+
+  .chevron {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .skin-more[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
   }
 
   /* Popovers default to the centre of the viewport; JS anchors it to the button. */
@@ -157,7 +198,9 @@ const resumeHref = (id: string) => {
       super();
 
       const root = document.documentElement;
-      const button = this.querySelector<HTMLButtonElement>(".skin-button")!;
+      const controls = this.querySelector<HTMLElement>(".skin-controls")!;
+      const random = this.querySelector<HTMLButtonElement>(".skin-random")!;
+      const more = this.querySelector<HTMLButtonElement>(".skin-more")!;
       const menu = this.querySelector<HTMLElement>(".skin-menu")!;
       const options = [...this.querySelectorAll<HTMLButtonElement>(".skin-option")];
 
@@ -187,8 +230,8 @@ const resumeHref = (id: string) => {
         const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!document.startViewTransition || reduced) return apply(id);
 
-        // The new skin is revealed from the button (see global.css).
-        const rect = button.getBoundingClientRect();
+        // The new skin is revealed from the picker (see global.css).
+        const rect = random.getBoundingClientRect();
         root.style.setProperty("--switch-x", `${rect.left + rect.width / 2}px`);
         root.style.setProperty("--switch-y", `${rect.top + rect.height / 2}px`);
         root.dataset.skinSwitching = "";
@@ -211,55 +254,62 @@ const resumeHref = (id: string) => {
         transition.finished.finally(() => delete root.dataset.skinSwitching);
       };
 
+      // Popovers default to the viewport centre: anchor the list under the
+      // buttons, right-aligned with them but never past the screen's edges.
+      const place = () => {
+        const rect = controls.getBoundingClientRect();
+        const width = menu.offsetWidth || Math.min(320, innerWidth - 16);
+        const right = Math.min(innerWidth - rect.right, innerWidth - width - 8);
+        menu.style.top = `${rect.bottom + 8}px`;
+        menu.style.right = `${Math.max(8, right)}px`;
+      };
+      menu.addEventListener("beforetoggle", (e) => {
+        if ((e as ToggleEvent).newState === "open") place();
+      });
+      menu.addEventListener("toggle", (e) => {
+        const isOpen = (e as ToggleEvent).newState === "open";
+        if (isOpen) place();
+        more.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      // Opened by hovering (closes on leave) or pinned by clicking the chevron.
+      let hoverOpened = false;
       const open = () => {
         if (menu.matches(":popover-open")) return;
-        // Popovers default to the viewport centre; anchor it under the button.
-        const rect = button.getBoundingClientRect();
-        menu.style.top = `${rect.bottom + 8}px`;
-        menu.style.right = `${Math.max(8, innerWidth - rect.right)}px`;
+        hoverOpened = true;
         menu.showPopover();
       };
       const close = () => menu.hidePopover();
 
-      // Click: a random other skin. The list is for hover, long-press or arrow keys.
-      let longPressed = false;
-      button.addEventListener("click", () => {
-        if (longPressed) return void (longPressed = false);
+      more.addEventListener("click", (e) => {
+        // Already open from hovering: pin it instead of toggling it shut.
+        if (hoverOpened && menu.matches(":popover-open")) e.preventDefault();
+        hoverOpened = false;
+      });
+
+      // The palette picks a random other skin; the chevron (popovertarget) opens the list.
+      random.addEventListener("click", () => {
         close();
         const others = options.filter((o) => o.dataset.skinId !== root.dataset.skin);
         switchTo(others[Math.floor(Math.random() * others.length)]);
       });
 
-      // Hover (mouse): open, and close shortly after leaving both button and list.
+      // With a mouse, hovering the buttons or the list also opens it.
       let closeTimer: ReturnType<typeof setTimeout> | undefined;
-      for (const el of [button, menu]) {
+      for (const el of [controls, menu]) {
         el.addEventListener("pointerenter", (e) => {
           if (e.pointerType !== "mouse") return;
           clearTimeout(closeTimer);
           open();
         });
         el.addEventListener("pointerleave", (e) => {
-          if (e.pointerType !== "mouse") return;
+          if (e.pointerType !== "mouse" || !hoverOpened) return;
           closeTimer = setTimeout(close, 250);
         });
       }
 
-      // Touch: long-press opens the list.
-      let pressTimer: ReturnType<typeof setTimeout> | undefined;
-      button.addEventListener("pointerdown", (e) => {
-        if (e.pointerType === "mouse") return;
-        pressTimer = setTimeout(() => {
-          longPressed = true;
-          open();
-        }, 450);
-      });
-      for (const type of ["pointerup", "pointercancel"]) {
-        button.addEventListener(type, () => clearTimeout(pressTimer));
-      }
-      button.addEventListener("contextmenu", (e) => e.preventDefault());
-
       // Keyboard: arrow down opens the list and focuses the current skin.
-      button.addEventListener("keydown", (e) => {
+      controls.addEventListener("keydown", (e) => {
         if (e.key !== "ArrowDown") return;
         e.preventDefault();
         open();
@@ -273,7 +323,7 @@ const resumeHref = (id: string) => {
           const step = steps[e.key];
           options[(i + step + options.length) % options.length].focus();
         } else if (e.key === "Escape") {
-          button.focus();
+          more.focus();
         }
       });
 
