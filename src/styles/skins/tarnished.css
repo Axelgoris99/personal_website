@@ -1,0 +1,317 @@
+/* Tarnished skin: dark-fantasy epic (Elden Ring inspired). Near-black, thin
+   gold lines, carved serif capitals, a faint golden glow. Light mode is ashen. */
+
+@import "@fontsource/cinzel/400.css";
+@import "@fontsource/cinzel/600.css";
+@import "@fontsource/eb-garamond/400.css";
+@import "@fontsource/eb-garamond/400-italic.css";
+@import "@fontsource/eb-garamond/700.css";
+
+:root[data-skin="tarnished"] {
+	--gold: #8a6a2c;
+	--gold-soft: rgba(138, 106, 44, 0.45);
+	--glow: rgba(138, 106, 44, 0.18);
+	--panel: #f2eee4;
+	--title-gold: linear-gradient(180deg, #b8913f, #8a6a2c 55%, #4a3410);
+	/* Corner brackets, drawn with gradients. */
+	--brackets:
+		linear-gradient(var(--gold), var(--gold)) top left / 14px 1px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) top left / 1px 14px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) top right / 14px 1px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) top right / 1px 14px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) bottom left / 14px 1px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) bottom left / 1px 14px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) bottom right / 14px 1px no-repeat,
+		linear-gradient(var(--gold), var(--gold)) bottom right / 1px 14px no-repeat;
+
+	--gray-0: #1a160f;
+	--gray-50: #221d14;
+	--gray-100: #2a241a;
+	--gray-200: #3a3226;
+	--gray-300: #5a4f3e;
+	--gray-400: #6e6350;
+	--gray-500: #8a7f6a;
+	--gray-600: #a89e88;
+	--gray-700: #c9c0aa;
+	--gray-800: #cfc6b0;
+	--gray-900: #ded7c6;
+	--gray-999-basis: 43, 25%, 87%;
+	--gray-999: #e8e3d6;
+
+	--accent-light: var(--gold);
+	--accent-regular: var(--gold);
+	--accent-dark: var(--gold);
+	--accent-overlay: var(--gold-soft);
+	--accent-subtle-overlay: var(--glow);
+	--accent-text-over: var(--gray-999);
+	--link-color: var(--gold);
+	--gradient-stop-1: #e2c27a;
+	--gradient-stop-2: var(--gold);
+	--gradient-stop-3: #6b4f1d;
+
+	--shadow-sm: none;
+	--shadow-md: 0 0 0 transparent;
+	--shadow-lg: 0 0 28px var(--glow);
+
+	--radius-xs: 0;
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-pill: 0;
+	--line: 1px solid var(--gold-soft);
+
+	--surface: var(--panel);
+	--surface-muted: transparent;
+	--label-bg: linear-gradient(90deg, rgba(12, 11, 9, 0.85), rgba(12, 11, 9, 0.55));
+	--label-fg: #e2c27a;
+	--badge-bg: rgba(12, 11, 9, 0.75);
+	--badge-fg: #d9d0bd;
+	--pill-bg: transparent;
+	--pill-fg: var(--gray-200);
+	--pill-line: 1px solid var(--gold-soft);
+	--cta-bg: transparent;
+	--cta-fg: var(--gold);
+	--cta-hover-overlay: var(--glow);
+	--nav-bg: transparent;
+	--nav-ring: transparent;
+	--nav-hover-bg: transparent;
+	--nav-active-bg: transparent;
+	--nav-active-fg: var(--gold);
+
+	--font-body: 'EB Garamond', Georgia, serif;
+	--font-brand: Cinzel, 'EB Garamond', Georgia, serif;
+	--font-label: Cinzel, Georgia, serif;
+	--heading-weight: 600;
+	--heading-case: uppercase;
+	--heading-tracking: 0.08em;
+	--ui-transition: 0.35s ease;
+}
+
+:root[data-skin="tarnished"].theme-dark {
+	--gold: #c9a85a;
+	--gold-soft: rgba(201, 168, 90, 0.35);
+	--glow: rgba(201, 168, 90, 0.16);
+	--panel: #15130f;
+	--title-gold: linear-gradient(180deg, #f3dfa6, var(--gold) 55%, #6b4f1d);
+
+	--gray-0: #f1e9d6;
+	--gray-50: #ebe2cd;
+	--gray-100: #e6dcc6;
+	--gray-200: #d9d0bd;
+	--gray-300: #b3a88f;
+	--gray-400: #978c74;
+	--gray-500: #7a705b;
+	--gray-600: #5c5444;
+	--gray-700: #3d372c;
+	--gray-800: #2a251d;
+	--gray-900: #15130f;
+	--gray-999-basis: 40, 14%, 4%;
+	--gray-999: #0c0b09;
+}
+
+/* A faint glow of grace from above, over dark grain. */
+:root[data-skin="tarnished"] .backgrounds {
+	background:
+		url('/assets/backgrounds/noise.webp') top center / 220px repeat,
+		radial-gradient(ellipse 80% 45% at 50% -5%, var(--glow), transparent 70%),
+		var(--gray-999);
+	background-blend-mode: overlay, normal, normal;
+}
+
+:root[data-skin="tarnished"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="tarnished"] body {
+	font-size: 1.08rem;
+}
+
+:root[data-skin="tarnished"] ::selection {
+	background: var(--gold);
+	color: var(--gray-999);
+}
+
+/* Gold capitals that catch the light. */
+:root[data-skin="tarnished"] .hero-title,
+:root[data-skin="tarnished"] .contact-title {
+	background: var(--title-gold);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	filter: drop-shadow(0 0 18px var(--glow));
+}
+
+/* Ornamental rule under section titles: a line fading out from a diamond. */
+:root[data-skin="tarnished"] .section-header h3::after,
+:root[data-skin="tarnished"] .contact-title::after {
+	content: '';
+	display: block;
+	width: 10rem;
+	height: 9px;
+	margin-top: 0.75rem;
+	background:
+		linear-gradient(45deg, transparent 45%, var(--gold) 45% 55%, transparent 55%) center / 9px 9px no-repeat,
+		linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold) 60%, transparent) center / 100% 1px no-repeat;
+}
+
+:root[data-skin="tarnished"] .section-header h3::after {
+	margin-inline: auto;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="tarnished"] .with-cta .section-header h3::after {
+		margin-inline: 0;
+	}
+}
+
+/* Nav: carved labels, the current one gold with a glowing underline. */
+:root[data-skin="tarnished"] .link {
+	letter-spacing: 0.12em;
+}
+
+:root[data-skin="tarnished"] .link:hover,
+:root[data-skin="tarnished"] .link:focus {
+	color: var(--gold);
+}
+
+:root[data-skin="tarnished"] .link.active {
+	box-shadow: inset 0 -1px 0 var(--gold), 0 8px 12px -10px var(--gold);
+}
+
+/* Framed panels: thin gold border with corner brackets inset. */
+:root[data-skin="tarnished"] .card::after,
+:root[data-skin="tarnished"] .box::after,
+:root[data-skin="tarnished"] .education::after {
+	content: '';
+	position: absolute;
+	inset: 6px;
+	pointer-events: none;
+	background: var(--brackets);
+	z-index: 1;
+}
+
+:root[data-skin="tarnished"] .box,
+:root[data-skin="tarnished"] .education {
+	position: relative;
+}
+
+:root[data-skin="tarnished"] .education {
+	padding: 1.25rem 1.5rem;
+	background: var(--panel);
+	border: var(--line);
+}
+
+:root[data-skin="tarnished"] .card img {
+	filter: saturate(0.7) brightness(0.85);
+}
+
+:root[data-skin="tarnished"] .card:hover img,
+:root[data-skin="tarnished"] .card:focus-visible img {
+	filter: none;
+}
+
+:root[data-skin="tarnished"] .card:hover,
+:root[data-skin="tarnished"] .card:focus-visible {
+	box-shadow: var(--shadow-lg);
+	border-color: var(--gold);
+}
+
+:root[data-skin="tarnished"] .card-title {
+	letter-spacing: 0.06em;
+}
+
+:root[data-skin="tarnished"] .card-title,
+:root[data-skin="tarnished"] .card-dates {
+	border: 1px solid var(--gold-soft);
+}
+
+/* Buttons: gold-lined, glowing on hover like a site of grace. */
+:root[data-skin="tarnished"] .cta {
+	border: 1px solid var(--gold);
+	font-family: var(--font-brand);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+}
+
+:root[data-skin="tarnished"] .cta:hover,
+:root[data-skin="tarnished"] .cta:focus-visible {
+	box-shadow: 0 0 24px var(--glow), inset 0 0 18px var(--glow);
+}
+
+:root[data-skin="tarnished"] .pill {
+	font-size: var(--text-sm);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+/* Portrait: an old painting in a gilded frame. */
+:root[data-skin="tarnished"] .portrait img {
+	filter: sepia(0.25) saturate(0.8);
+	outline: 1px solid var(--gold);
+	outline-offset: 8px;
+	box-shadow: 0 0 40px var(--glow);
+}
+
+:root[data-skin="tarnished"] .contact {
+	background: linear-gradient(180deg, transparent, var(--glow) 50%, transparent);
+	border-color: var(--gold-soft);
+}
+
+:root[data-skin="tarnished"] .entry-content blockquote {
+	border-inline-start-color: var(--gold);
+	font-style: italic;
+}
+
+:root[data-skin="tarnished"] .about-title {
+	color: var(--gold);
+}
+
+:root[data-skin="tarnished"] .skin-option {
+	letter-spacing: 0.08em;
+}
+
+/* Switching in: everything fades up from darkness. */
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="tarnished"][data-skin-switching]::view-transition-new(root) {
+		animation: tarnished-rise 1.1s ease;
+	}
+}
+
+@keyframes tarnished-rise {
+	from {
+		opacity: 0;
+		filter: brightness(0);
+	}
+}
+
+/* Message banner across the screen. */
+:root[data-skin="tarnished"] .skin-intro {
+	width: 100vw;
+	padding: 1.6rem 1rem;
+	font-family: var(--font-brand);
+	font-size: clamp(1.4rem, 4vw, 2.6rem);
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	text-align: center;
+	color: #e2c27a;
+	text-shadow: 0 0 18px rgba(201, 168, 90, 0.6);
+	background: linear-gradient(90deg, transparent, rgba(8, 7, 5, 0.85) 20%, rgba(8, 7, 5, 0.85) 80%, transparent);
+	animation: tarnished-banner 2.4s ease forwards;
+}
+
+@keyframes tarnished-banner {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.04);
+	}
+	25%,
+	70% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

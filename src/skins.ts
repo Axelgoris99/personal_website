@@ -13,6 +13,7 @@ export const skins: Skin[] = [
   { id: "classic", label: "Classic" },
   { id: "comic", label: "Comic", intro: "BIM!" },
   { id: "minimal", label: "Minimal" },
+  { id: "tarnished", label: "Tarnished", intro: "New Look Acquired" },
 ];
 
 export const defaultSkin = "classic";

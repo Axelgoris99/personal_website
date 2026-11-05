@@ -1,3 +1,4 @@
 /* One import per skin; see src/skins.ts. */
 @import "./comic.css";
 @import "./minimal.css";
+@import "./tarnished.css";
