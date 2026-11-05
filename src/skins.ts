@@ -24,6 +24,7 @@ export const skins: Skin[] = [
   { id: "belle", label: "Belle Époque", intro: "✿", swatch: ["#1a1b1f", "#b8954a", "#a3262a"] },
   { id: "cyberpunk", label: "Cyberpunk", intro: "LINK ESTABLISHED", swatch: ["#0a0a0f", "#fcee0a", "#00f0ff"] },
   { id: "stargazer", label: "Stargazer", intro: "✦", swatch: ["#0b1026", "#ff8a3d", "#7ad7ff"] },
+  { id: "hollow", label: "Hollow", intro: "◆", swatch: ["#0b0e14", "#e8eef5", "#a7d8ff"] },
 ];
 
 export const defaultSkin = "classic";
