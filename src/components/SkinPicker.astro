@@ -40,7 +40,7 @@ const resumeHref = (id: string) => {
               data-resume={resumeHref(id)}
             >
               <span class="swatch" style={`--a: ${a}; --b: ${b}; --c: ${c}`} />
-              {label}
+              <span class="skin-label">{label}</span>
             </button>
           </li>
         ))
@@ -120,6 +120,15 @@ const resumeHref = (id: string) => {
     color: inherit;
     background: none;
     cursor: pointer;
+  }
+
+  /* Long labels (or wide letter-spacing in some skins) truncate rather than
+     making the menu scroll. */
+  .skin-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .swatch {
