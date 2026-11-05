@@ -1,6 +1,8 @@
 /* Clair Obscur skin (Clair Obscur: Expedition 33 inspired), using the game's
    own (free) typefaces: Cinzel for titles, IM Fell Double Pica for text,
-   Bebas Neue for numbers, EB Garamond for dialogue. Its menus are flat
+   Bebas Neue for numbers, EB Garamond for dialogue. Its signature vintage
+   display face (The Sherloks Vintage) isn't licensed for the web, so Rye
+   stands in for it, worn through a speckled mask. Its menus are flat
    charcoal with crisp white serif type, thin grey rules between rows and small
    uppercase labels; crimson only for the Gommage's petals. Light mode is the
    "clair" side: bone paper and charcoal ink. Artwork in
@@ -11,6 +13,7 @@
 @import "@fontsource/im-fell-double-pica/400.css";
 @import "@fontsource/im-fell-double-pica/400-italic.css";
 @import "@fontsource/bebas-neue/400.css";
+@import "@fontsource/rye/400.css";
 @import "@fontsource/eb-garamond/400-italic.css";
 
 :root[data-skin="obscur"] {
@@ -80,6 +83,8 @@
 	--font-brand: Cinzel, Georgia, serif;
 	--font-label: 'Bebas Neue', 'Arial Narrow', sans-serif;
 	--font-dialogue: 'EB Garamond', Georgia, serif;
+	--font-display: Rye, Cinzel, Georgia, serif;
+	--wear: url(/assets/skins/obscur/wear.svg) 0 0 / 240px 240px;
 	--heading-weight: 400;
 	--heading-case: none;
 	--heading-tracking: 0.04em;
@@ -137,11 +142,12 @@
 :root[data-skin="obscur"] .backgrounds::before {
 	content: '33';
 	position: absolute;
-	top: -0.12em;
-	right: -0.04em;
+	top: -0.05em;
+	right: 0.02em;
 	z-index: -1;
 	pointer-events: none;
-	font-family: var(--font-label);
+	font-family: var(--font-display);
+	mask: var(--wear);
 	font-size: min(60vw, 52rem);
 	line-height: 1;
 	color: var(--numeral);
@@ -181,6 +187,21 @@
 :root[data-skin="obscur"] ::selection {
 	background: var(--gray-100);
 	color: var(--gray-999);
+}
+
+/* ---------- The vintage display face ---------- */
+
+:root[data-skin="obscur"] .hero-title,
+:root[data-skin="obscur"] .section-header h3,
+:root[data-skin="obscur"] .contact-title {
+	font-family: var(--font-display);
+	letter-spacing: 0.02em;
+	mask: var(--wear);
+}
+
+:root[data-skin="obscur"] .hero-title {
+	font-size: clamp(2.2rem, 5vw, 4.4rem);
+	line-height: 1.1;
 }
 
 /* ---------- Rows and rules, like the game's menus ---------- */
