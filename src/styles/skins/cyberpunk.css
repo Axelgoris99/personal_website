@@ -1,0 +1,517 @@
+/* Cyberpunk skin (Cyberpunk 2077 inspired). Day is the acid-yellow
+   interface: black clipped panels, red accents, hazard stripes. Night is black
+   with neon yellow, cyan and red over a grid. Both get scanlines, glitching
+   titles and terminal readouts. */
+
+@import "@fontsource/rajdhani/500.css";
+@import "@fontsource/rajdhani/700.css";
+@import "@fontsource/share-tech-mono/400.css";
+
+:root[data-skin="cyberpunk"] {
+	--yellow: #f3e600;
+	--cyan: #00b8c4;
+	--red: #ff003c;
+	--black: #0a0a0f;
+	--screen: #0a0a0f;
+	--screen-text: #e8f9ff;
+	--cut: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+	--cut-sm: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+	--hazard: repeating-linear-gradient(-45deg, var(--black) 0 12px, var(--yellow) 12px 24px);
+
+	--gray-0: #000000;
+	--gray-50: #050507;
+	--gray-100: var(--black);
+	--gray-200: #15151c;
+	--gray-300: #2c2c30;
+	--gray-400: #3e3e3a;
+	--gray-500: #5c5a40;
+	--gray-600: #8a8530;
+	--gray-700: #b5ad1a;
+	--gray-800: var(--black);
+	--gray-900: #e0d400;
+	--gray-999-basis: 56, 100%, 48%;
+	--gray-999: var(--yellow);
+
+	--accent-light: var(--cyan);
+	--accent-regular: var(--red);
+	--accent-dark: var(--red);
+	--accent-overlay: rgba(10, 10, 15, 0.4);
+	--accent-subtle-overlay: rgba(10, 10, 15, 0.12);
+	--accent-text-over: var(--yellow);
+	--link-color: #c4002e;
+	--gradient-stop-1: var(--yellow);
+	--gradient-stop-2: #9bf5ff;
+	--gradient-stop-3: var(--cyan);
+
+	--shadow-sm: none;
+	--shadow-md: 6px 6px 0 rgba(10, 10, 15, 0.25);
+	--shadow-lg: 0 0 0 2px var(--red);
+
+	--radius-xs: 0;
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-pill: 0;
+	--line: 2px solid var(--black);
+
+	--surface: var(--screen);
+	--surface-muted: var(--screen);
+	--label-bg: var(--black);
+	--label-fg: var(--yellow);
+	--badge-bg: var(--red);
+	--badge-fg: #ffffff;
+	--pill-bg: var(--black);
+	--pill-fg: var(--yellow);
+	--pill-line: 0 solid transparent;
+	--cta-bg: var(--black);
+	--cta-fg: var(--yellow);
+	--cta-hover-overlay: transparent;
+	--nav-bg: var(--black);
+	--nav-ring: transparent;
+	--nav-hover-bg: rgba(243, 230, 0, 0.15);
+	--nav-active-bg: var(--red);
+	--nav-active-fg: #ffffff;
+
+	--font-body: Rajdhani, 'Arial Narrow', sans-serif;
+	--font-brand: Rajdhani, 'Arial Narrow', sans-serif;
+	--font-label: 'Share Tech Mono', ui-monospace, monospace;
+	--heading-weight: 700;
+	--heading-case: uppercase;
+	--heading-tracking: 0.04em;
+	--ui-transition: 0.12s steps(3, end);
+}
+
+:root[data-skin="cyberpunk"].theme-dark {
+	--yellow: #fcee0a;
+	--cyan: #00f0ff;
+	--screen: #12121a;
+
+	--gray-0: #ffffff;
+	--gray-50: #f5fdff;
+	--gray-100: #e8f9ff;
+	--gray-200: #cfe9ef;
+	--gray-300: #9fc3cc;
+	--gray-400: #7a9aa3;
+	--gray-500: #587780;
+	--gray-600: #3d545c;
+	--gray-700: #26363c;
+	--gray-800: var(--cyan);
+	--gray-900: #12121a;
+	--gray-999-basis: 240, 20%, 5%;
+	--gray-999: var(--black);
+
+	--accent-text-over: var(--black);
+	--link-color: var(--cyan);
+	--shadow-md: 0 0 18px rgba(0, 240, 255, 0.18);
+	--shadow-lg: 0 0 22px rgba(255, 0, 60, 0.45);
+
+	--line: 1px solid var(--cyan);
+	--label-bg: var(--yellow);
+	--label-fg: var(--black);
+	--pill-bg: transparent;
+	--pill-fg: var(--cyan);
+	--pill-line: 1px solid var(--cyan);
+	--cta-bg: var(--red);
+	--cta-fg: #ffffff;
+	--nav-bg: var(--black);
+	--nav-ring: var(--cyan);
+	--nav-ring-width: 1px;
+	--nav-hover-bg: rgba(0, 240, 255, 0.12);
+}
+
+/* ---------- Page ---------- */
+
+/* Day: flat acid yellow with a hazard stripe along the top. */
+:root[data-skin="cyberpunk"] .backgrounds {
+	position: relative;
+	background:
+		var(--hazard) top / 100% 10px no-repeat,
+		var(--yellow);
+	background-blend-mode: normal;
+}
+
+/* Night: a neon grid fading out under red and cyan glows. */
+:root[data-skin="cyberpunk"].theme-dark .backgrounds {
+	background:
+		radial-gradient(ellipse 50% 35% at 85% 0%, rgba(255, 0, 60, 0.22), transparent 70%),
+		radial-gradient(ellipse 50% 35% at 0% 40%, rgba(0, 240, 255, 0.14), transparent 70%),
+		linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px) 0 0 / 48px 48px,
+		linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px) 0 0 / 48px 48px,
+		var(--black);
+}
+
+/* Scanlines over everything. */
+:root[data-skin="cyberpunk"] .backgrounds::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	pointer-events: none;
+	background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0 1px, transparent 1px 3px);
+}
+
+:root[data-skin="cyberpunk"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="cyberpunk"] body {
+	font-size: 1.1rem;
+	font-weight: 500;
+}
+
+:root[data-skin="cyberpunk"] ::selection {
+	background: var(--red);
+	color: #ffffff;
+}
+
+/* ---------- Glitching titles and readouts ---------- */
+
+:root[data-skin="cyberpunk"] .hero-title,
+:root[data-skin="cyberpunk"] .contact-title {
+	text-shadow:
+		-2px 0 var(--red),
+		2px 0 var(--cyan);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="cyberpunk"] .hero-title {
+		animation: cyberpunk-glitch 4s steps(1, end) infinite;
+	}
+}
+
+@keyframes cyberpunk-glitch {
+	92% {
+		transform: none;
+		text-shadow:
+			-2px 0 var(--red),
+			2px 0 var(--cyan);
+	}
+	93% {
+		transform: translate(3px, -1px) skewX(-10deg);
+		text-shadow:
+			-7px 0 var(--red),
+			6px 0 var(--cyan);
+	}
+	95% {
+		transform: translate(-4px, 1px);
+		text-shadow:
+			5px 0 var(--red),
+			-5px 0 var(--cyan);
+	}
+	97% {
+		transform: none;
+	}
+}
+
+/* Section titles get a numbered "// 0X" readout above them. */
+:root[data-skin="cyberpunk"] main {
+	counter-reset: cyberpunk-section;
+}
+
+:root[data-skin="cyberpunk"] .section {
+	counter-increment: cyberpunk-section;
+}
+
+:root[data-skin="cyberpunk"] .section-header h3::before {
+	content: '// 0' counter(cyberpunk-section);
+	display: block;
+	margin-bottom: 0.3rem;
+	font-family: var(--font-label);
+	font-size: 0.32em;
+	letter-spacing: 0.2em;
+	color: var(--red);
+}
+
+/* The tagline as a terminal line. */
+:root[data-skin="cyberpunk"] .hero-tagline span {
+	padding: 0.2em 0.5em;
+	font-family: var(--font-label);
+	font-size: 0.9em;
+	line-height: 1.9;
+	color: var(--yellow);
+	background: var(--black);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+}
+
+:root[data-skin="cyberpunk"] .hero-tagline span::before {
+	content: '> ';
+	color: var(--red);
+}
+
+/* ---------- Clipped panels ---------- */
+
+:root[data-skin="cyberpunk"] .card,
+:root[data-skin="cyberpunk"] .cta,
+:root[data-skin="cyberpunk"] .box,
+:root[data-skin="cyberpunk"] .education,
+:root[data-skin="cyberpunk"] .nav-items {
+	clip-path: var(--cut);
+}
+
+:root[data-skin="cyberpunk"] .pill,
+:root[data-skin="cyberpunk"] .card-title,
+:root[data-skin="cyberpunk"] .link,
+:root[data-skin="cyberpunk"] .skin-option {
+	clip-path: var(--cut-sm);
+}
+
+/* Day panels are black screens on the yellow page. */
+:root[data-skin="cyberpunk"] .box,
+:root[data-skin="cyberpunk"] .education {
+	color: var(--screen-text);
+	background: var(--screen);
+	border: 0;
+}
+
+:root[data-skin="cyberpunk"] .box h2,
+:root[data-skin="cyberpunk"] .education .edu-title {
+	color: var(--yellow);
+}
+
+:root[data-skin="cyberpunk"] .skills p {
+	color: #b9c7cc;
+}
+
+:root[data-skin="cyberpunk"].theme-dark .box,
+:root[data-skin="cyberpunk"].theme-dark .education {
+	border-inline-start: 3px solid var(--yellow);
+}
+
+:root[data-skin="cyberpunk"] .education {
+	padding: 1.25rem 1.5rem;
+}
+
+:root[data-skin="cyberpunk"] .badge {
+	padding: 0.4rem;
+	color: var(--yellow);
+	background: transparent;
+	border: 1px solid var(--yellow);
+}
+
+:root[data-skin="cyberpunk"] .badge svg,
+:root[data-skin="cyberpunk"] .logo svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+:root[data-skin="cyberpunk"] .logo {
+	padding: 0.3rem;
+	color: var(--yellow);
+	background: var(--black);
+	clip-path: var(--cut-sm);
+}
+
+/* ---------- Nav ---------- */
+
+:root[data-skin="cyberpunk"] .link {
+	letter-spacing: 0.1em;
+}
+
+/* On desktop the links sit on the black nav bar. Its clip-path makes it a
+   stacking context, so the usual ring layer would paint over it: use a border. */
+@media (min-width: 50em) {
+	:root[data-skin="cyberpunk"] .nav-items::before {
+		display: none;
+	}
+
+	:root[data-skin="cyberpunk"].theme-dark .nav-items {
+		border: 1px solid var(--cyan);
+	}
+
+	:root[data-skin="cyberpunk"] .link {
+		color: var(--yellow);
+	}
+
+	:root[data-skin="cyberpunk"].theme-dark .link {
+		color: var(--cyan);
+	}
+}
+
+:root[data-skin="cyberpunk"] .site-name {
+	font-family: var(--font-label);
+	letter-spacing: 0.08em;
+}
+
+/* ---------- Cards, pills, buttons ---------- */
+
+:root[data-skin="cyberpunk"] .card {
+	border-width: 2px;
+}
+
+:root[data-skin="cyberpunk"] .card:hover,
+:root[data-skin="cyberpunk"] .card:focus-visible {
+	border-color: var(--red);
+	transform: translate(-3px, -3px);
+}
+
+:root[data-skin="cyberpunk"] .card-title,
+:root[data-skin="cyberpunk"] .card-dates {
+	font-family: var(--font-label);
+	font-size: var(--text-sm);
+	letter-spacing: 0.06em;
+}
+
+:root[data-skin="cyberpunk"] .card-dates {
+	font-size: 0.75rem;
+}
+
+:root[data-skin="cyberpunk"] .pill {
+	font-size: var(--text-sm);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+:root[data-skin="cyberpunk"] .cta {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+}
+
+:root[data-skin="cyberpunk"] .cta:hover,
+:root[data-skin="cyberpunk"] .cta:focus-visible {
+	background: var(--red);
+	color: #ffffff;
+	transform: translateX(3px);
+	text-shadow:
+		-2px 0 var(--cyan),
+		2px 0 var(--black);
+}
+
+:root[data-skin="cyberpunk"].theme-dark .cta:hover,
+:root[data-skin="cyberpunk"].theme-dark .cta:focus-visible {
+	background: var(--cyan);
+	color: var(--black);
+}
+
+/* Portrait: an ID scan with split colour channels. */
+:root[data-skin="cyberpunk"] .portrait img {
+	border: 2px solid var(--black);
+	box-shadow:
+		-6px 0 0 var(--red),
+		6px 0 0 var(--cyan);
+}
+
+:root[data-skin="cyberpunk"].theme-dark .portrait img {
+	border-color: var(--cyan);
+}
+
+:root[data-skin="cyberpunk"] .portrait::after {
+	content: 'SCAN // OK';
+	position: absolute;
+	left: 0.75rem;
+	bottom: 0.75rem;
+	padding: 0.15rem 0.5rem;
+	font-family: var(--font-label);
+	font-size: 0.75rem;
+	letter-spacing: 0.15em;
+	color: var(--yellow);
+	background: var(--black);
+}
+
+/* ---------- Contact: a black band between hazard stripes ---------- */
+
+:root[data-skin="cyberpunk"] .contact {
+	color: var(--screen-text);
+	background:
+		var(--hazard) top / 100% 8px no-repeat,
+		var(--hazard) bottom / 100% 8px no-repeat,
+		var(--screen);
+	border: 0;
+}
+
+:root[data-skin="cyberpunk"] .contact-title {
+	color: var(--yellow);
+}
+
+:root[data-skin="cyberpunk"] .contact .cta {
+	background: var(--red);
+	color: #ffffff;
+}
+
+:root[data-skin="cyberpunk"] footer {
+	font-family: var(--font-label);
+	letter-spacing: 0.06em;
+}
+
+/* ---------- Switching in: the signal tears and reassembles ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="cyberpunk"][data-skin-switching]::view-transition-new(root) {
+		animation: cyberpunk-tear 0.55s steps(1, end);
+	}
+}
+
+@keyframes cyberpunk-tear {
+	0% {
+		clip-path: inset(0 0 100% 0);
+		filter: hue-rotate(90deg);
+	}
+	12% {
+		clip-path: inset(10% 0 70% 0);
+		transform: translateX(40px);
+	}
+	24% {
+		clip-path: inset(45% 0 25% 0);
+		transform: translateX(-30px);
+		filter: hue-rotate(-60deg) saturate(2);
+	}
+	36% {
+		clip-path: inset(0 0 45% 0);
+		transform: translateX(18px);
+	}
+	48% {
+		clip-path: inset(30% 0 0 0);
+		transform: translateX(-10px);
+		filter: none;
+	}
+	60% {
+		clip-path: inset(0 0 15% 0);
+		transform: translateX(6px);
+	}
+	72%,
+	100% {
+		clip-path: inset(0);
+		transform: none;
+	}
+}
+
+:root[data-skin="cyberpunk"] .skin-intro {
+	padding: 0.8rem 1.4rem;
+	font-family: var(--font-label);
+	font-size: clamp(1rem, 3vw, 1.6rem);
+	letter-spacing: 0.2em;
+	white-space: nowrap;
+	color: var(--yellow);
+	background: var(--black);
+	border-inline: 4px solid var(--red);
+	text-shadow:
+		-2px 0 var(--red),
+		2px 0 var(--cyan);
+	animation: cyberpunk-flicker 1.3s steps(1, end) forwards;
+}
+
+@keyframes cyberpunk-flicker {
+	0%,
+	8%,
+	16% {
+		opacity: 0;
+		transform: translate(-50%, -50%);
+	}
+	4%,
+	12%,
+	20%,
+	80% {
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+	84% {
+		opacity: 1;
+		transform: translate(calc(-50% + 8px), -50%) skewX(-12deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%);
+	}
+}
