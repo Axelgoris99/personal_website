@@ -1,0 +1,323 @@
+/* Spirited skin (Studio Ghibli inspired). Soft watercolour sky with drifting
+   clouds, warm paper, hand-lettered headings, gentle bouncy motion. Dark is a
+   starry night lit by lanterns. */
+
+@import "@fontsource/kalam/400.css";
+@import "@fontsource/kalam/700.css";
+@import "@fontsource/nunito/400.css";
+@import "@fontsource/nunito/400-italic.css";
+@import "@fontsource/nunito/700.css";
+
+:root[data-skin="spirited"] {
+	--grass: #5f9a4e;
+	--sky: #4c9bd6;
+	--roof: #d9654b;
+	--panel: #fffdf7;
+	--sky-top: #bfe3f5;
+	--sky-mid: #e4f3f8;
+	--cloud: rgba(255, 255, 255, 0.9);
+	--wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%235f9a4e' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+
+	--gray-0: #2b2a26;
+	--gray-50: #33322d;
+	--gray-100: #3b3a36;
+	--gray-200: #4a4842;
+	--gray-300: #66635b;
+	--gray-400: #7d7a70;
+	--gray-500: #9a968b;
+	--gray-600: #b9b4a7;
+	--gray-700: #d6d0c1;
+	--gray-800: #e9e2d2;
+	--gray-900: #f5efe1;
+	--gray-999-basis: 43, 80%, 96%;
+	--gray-999: #fdf8ee;
+
+	--accent-light: var(--sky);
+	--accent-regular: var(--grass);
+	--accent-dark: #3d6b31;
+	--accent-overlay: rgba(95, 154, 78, 0.3);
+	--accent-subtle-overlay: #e3efd8;
+	--accent-text-over: #ffffff;
+	--link-color: #2f7bb5;
+	--gradient-stop-1: var(--sky);
+	--gradient-stop-2: var(--grass);
+	--gradient-stop-3: #3d6b31;
+
+	--shadow-sm: 0 2px 6px rgba(80, 60, 30, 0.08);
+	--shadow-md: 0 12px 24px -10px rgba(80, 60, 30, 0.22);
+	--shadow-lg: 0 22px 40px -14px rgba(80, 60, 30, 0.32);
+
+	--radius-xs: 0.6rem;
+	--radius-sm: 1rem;
+	--radius-md: 1rem;
+	--radius-lg: 1.6rem;
+	--radius-xl: 2rem;
+	--radius-pill: 999rem;
+	--line: 2px solid rgba(59, 58, 54, 0.08);
+
+	--surface: var(--panel);
+	--surface-muted: rgba(255, 253, 247, 0.75);
+	--label-bg: rgba(255, 253, 247, 0.94);
+	--label-fg: var(--gray-100);
+	--badge-bg: var(--grass);
+	--badge-fg: #ffffff;
+	--pill-bg: #e3efd8;
+	--pill-fg: #3d6b31;
+	--pill-line: 0 solid transparent;
+	--cta-bg: var(--roof);
+	--cta-fg: #ffffff;
+	--cta-hover-overlay: rgba(255, 255, 255, 0.18);
+	--nav-bg: rgba(255, 253, 247, 0.8);
+	--nav-ring: transparent;
+	--nav-hover-bg: #e3efd8;
+	--nav-active-bg: var(--grass);
+	--nav-active-fg: #ffffff;
+
+	--font-body: Nunito, var(--font-system);
+	--font-brand: Kalam, 'Comic Sans MS', cursive;
+	--font-label: Nunito, var(--font-system);
+	--heading-weight: 700;
+	--heading-case: none;
+	--heading-tracking: 0;
+	--ui-transition: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:root[data-skin="spirited"].theme-dark {
+	--grass: #8cc77a;
+	--lantern: #f4d77b;
+	--panel: #1a2740;
+	--sky-top: #0b1630;
+	--sky-mid: #13203a;
+	--cloud: rgba(255, 255, 255, 0.06);
+	--wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 5 Q10 0 20 5 T40 5' fill='none' stroke='%23f4d77b' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+
+	--gray-0: #fbf6ea;
+	--gray-50: #f6f0e2;
+	--gray-100: #efe8d8;
+	--gray-200: #ddd6c6;
+	--gray-300: #bcb6a8;
+	--gray-400: #9f9a8d;
+	--gray-500: #7f7b70;
+	--gray-600: #5d6273;
+	--gray-700: #3a465f;
+	--gray-800: #2a3650;
+	--gray-900: #1a2740;
+	--gray-999-basis: 220, 45%, 11%;
+	--gray-999: #0f1828;
+
+	--accent-regular: #4f8a40;
+	--accent-subtle-overlay: rgba(140, 199, 122, 0.15);
+	--link-color: var(--lantern);
+	--gradient-stop-1: var(--lantern);
+	--gradient-stop-2: var(--grass);
+	--gradient-stop-3: #5ba3d9;
+
+	--shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
+	--shadow-lg: 0 0 30px rgba(244, 215, 123, 0.18);
+
+	--line: 2px solid rgba(239, 232, 216, 0.08);
+	--surface-muted: rgba(26, 39, 64, 0.75);
+	--label-bg: rgba(15, 24, 40, 0.88);
+	--badge-bg: var(--lantern);
+	--badge-fg: #0f1828;
+	--pill-bg: rgba(140, 199, 122, 0.15);
+	--pill-fg: var(--grass);
+	--cta-bg: var(--lantern);
+	--cta-fg: #0f1828;
+	--nav-bg: rgba(26, 39, 64, 0.8);
+	--nav-hover-bg: rgba(140, 199, 122, 0.15);
+	--nav-active-bg: var(--lantern);
+	--nav-active-fg: #0f1828;
+}
+
+/* Sky fading into paper. */
+:root[data-skin="spirited"] .backgrounds {
+	position: relative;
+	background: linear-gradient(180deg, var(--sky-top) 0, var(--sky-mid) 420px, var(--gray-999) 1000px);
+	background-blend-mode: normal;
+}
+
+/* Night: stars and a moon glow. */
+:root[data-skin="spirited"].theme-dark .backgrounds {
+	background:
+		radial-gradient(circle at 85% 90px, rgba(244, 215, 123, 0.22), transparent 180px),
+		radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1.5px) 0 0 / 90px 90px,
+		radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1.5px) 45px 30px / 130px 110px,
+		linear-gradient(180deg, var(--sky-top) 0, var(--sky-mid) 500px, var(--gray-999) 1100px);
+}
+
+/* Drifting clouds along the top. */
+:root[data-skin="spirited"] .backgrounds::before {
+	content: '';
+	position: absolute;
+	inset: 0 0 auto;
+	height: 640px;
+	z-index: -1;
+	pointer-events: none;
+	background:
+		radial-gradient(ellipse 90px 34px at 160px 120px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 60px 40px at 210px 100px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 70px 28px at 260px 126px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 120px 40px at 820px 260px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 80px 50px at 880px 230px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 90px 30px at 960px 270px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 70px 24px at 520px 440px, var(--cloud) 98%, transparent),
+		radial-gradient(ellipse 46px 30px at 556px 424px, var(--cloud) 98%, transparent);
+	background-size: 1400px 640px;
+	background-repeat: repeat-x;
+	mask-image: linear-gradient(180deg, #000 60%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="spirited"] .backgrounds::before {
+		animation: spirited-drift 120s linear infinite;
+	}
+}
+
+@keyframes spirited-drift {
+	to {
+		background-position-x: 1400px;
+	}
+}
+
+:root[data-skin="spirited"] .with-background::before {
+	display: none;
+}
+
+/* Hand-drawn wavy underline. */
+:root[data-skin="spirited"] .section-header h3,
+:root[data-skin="spirited"] .entry-content h2,
+:root[data-skin="spirited"] .about-title {
+	width: fit-content;
+	padding-bottom: 0.35rem;
+	background: var(--wave) bottom left / 40px 10px repeat-x;
+}
+
+:root[data-skin="spirited"] .section-header h3 {
+	margin-inline: auto;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="spirited"] .with-cta .section-header h3 {
+		margin-inline: 0;
+	}
+}
+
+:root[data-skin="spirited"] .nav-items {
+	backdrop-filter: blur(6px);
+}
+
+/* Portrait in a soft, organic shape. */
+:root[data-skin="spirited"] .portrait img {
+	border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+	box-shadow: var(--shadow-lg);
+}
+
+/* Pills in a few watercolour tints. */
+:root[data-skin="spirited"] .pill:nth-child(3n + 2) {
+	background: #dcebf6;
+	color: #2f6f9f;
+}
+
+:root[data-skin="spirited"] .pill:nth-child(3n) {
+	background: #f8e2d9;
+	color: #a84a33;
+}
+
+:root[data-skin="spirited"].theme-dark .pill:nth-child(3n + 2) {
+	background: rgba(91, 163, 217, 0.15);
+	color: #8fc3ea;
+}
+
+:root[data-skin="spirited"].theme-dark .pill:nth-child(3n) {
+	background: rgba(244, 215, 123, 0.14);
+	color: var(--lantern);
+}
+
+/* Cards float up gently. */
+:root[data-skin="spirited"] .card {
+	border: 0;
+}
+
+:root[data-skin="spirited"] .card:hover,
+:root[data-skin="spirited"] .card:focus-visible {
+	transform: translateY(-6px);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="spirited"] .card-title {
+	font-size: var(--text-lg);
+}
+
+:root[data-skin="spirited"] .cta:hover,
+:root[data-skin="spirited"] .cta:focus-visible {
+	transform: translateY(-3px);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="spirited"] .box,
+:root[data-skin="spirited"] .education {
+	background: var(--surface-muted);
+	border: 0;
+	box-shadow: var(--shadow-md);
+}
+
+:root[data-skin="spirited"] .education {
+	padding: 1.25rem 1.5rem;
+	border-radius: var(--radius-lg);
+}
+
+:root[data-skin="spirited"] .badge {
+	padding: 0.55rem;
+	border-radius: 50%;
+	background: #e3efd8;
+}
+
+:root[data-skin="spirited"].theme-dark .badge {
+	background: rgba(244, 215, 123, 0.14);
+}
+
+:root[data-skin="spirited"] .contact {
+	margin-inline: 1rem;
+	border: 0;
+	border-radius: var(--radius-xl);
+	background: linear-gradient(180deg, var(--sky-mid), var(--panel));
+	box-shadow: var(--shadow-md);
+}
+
+/* Switching in: a soft focus pull, and a leaf drifting across. */
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="spirited"][data-skin-switching]::view-transition-new(root) {
+		animation: spirited-focus 0.8s ease;
+	}
+}
+
+@keyframes spirited-focus {
+	from {
+		opacity: 0;
+		filter: blur(10px);
+	}
+}
+
+:root[data-skin="spirited"] .skin-intro {
+	font-size: 4rem;
+	animation: spirited-leaf 1.8s ease-in-out forwards;
+}
+
+@keyframes spirited-leaf {
+	0% {
+		opacity: 0;
+		transform: translate(calc(-50% - 40vw), calc(-50% - 30vh)) rotate(-40deg);
+	}
+	20% {
+		opacity: 1;
+	}
+	50% {
+		transform: translate(calc(-50% - 5vw), calc(-50% + 5vh)) rotate(160deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(calc(-50% + 40vw), calc(-50% + 25vh)) rotate(420deg);
+	}
+}
