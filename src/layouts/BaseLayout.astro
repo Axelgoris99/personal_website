@@ -98,6 +98,9 @@ const { title, description, image } = Astro.props;
 			.backgrounds {
 				min-height: 100vh;
 				isolation: isolate;
+				/* Skins draw decorations wider than the screen (planets, sunbursts):
+				   clip them so they never widen the page. */
+				overflow-x: clip;
 				background:
 					/*noise*/
 					url('/assets/backgrounds/noise.webp') top center/220px repeat,
