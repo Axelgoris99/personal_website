@@ -1,0 +1,380 @@
+/* Clair Obscur skin (Clair Obscur: Expedition 33 inspired). Chiaroscuro:
+   painted near-black lit by a single shaft of light, bone white, thin gold,
+   crimson petals, and a huge brush-painted "33" looming like the Monolith.
+   Light mode inverts to bone canvas and black ink. Switching in is a Gommage:
+   the old page dissolves into red petals. Artwork in
+   public/assets/skins/obscur/. */
+
+@import "@fontsource/marcellus/400.css";
+@import "@fontsource/eb-garamond/400.css";
+@import "@fontsource/eb-garamond/400-italic.css";
+@import "@fontsource/eb-garamond/700.css";
+
+:root[data-skin="obscur"] {
+	--crimson: #a3101f;
+	--gold: #8c6c34;
+	--bone: #ece6da;
+	--ink: #0b0a09;
+	--paint: rgba(11, 10, 9, 0.09);
+	--light: rgba(255, 246, 225, 0.6);
+	--panel: rgba(255, 252, 245, 0.6);
+
+	--gray-0: #050403;
+	--gray-50: #0b0a09;
+	--gray-100: #141210;
+	--gray-200: #2a2622;
+	--gray-300: #4a443d;
+	--gray-400: #625b52;
+	--gray-500: #857d72;
+	--gray-600: #a79f93;
+	--gray-700: #c8c0b3;
+	--gray-800: rgba(11, 10, 9, 0.4);
+	--gray-900: #dfd8ca;
+	--gray-999-basis: 40, 26%, 89%;
+	--gray-999: var(--bone);
+
+	--accent-light: var(--gold);
+	--accent-regular: var(--crimson);
+	--accent-dark: var(--crimson);
+	--accent-overlay: rgba(140, 108, 52, 0.4);
+	--accent-subtle-overlay: rgba(163, 16, 31, 0.08);
+	--accent-text-over: var(--bone);
+	--link-color: var(--crimson);
+	--gradient-stop-1: var(--ink);
+	--gradient-stop-2: var(--ink);
+	--gradient-stop-3: var(--crimson);
+
+	--shadow-sm: none;
+	--shadow-md: 0 18px 40px -20px rgba(0, 0, 0, 0.5);
+	--shadow-lg: 0 24px 50px -18px rgba(0, 0, 0, 0.6);
+
+	--radius-xs: 0;
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-pill: 0;
+	--line: 1px solid var(--gray-800);
+
+	--surface: var(--ink);
+	--surface-muted: var(--panel);
+	--label-bg: var(--ink);
+	--label-fg: var(--bone);
+	--badge-bg: var(--ink);
+	--badge-fg: var(--bone);
+	--pill-bg: transparent;
+	--pill-fg: var(--gray-200);
+	--pill-line: 1px solid var(--gray-800);
+	--cta-bg: transparent;
+	--cta-fg: var(--ink);
+	--cta-hover-overlay: transparent;
+	--nav-bg: transparent;
+	--nav-ring: transparent;
+	--nav-hover-bg: transparent;
+	--nav-active-bg: transparent;
+	--nav-active-fg: var(--crimson);
+
+	--font-body: 'EB Garamond', Georgia, serif;
+	--font-brand: Marcellus, Georgia, serif;
+	--font-label: Marcellus, Georgia, serif;
+	--heading-weight: 400;
+	--heading-case: uppercase;
+	--heading-tracking: 0.2em;
+	--ui-transition: 0.45s ease;
+}
+
+/* Obscur: the main mode. */
+:root[data-skin="obscur"].theme-dark {
+	--crimson: #c8172e;
+	--gold: #c8a46a;
+	--paint: rgba(236, 230, 218, 0.07);
+	--light: rgba(255, 238, 200, 0.16);
+	--panel: rgba(20, 18, 16, 0.7);
+
+	--gray-0: #fbf7ef;
+	--gray-50: #f5f0e6;
+	--gray-100: var(--bone);
+	--gray-200: #d6cfc2;
+	--gray-300: #aea698;
+	--gray-400: #8f877a;
+	--gray-500: #6f685d;
+	--gray-600: #514b43;
+	--gray-700: #36322d;
+	--gray-800: rgba(236, 230, 218, 0.28);
+	--gray-900: #161412;
+	--gray-999-basis: 30, 10%, 4%;
+	--gray-999: var(--ink);
+
+	--surface: #141210;
+	--accent-text-over: var(--ink);
+	--label-bg: rgba(11, 10, 9, 0.88);
+	--badge-bg: rgba(11, 10, 9, 0.88);
+	--cta-fg: var(--bone);
+}
+
+/* ---------- The painting ---------- */
+
+/* A single shaft of light falling from the top left across painted dark,
+   with canvas grain and a heavy vignette. */
+:root[data-skin="obscur"] .backgrounds {
+	position: relative;
+	background:
+		url(/assets/skins/obscur/canvas.svg) 0 0 / 300px 300px repeat,
+		linear-gradient(118deg, var(--light) 0, transparent 38%),
+		radial-gradient(ellipse 90% 70% at 30% 20%, transparent 40%, rgba(0, 0, 0, 0.12) 100%) fixed,
+		var(--gray-999);
+	background-blend-mode: multiply, normal, normal, normal;
+}
+
+:root[data-skin="obscur"].theme-dark .backgrounds {
+	background:
+		url(/assets/skins/obscur/canvas.svg) 0 0 / 300px 300px repeat,
+		linear-gradient(118deg, var(--light) 0, transparent 40%),
+		radial-gradient(ellipse 90% 70% at 30% 20%, transparent 30%, rgba(0, 0, 0, 0.7) 100%) fixed,
+		var(--ink);
+	background-blend-mode: overlay, normal, normal, normal;
+}
+
+/* The Monolith's number, painted huge behind the hero. */
+:root[data-skin="obscur"] .backgrounds::before {
+	content: '';
+	position: absolute;
+	top: 40px;
+	right: -4vw;
+	width: min(78vw, 1000px);
+	aspect-ratio: 230 / 170;
+	z-index: -1;
+	pointer-events: none;
+	background: var(--paint);
+	mask: url(/assets/skins/obscur/monolith.svg) center / contain no-repeat;
+}
+
+/* Crimson petals drifting down. */
+:root[data-skin="obscur"] .backgrounds::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background:
+		url(/assets/skins/obscur/petals.svg) 0 0 / 520px 520px,
+		url(/assets/skins/obscur/petals.svg) 170px 110px / 300px 300px;
+	opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="obscur"] .backgrounds::after {
+		animation: obscur-fall 45s linear infinite;
+	}
+}
+
+@keyframes obscur-fall {
+	to {
+		background-position:
+			-520px 1040px,
+			470px 710px;
+	}
+}
+
+:root[data-skin="obscur"] .with-background::before {
+	display: none;
+}
+
+:root[data-skin="obscur"] body {
+	font-size: 1.12rem;
+}
+
+:root[data-skin="obscur"] ::selection {
+	background: var(--crimson);
+	color: var(--bone);
+}
+
+/* ---------- Type ---------- */
+
+:root[data-skin="obscur"] .hero-title {
+	font-size: clamp(2.2rem, 5vw, 4.2rem);
+	line-height: 1.15;
+}
+
+:root[data-skin="obscur"] .skills h2 {
+	font-size: var(--text-lg);
+	letter-spacing: 0.14em;
+}
+
+/* A thin gold rule ending in a crimson diamond under the titles. */
+:root[data-skin="obscur"] .hero-title::after,
+:root[data-skin="obscur"] .section-header h3::after,
+:root[data-skin="obscur"] .contact-title::after {
+	content: '';
+	display: block;
+	width: 9rem;
+	max-width: 100%;
+	height: 7px;
+	margin-top: 1rem;
+	background:
+		linear-gradient(45deg, transparent 40%, var(--crimson) 40% 60%, transparent 60%) left center / 7px 7px no-repeat,
+		linear-gradient(90deg, var(--gold), transparent) 12px center / calc(100% - 12px) 1px no-repeat;
+}
+
+:root[data-skin="obscur"] .section-header h3::after {
+	margin-inline: auto;
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="obscur"] .with-cta .section-header h3::after {
+		margin-inline: 0;
+	}
+}
+
+:root[data-skin="obscur"] .link,
+:root[data-skin="obscur"] .pill,
+:root[data-skin="obscur"] .card-title,
+:root[data-skin="obscur"] .card-dates,
+:root[data-skin="obscur"] .cta {
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+}
+
+:root[data-skin="obscur"] .pill,
+:root[data-skin="obscur"] .card-title,
+:root[data-skin="obscur"] .card-dates {
+	font-size: 0.72rem;
+}
+
+:root[data-skin="obscur"] .link.active {
+	box-shadow: inset 0 -1px 0 var(--crimson);
+}
+
+:root[data-skin="obscur"] .link:hover,
+:root[data-skin="obscur"] .link:focus {
+	color: var(--crimson);
+}
+
+/* ---------- Pieces ---------- */
+
+/* Work shown in black and white until you look at it. */
+:root[data-skin="obscur"] .card img,
+:root[data-skin="obscur"] .portrait img {
+	filter: grayscale(1) contrast(1.15);
+}
+
+:root[data-skin="obscur"] .card:hover img,
+:root[data-skin="obscur"] .card:focus-visible img {
+	filter: grayscale(0.2) contrast(1.05);
+}
+
+:root[data-skin="obscur"] .card:hover,
+:root[data-skin="obscur"] .card:focus-visible {
+	border-color: var(--crimson);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="obscur"] .card-title {
+	border-bottom: 1px solid var(--crimson);
+}
+
+/* Portrait: a black-and-white canvas, lit from the side, a crimson edge. */
+:root[data-skin="obscur"] .portrait img {
+	border-inline-start: 3px solid var(--crimson);
+	box-shadow: var(--shadow-lg);
+}
+
+:root[data-skin="obscur"] .portrait::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(118deg, rgba(255, 238, 200, 0.18), transparent 45%);
+}
+
+:root[data-skin="obscur"] .cta {
+	border: 1px solid currentColor;
+}
+
+:root[data-skin="obscur"] .cta:hover,
+:root[data-skin="obscur"] .cta:focus-visible {
+	color: var(--bone);
+	background: var(--crimson);
+	border-color: var(--crimson);
+}
+
+:root[data-skin="obscur"] .box,
+:root[data-skin="obscur"] .education {
+	background: var(--panel);
+	border: var(--line);
+	border-inline-start: 2px solid var(--gold);
+}
+
+:root[data-skin="obscur"] .education {
+	padding: 1.25rem 1.5rem;
+}
+
+:root[data-skin="obscur"] .badge {
+	color: var(--crimson);
+}
+
+:root[data-skin="obscur"] .badge svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+:root[data-skin="obscur"] .contact {
+	background: linear-gradient(118deg, var(--light), transparent 50%);
+	border-color: var(--gray-800);
+}
+
+:root[data-skin="obscur"] .entry-content blockquote {
+	font-style: italic;
+	border-inline-start-color: var(--crimson);
+}
+
+/* ---------- Switching in: the Gommage ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	/* The old page sits on top and dissolves away. */
+	:root[data-skin="obscur"][data-skin-switching]::view-transition-old(root) {
+		z-index: 1;
+		animation: obscur-gommage 1.3s ease-in forwards;
+	}
+	:root[data-skin="obscur"][data-skin-switching]::view-transition-new(root) {
+		animation: none;
+	}
+}
+
+@keyframes obscur-gommage {
+	50% {
+		opacity: 0.7;
+		filter: grayscale(1);
+	}
+	to {
+		opacity: 0;
+		filter: grayscale(1) blur(12px) brightness(1.4);
+		transform: translateY(-50px) scale(1.04);
+	}
+}
+
+/* A storm of red petals rising across the screen. */
+:root[data-skin="obscur"] .skin-intro {
+	width: 100vw;
+	height: 100vh;
+	color: transparent;
+	background:
+		url(/assets/skins/obscur/petals.svg) 0 0 / 320px 320px,
+		url(/assets/skins/obscur/petals.svg) 90px 140px / 210px 210px,
+		url(/assets/skins/obscur/petals.svg) 40px 60px / 140px 140px;
+	animation: obscur-storm 1.7s ease-out forwards;
+}
+
+@keyframes obscur-storm {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -30%);
+	}
+	25% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -85%);
+	}
+}

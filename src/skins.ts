@@ -21,7 +21,7 @@ export const skins: Skin[] = [
   { id: "spirited", label: "Spirited", intro: "🍃", swatch: ["#6fb7e6", "#3f7d3a", "#fdf8ee"] },
   { id: "retro", label: "Retro RPG", intro: "LEVEL UP!", swatch: ["#0a1262", "#3346c2", "#ffe066"] },
   { id: "parchment", label: "Parchment", swatch: ["#f3e6c6", "#8b1e1e", "#2e2416"] },
-  { id: "belle", label: "Belle Époque", intro: "✿", swatch: ["#1a1b1f", "#b8954a", "#a3262a"] },
+  { id: "obscur", label: "Clair Obscur", intro: "✿", swatch: ["#0b0a09", "#ece6da", "#b3122b"] },
   { id: "cyberpunk", label: "Cyberpunk", intro: "LINK ESTABLISHED", swatch: ["#0a0a0f", "#fcee0a", "#00f0ff"] },
   { id: "stargazer", label: "Stargazer", intro: "✦", swatch: ["#0b1026", "#ff8a3d", "#7ad7ff"] },
   { id: "hollow", label: "Hollow", intro: "◆", swatch: ["#0b0e14", "#e8eef5", "#a7d8ff"] },
