@@ -1,341 +1,533 @@
-/* Undercity skin (Arcane inspired). Light is the city above: cream, navy,
-   gold art-deco lines, hexagons, a blue tech glow. Dark is the undercity:
-   neon pink and toxic green, spray paint, marker-scrawled headings. */
+/* Undercity skin (Arcane inspired): the undercity's graffiti in both modes.
+   Day is grimy concrete with paint on it, night is neon. Hand-drawn doodles
+   (public/assets/skins/undercity/*.svg, drawn through CSS masks so they can
+   be any colour), paint drips, spray tags, taped panels and a blue glow. */
 
-@import "@fontsource/marcellus/400.css";
 @import "@fontsource/permanent-marker/400.css";
+@import "@fontsource/rock-salt/400.css";
 
 :root[data-skin="undercity"] {
-	--gold: #b08a3e;
-	--gold-soft: rgba(176, 138, 62, 0.45);
-	--tech: #19a7c4;
-	--navy: #1b2433;
-	--panel: #fbf8f1;
+	--pink: #ff2d95;
+	--toxic: #13b86a;
+	--hex: #2bb3ff;
+	--violet: #7b2fff;
+	--concrete: #d6d3cc;
+	--panel: #e9e7e2;
+	--ink: #16141b;
+	--tape: rgba(255, 255, 255, 0.55);
 	--hexagon: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
 
-	--gray-0: #111827;
-	--gray-50: #161e2b;
-	--gray-100: #1b2433;
-	--gray-200: #283246;
-	--gray-300: #465169;
-	--gray-400: #5d6880;
-	--gray-500: #848ca0;
-	--gray-600: #a9aebd;
-	--gray-700: #ccc8bc;
-	--gray-800: #e2dbc9;
-	--gray-900: #ece6d8;
-	--gray-999-basis: 41, 43%, 92%;
-	--gray-999: #f4efe3;
+	--gray-0: #0f0d13;
+	--gray-50: #131117;
+	--gray-100: var(--ink);
+	--gray-200: #24212b;
+	--gray-300: #3d3944;
+	--gray-400: #55505d;
+	--gray-500: #77727f;
+	--gray-600: #9a95a0;
+	--gray-700: #b9b5b0;
+	--gray-800: rgba(22, 20, 27, 0.75);
+	--gray-900: #c8c4bc;
+	--gray-999-basis: 43, 8%, 82%;
+	--gray-999: var(--concrete);
 
-	--accent-light: var(--tech);
-	--accent-regular: var(--navy);
-	--accent-dark: var(--gold);
-	--accent-overlay: var(--gold-soft);
-	--accent-subtle-overlay: rgba(25, 167, 196, 0.12);
-	--accent-text-over: #f4efe3;
-	--link-color: #0f7f97;
-	--gradient-stop-1: #d8b35e;
-	--gradient-stop-2: var(--gold);
-	--gradient-stop-3: var(--tech);
+	--accent-light: var(--hex);
+	--accent-regular: var(--pink);
+	--accent-dark: var(--toxic);
+	--accent-overlay: rgba(255, 45, 149, 0.4);
+	--accent-subtle-overlay: rgba(43, 179, 255, 0.15);
+	--accent-text-over: var(--ink);
+	--link-color: #c4006e;
+	--gradient-stop-1: var(--pink);
+	--gradient-stop-2: var(--violet);
+	--gradient-stop-3: var(--hex);
 
-	--shadow-sm: 0 1px 2px rgba(27, 36, 51, 0.08);
-	--shadow-md: 0 6px 18px rgba(27, 36, 51, 0.1);
-	--shadow-lg: 0 0 26px rgba(25, 167, 196, 0.35);
+	--shadow-sm: 0 2px 0 rgba(0, 0, 0, 0.2);
+	--shadow-md: 0 10px 22px -10px rgba(0, 0, 0, 0.45);
+	--shadow-lg: 0 18px 30px -12px rgba(0, 0, 0, 0.55);
 
-	--radius-xs: 1px;
-	--radius-sm: 2px;
-	--radius-md: 2px;
-	--radius-lg: 3px;
-	--radius-xl: 3px;
-	--radius-pill: 2px;
-	--line: 1px solid var(--gold-soft);
+	--radius-xs: 0;
+	--radius-sm: 0;
+	--radius-md: 0;
+	--radius-lg: 0;
+	--radius-xl: 0;
+	--radius-pill: 0;
+	--line: 2px solid var(--gray-800);
 
 	--surface: var(--panel);
-	--surface-muted: rgba(251, 248, 241, 0.6);
-	--label-bg: var(--navy);
-	--label-fg: #e9cf8f;
-	--badge-bg: var(--panel);
-	--badge-fg: var(--navy);
-	--pill-bg: transparent;
-	--pill-fg: var(--navy);
-	--pill-line: 1px solid var(--gold);
-	--cta-bg: var(--navy);
-	--cta-fg: #e9cf8f;
-	--cta-hover-overlay: rgba(25, 167, 196, 0.2);
+	--surface-muted: var(--panel);
+	--label-bg: var(--pink);
+	--label-fg: var(--ink);
+	--badge-bg: var(--ink);
+	--badge-fg: var(--toxic);
+	--pill-bg: var(--violet);
+	--pill-fg: #ffffff;
+	--pill-line: 0 solid transparent;
+	--cta-bg: var(--pink);
+	--cta-fg: var(--ink);
+	--cta-hover-overlay: transparent;
 	--nav-bg: transparent;
 	--nav-ring: transparent;
 	--nav-hover-bg: transparent;
-	--nav-active-bg: transparent;
-	--nav-active-fg: var(--navy);
+	--nav-active-bg: var(--pink);
+	--nav-active-fg: var(--ink);
 
-	--font-brand: Marcellus, Georgia, serif;
-	--font-label: Marcellus, Georgia, serif;
+	--font-brand: 'Permanent Marker', 'Comic Sans MS', cursive;
+	--font-label: 'Permanent Marker', 'Comic Sans MS', cursive;
+	--font-scrawl: 'Rock Salt', 'Permanent Marker', cursive;
 	--heading-weight: 400;
-	--heading-case: uppercase;
-	--heading-tracking: 0.06em;
-	--ui-transition: 0.2s ease;
+	--heading-case: none;
+	--heading-tracking: 0.01em;
+	--ui-transition: 0.18s ease;
 }
 
 :root[data-skin="undercity"].theme-dark {
 	--pink: #ff3fa4;
 	--toxic: #39ff9f;
-	--violet: #8a4dff;
-	--panel: #17141d;
+	--hex: #3cc8ff;
+	--concrete: #100d16;
+	--panel: #1a1622;
+	--ink: #ece6f2;
+	--tape: rgba(255, 255, 255, 0.14);
 
-	--gray-0: #f4f0f7;
-	--gray-50: #ece7f0;
-	--gray-100: #e6e1ea;
+	--gray-0: #f6f2fa;
+	--gray-50: #f1ecf5;
 	--gray-200: #d3cdd9;
 	--gray-300: #aaa3b3;
 	--gray-400: #8d8697;
 	--gray-500: #6e6878;
 	--gray-600: #514b5b;
 	--gray-700: #38333f;
-	--gray-800: #2a2530;
-	--gray-900: #17141d;
-	--gray-999-basis: 260, 20%, 6%;
-	--gray-999: #0e0c12;
+	--gray-800: rgba(255, 63, 164, 0.7);
+	--gray-900: #1a1622;
+	--gray-999-basis: 260, 20%, 7%;
 
-	--accent-light: var(--toxic);
-	--accent-regular: var(--pink);
-	--accent-dark: var(--toxic);
-	--accent-overlay: rgba(255, 63, 164, 0.4);
-	--accent-subtle-overlay: rgba(57, 255, 159, 0.12);
-	--accent-text-over: #0e0c12;
+	--accent-text-over: #100d16;
 	--link-color: var(--toxic);
-	--gradient-stop-1: var(--pink);
-	--gradient-stop-2: var(--violet);
-	--gradient-stop-3: var(--toxic);
-
-	--shadow-sm: none;
-	--shadow-md: 0 0 0 transparent;
-	--shadow-lg: 0 0 24px rgba(57, 255, 159, 0.35);
-
-	--line: 2px solid var(--pink);
-	--surface-muted: rgba(23, 20, 29, 0.7);
-	--label-bg: var(--pink);
-	--label-fg: #0e0c12;
-	--badge-bg: var(--toxic);
-	--badge-fg: #0e0c12;
-	--pill-fg: var(--toxic);
-	--pill-line: 1px dashed var(--toxic);
-	--cta-bg: var(--pink);
-	--cta-fg: #0e0c12;
-	--cta-hover-overlay: transparent;
-	--nav-active-bg: var(--pink);
-	--nav-active-fg: #0e0c12;
-
-	--font-brand: 'Permanent Marker', 'Comic Sans MS', cursive;
-	--heading-case: none;
-	--heading-tracking: 0.01em;
+	--label-fg: #100d16;
+	--badge-bg: #100d16;
+	--cta-fg: #100d16;
+	--nav-active-fg: #100d16;
+	--shadow-md: 0 10px 22px -10px rgba(0, 0, 0, 0.8);
+	--shadow-lg: 0 0 26px rgba(60, 200, 255, 0.35);
 }
 
-/* Above: a faint gold art-deco lattice under a blue glow. */
+/* ---------- Page: concrete with grime and old spray ---------- */
+
 :root[data-skin="undercity"] .backgrounds {
 	background:
-		radial-gradient(ellipse 70% 40% at 80% 0%, rgba(25, 167, 196, 0.16), transparent 70%),
-		repeating-linear-gradient(45deg, rgba(176, 138, 62, 0.07) 0 1px, transparent 1px 34px),
-		repeating-linear-gradient(-45deg, rgba(176, 138, 62, 0.07) 0 1px, transparent 1px 34px),
-		var(--gray-999);
-	background-blend-mode: normal;
+		url('/assets/backgrounds/noise.webp') top center / 220px repeat,
+		radial-gradient(ellipse 30% 22% at 8% 12%, rgba(255, 45, 149, 0.16), transparent 70%),
+		radial-gradient(ellipse 24% 18% at 92% 6%, rgba(43, 179, 255, 0.16), transparent 70%),
+		radial-gradient(ellipse 28% 20% at 85% 60%, rgba(123, 47, 255, 0.1), transparent 70%),
+		radial-gradient(ellipse 30% 25% at 15% 80%, rgba(19, 184, 106, 0.12), transparent 70%),
+		radial-gradient(ellipse 40% 30% at 50% 40%, rgba(0, 0, 0, 0.06), transparent 70%),
+		var(--concrete);
+	background-blend-mode: multiply, normal, normal, normal, normal, normal, normal;
 }
 
-/* Below: spray-paint blotches over grime. */
 :root[data-skin="undercity"].theme-dark .backgrounds {
-	background:
-		url('/assets/backgrounds/noise.webp') top center / 220px repeat,
-		radial-gradient(circle at 12% 18%, rgba(255, 63, 164, 0.22), transparent 22%),
-		radial-gradient(circle at 88% 8%, rgba(57, 255, 159, 0.16), transparent 20%),
-		radial-gradient(circle at 70% 55%, rgba(138, 77, 255, 0.14), transparent 26%),
-		radial-gradient(circle at 20% 85%, rgba(57, 255, 159, 0.12), transparent 22%),
-		var(--gray-999);
-	background-blend-mode: overlay, normal, normal, normal, normal, normal;
+	background-blend-mode: overlay, screen, screen, screen, screen, normal, normal;
 }
 
 :root[data-skin="undercity"] .with-background::before {
 	display: none;
 }
 
-/* Hexagon emblems. */
-:root[data-skin="undercity"] .logo,
-:root[data-skin="undercity"] .badge {
-	padding: 0.45rem 0.6rem;
-	clip-path: var(--hexagon);
-	background: var(--navy);
+:root[data-skin="undercity"] ::selection {
+	background: var(--pink);
+	color: var(--ink);
 }
 
-:root[data-skin="undercity"] .badge {
-	padding: 0.6rem 0.8rem;
-}
+/* ---------- Doodles ---------- */
 
-:root[data-skin="undercity"].theme-dark .logo,
-:root[data-skin="undercity"].theme-dark .badge {
-	background: var(--toxic);
-}
-
-:root[data-skin="undercity"].theme-dark .logo svg,
-:root[data-skin="undercity"].theme-dark .badge svg {
-	fill: #0e0c12;
-	stroke: #0e0c12;
-}
-
-/* Nav: the current page gets a double gold underline (above) or a paint swatch (below). */
-:root[data-skin="undercity"] .link.active {
-	box-shadow: inset 0 -1px 0 var(--gold), inset 0 -4px 0 var(--panel), inset 0 -5px 0 var(--gold);
-}
-
-:root[data-skin="undercity"].theme-dark .link.active {
-	box-shadow: none;
-	transform: rotate(-2deg);
-}
-
-:root[data-skin="undercity"] .link:hover,
-:root[data-skin="undercity"] .link:focus {
-	color: var(--link-color);
-}
-
-/* Cards: an inner gold frame like an art-deco plaque. */
-:root[data-skin="undercity"] .card::after {
+/* Any doodle: a pseudo-element painted through one of the SVG masks. */
+:root[data-skin="undercity"] .card::before,
+:root[data-skin="undercity"] .hero .cta::before,
+:root[data-skin="undercity"] .contact .cta::before {
 	content: '';
 	position: absolute;
-	inset: 6px;
-	z-index: 1;
 	pointer-events: none;
-	border: 1px solid rgba(233, 207, 143, 0.75);
+	background: var(--doodle-color, var(--pink));
+	mask: var(--doodle) center / 100% 100% no-repeat;
 }
 
-:root[data-skin="undercity"] .card:hover,
-:root[data-skin="undercity"] .card:focus-visible {
-	box-shadow: var(--shadow-lg);
-	border-color: var(--tech);
+:root[data-skin="undercity"] .card {
+	--doodle: url(/assets/skins/undercity/star.svg);
 }
 
-:root[data-skin="undercity"] .card-title {
-	margin: 0.75rem;
-	letter-spacing: 0.06em;
-	border: 1px solid var(--gold);
+:root[data-skin="undercity"] .card::before {
+	z-index: 2;
+	top: 0.6rem;
+	right: 0.6rem;
+	width: var(--doodle-size, 4rem);
+	aspect-ratio: 1;
+	transform: rotate(var(--doodle-tilt, 12deg));
+	opacity: 0.9;
 }
 
-:root[data-skin="undercity"].theme-dark .card::after {
-	display: none;
+/* Every card gets a different doodle. */
+:root[data-skin="undercity"] :is(li:nth-child(5n + 2) > .card, .card:nth-child(5n + 2)) {
+	--doodle: url(/assets/skins/undercity/spiral.svg);
+	--doodle-color: var(--toxic);
+	--doodle-tilt: -20deg;
+	--doodle-size: 4.6rem;
 }
 
-:root[data-skin="undercity"].theme-dark .card-title {
-	border: 0;
-	transform: rotate(-2deg);
+:root[data-skin="undercity"] :is(li:nth-child(5n + 3) > .card, .card:nth-child(5n + 3)) {
+	--doodle: url(/assets/skins/undercity/cross.svg);
+	--doodle-color: var(--hex);
+	--doodle-tilt: 6deg;
+	--doodle-size: 3.4rem;
 }
 
-:root[data-skin="undercity"].theme-dark .card:hover,
-:root[data-skin="undercity"].theme-dark .card:focus-visible {
-	border-color: var(--toxic);
-	transform: translateY(-3px) rotate(-0.5deg);
+:root[data-skin="undercity"] :is(li:nth-child(5n + 4) > .card, .card:nth-child(5n + 4)) {
+	--doodle: url(/assets/skins/undercity/heart.svg);
+	--doodle-tilt: -14deg;
+	--doodle-size: 3.6rem;
 }
 
-/* Buttons. */
-:root[data-skin="undercity"] .cta {
-	border: 1px solid var(--gold);
-	font-family: var(--font-brand);
-	text-transform: var(--heading-case);
-	letter-spacing: 0.08em;
+:root[data-skin="undercity"] :is(li:nth-child(5n + 5) > .card, .card:nth-child(5n + 5)) {
+	--doodle: url(/assets/skins/undercity/skull.svg);
+	--doodle-color: var(--toxic);
+	--doodle-tilt: 10deg;
+	--doodle-size: 4.2rem;
 }
 
-:root[data-skin="undercity"] .cta:hover,
-:root[data-skin="undercity"] .cta:focus-visible {
-	box-shadow: var(--shadow-lg);
+/* A scribbled loop around the main buttons. */
+:root[data-skin="undercity"] .hero .cta::before,
+:root[data-skin="undercity"] .contact .cta::before {
+	--doodle: url(/assets/skins/undercity/loop.svg);
+	--doodle-color: var(--toxic);
+	inset: -16px -26px;
+	transform: rotate(-3deg);
 }
 
-:root[data-skin="undercity"].theme-dark .cta {
-	border: 0;
-	letter-spacing: 0.02em;
-	transform: rotate(-1.5deg);
+/* Paint drips under the big titles. */
+:root[data-skin="undercity"] .hero-title::after,
+:root[data-skin="undercity"] .section-header h3::after,
+:root[data-skin="undercity"] .contact-title::after {
+	content: '';
+	display: block;
+	height: 0.5em;
+	margin-top: 0.05em;
+	background: var(--pink);
+	mask: url(/assets/skins/undercity/drips.svg) top / 100% 100% no-repeat;
+	opacity: 0.9;
 }
 
-:root[data-skin="undercity"].theme-dark .cta:hover,
-:root[data-skin="undercity"].theme-dark .cta:focus-visible {
+:root[data-skin="undercity"] .section-header h3 {
+	width: fit-content;
+	margin-inline: auto;
+}
+
+:root[data-skin="undercity"] .section:nth-of-type(2) .section-header h3::after {
 	background: var(--toxic);
 }
 
-/* Hero. */
-:root[data-skin="undercity"] .hero-title::after {
+:root[data-skin="undercity"] .section:nth-of-type(3) .section-header h3::after {
+	background: var(--hex);
+}
+
+@media (min-width: 50em) {
+	:root[data-skin="undercity"] .with-cta .section-header h3 {
+		margin-inline: 0;
+	}
+}
+
+/* Glowing cracks where sections meet. */
+:root[data-skin="undercity"] .contact::after,
+:root[data-skin="undercity"] .entry-header::after {
 	content: '';
-	display: block;
-	width: 7rem;
-	height: 5px;
-	margin-top: 1rem;
-	border-block: 1px solid var(--gold);
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 18px;
+	pointer-events: none;
+	background: url(/assets/skins/undercity/crack.svg) center / 100% 100% no-repeat;
+}
+
+:root[data-skin="undercity"] .contact::after {
+	top: -10px;
+}
+
+:root[data-skin="undercity"] .entry-header {
+	position: relative;
+	border-bottom: 0;
+}
+
+:root[data-skin="undercity"] .entry-header::after {
+	bottom: -9px;
+}
+
+/* ---------- Type ---------- */
+
+:root[data-skin="undercity"] .hero-title {
+	text-shadow: 0 0 22px rgba(255, 45, 149, 0.45);
 }
 
 :root[data-skin="undercity"].theme-dark .hero-title {
 	color: var(--pink);
-	text-shadow: 3px 3px 0 var(--toxic);
+	text-shadow: 0 0 18px rgba(60, 200, 255, 0.55);
 }
 
-:root[data-skin="undercity"].theme-dark .hero-title::after {
-	display: none;
+:root[data-skin="undercity"] .hero-tagline span {
+	background: linear-gradient(transparent 60%, rgba(43, 179, 255, 0.35) 60%);
 }
 
-:root[data-skin="undercity"] .portrait img {
-	outline: 1px solid var(--gold);
-	outline-offset: 8px;
+/* ---------- Nav ---------- */
+
+:root[data-skin="undercity"] .link.active {
+	border-radius: 40% 55% 45% 60% / 60% 45% 55% 40%;
+	box-shadow: 0 0 10px 2px var(--pink);
+	transform: rotate(-3deg);
 }
 
-:root[data-skin="undercity"].theme-dark .portrait img {
-	outline: 2px dashed var(--toxic);
+:root[data-skin="undercity"] .link:hover,
+:root[data-skin="undercity"] .link:focus {
+	color: var(--pink);
+}
+
+/* Hexagon emblems with a pulsing blue core. */
+:root[data-skin="undercity"] .logo,
+:root[data-skin="undercity"] .badge {
+	padding: 0.45rem 0.6rem;
+	clip-path: var(--hexagon);
+	color: var(--hex);
+	background: #16141b;
+}
+
+:root[data-skin="undercity"] .badge {
+	padding: 0.65rem 0.85rem;
+}
+
+:root[data-skin="undercity"] .logo svg,
+:root[data-skin="undercity"] .badge svg {
+	fill: currentColor;
+	stroke: currentColor;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	:root[data-skin="undercity"] .logo svg,
+	:root[data-skin="undercity"] .badge svg {
+		animation: undercity-pulse 2.4s ease-in-out infinite;
+	}
+}
+
+@keyframes undercity-pulse {
+	50% {
+		filter: drop-shadow(0 0 6px var(--hex));
+	}
+}
+
+/* ---------- Pills, buttons, cards ---------- */
+
+/* Pills: spray tags in different cans, with a soft overspray halo. */
+:root[data-skin="undercity"] .pill {
+	box-shadow: 0 0 6px 1px var(--pill-bg);
+	transform: rotate(-2deg);
+}
+
+:root[data-skin="undercity"] .pill:nth-child(3n + 2) {
+	--pill-bg: var(--hex);
+	--pill-fg: #0f0d13;
 	transform: rotate(1.5deg);
 }
 
-:root[data-skin="undercity"].theme-dark .section-header h3,
-:root[data-skin="undercity"].theme-dark .contact-title {
-	color: var(--pink);
-	text-shadow: 2px 2px 0 rgba(57, 255, 159, 0.55);
+:root[data-skin="undercity"] .pill:nth-child(3n) {
+	--pill-bg: var(--toxic);
+	--pill-fg: #0f0d13;
+	transform: rotate(-1deg);
 }
 
-/* Contact: a navy band edged in gold, or a sprayed wall. */
-:root[data-skin="undercity"] .contact {
-	background: var(--navy);
-	border-block: 3px double var(--gold);
+:root[data-skin="undercity"] .cta {
+	overflow: visible;
+	font-family: var(--font-brand);
+	box-shadow: 0 0 10px 2px var(--pink);
+	transform: rotate(-1.5deg);
 }
 
-:root[data-skin="undercity"] .contact-title {
-	color: #e9cf8f;
+:root[data-skin="undercity"] .cta:hover,
+:root[data-skin="undercity"] .cta:focus-visible {
+	background: var(--toxic);
+	box-shadow: 0 0 14px 3px var(--toxic);
 }
 
-:root[data-skin="undercity"] .contact .cta {
-	background: transparent;
+:root[data-skin="undercity"] .card {
+	border: 0;
+	box-shadow: var(--shadow-md);
 }
 
-:root[data-skin="undercity"].theme-dark .contact {
+:root[data-skin="undercity"] .card-title {
+	box-shadow: 0 0 8px 2px var(--pink);
+	transform: rotate(-2deg);
+}
+
+:root[data-skin="undercity"] .card-dates {
+	box-shadow: 0 0 6px 1px var(--badge-bg);
+}
+
+/* Hover: a splat of paint lands on the card. */
+:root[data-skin="undercity"] .card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
 	background:
-		radial-gradient(circle at 20% 50%, rgba(255, 63, 164, 0.25), transparent 40%),
-		radial-gradient(circle at 80% 40%, rgba(57, 255, 159, 0.18), transparent 40%),
-		var(--panel);
-	border-block: 2px solid var(--pink);
+		radial-gradient(circle at 40% 62%, var(--pink) 0 22px, transparent 23px),
+		radial-gradient(circle at 50% 52%, var(--pink) 0 9px, transparent 10px),
+		radial-gradient(circle at 31% 54%, var(--pink) 0 6px, transparent 7px),
+		radial-gradient(circle at 47% 75%, var(--pink) 0 11px, transparent 12px),
+		radial-gradient(circle at 56% 66%, var(--pink) 0 4px, transparent 5px),
+		radial-gradient(circle at 27% 70%, var(--pink) 0 3px, transparent 4px),
+		radial-gradient(circle at 60% 46%, var(--pink) 0 3px, transparent 4px);
+	opacity: 0;
+	transform: scale(0.4);
+	transition:
+		opacity 0.12s,
+		transform 0.18s cubic-bezier(0.2, 1.6, 0.4, 1);
 }
 
-:root[data-skin="undercity"].theme-dark .contact .cta {
-	background: var(--pink);
+:root[data-skin="undercity"] .card:hover::after,
+:root[data-skin="undercity"] .card:focus-visible::after {
+	opacity: 0.85;
+	transform: scale(1);
+}
+
+:root[data-skin="undercity"] .card:hover,
+:root[data-skin="undercity"] .card:focus-visible {
+	transform: translateY(-3px) rotate(-0.5deg);
+}
+
+/* ---------- Panels: posters taped to the wall ---------- */
+
+:root[data-skin="undercity"] .box,
+:root[data-skin="undercity"] .education {
+	position: relative;
+	border: 0;
+	background: var(--panel);
+	box-shadow: var(--shadow-md);
+	transform: rotate(-0.4deg);
 }
 
 :root[data-skin="undercity"] .education {
-	padding: 1rem 1.25rem;
-	border-inline-start: 3px double var(--gold);
+	padding: 1.25rem 1.5rem;
 }
 
-:root[data-skin="undercity"].theme-dark .education {
-	border-inline-start: 3px solid var(--pink);
+:root[data-skin="undercity"] .box::before,
+:root[data-skin="undercity"] .box::after,
+:root[data-skin="undercity"] .education::before {
+	content: '';
+	position: absolute;
+	top: -0.7rem;
+	width: 6rem;
+	height: 1.5rem;
+	background: var(--tape);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
-/* Switching in: a hextech flash spreading out from the button. */
+:root[data-skin="undercity"] .box::before,
+:root[data-skin="undercity"] .education::before {
+	left: 2rem;
+	transform: rotate(-6deg);
+}
+
+:root[data-skin="undercity"] .box::after {
+	right: 2rem;
+	transform: rotate(5deg);
+}
+
+/* Portrait: a taped-up photo, with a scrawled note. */
+:root[data-skin="undercity"] .portrait img {
+	border: 0.5rem solid var(--panel);
+	box-shadow: var(--shadow-lg);
+	transform: rotate(-2deg);
+}
+
+:root[data-skin="undercity"] .portrait::before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: -0.6rem;
+	left: 50%;
+	width: 7rem;
+	height: 1.6rem;
+	background: var(--tape);
+	transform: translateX(-50%) rotate(3deg);
+}
+
+:root[data-skin="undercity"] .portrait::after {
+	content: '↑ that’s me!';
+	position: absolute;
+	right: 0.5rem;
+	bottom: -2.6rem;
+	font-family: var(--font-scrawl);
+	font-size: var(--text-sm);
+	color: var(--pink);
+	transform: rotate(-4deg);
+}
+
+/* ---------- Contact: a sprayed wall ---------- */
+
+:root[data-skin="undercity"] .contact {
+	position: relative;
+	border: 0;
+	background:
+		radial-gradient(ellipse 30% 60% at 15% 50%, rgba(255, 45, 149, 0.25), transparent 70%),
+		radial-gradient(ellipse 25% 60% at 85% 40%, rgba(43, 179, 255, 0.22), transparent 70%),
+		radial-gradient(ellipse 20% 50% at 55% 90%, rgba(19, 184, 106, 0.2), transparent 70%),
+		var(--panel);
+}
+
+/* ---------- Switching in: a paint bomb ---------- */
+
 @media (prefers-reduced-motion: no-preference) {
 	:root[data-skin="undercity"][data-skin-switching]::view-transition-new(root) {
 		animation:
-			skin-reveal 0.55s cubic-bezier(0.4, 0, 0.2, 1),
-			undercity-flash 0.7s ease;
+			skin-reveal 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
+			undercity-flash 0.6s ease;
 	}
 }
 
 @keyframes undercity-flash {
 	from {
-		filter: brightness(1.8) saturate(1.6) hue-rotate(-20deg);
+		filter: brightness(1.8) saturate(1.8);
+	}
+}
+
+:root[data-skin="undercity"] .skin-intro {
+	display: grid;
+	place-items: center;
+	width: min(80vw, 30rem);
+	aspect-ratio: 1.6;
+	font-family: var(--font-brand);
+	font-size: min(18vw, 7rem);
+	color: var(--pink);
+	text-shadow: 0 0 20px rgba(60, 200, 255, 0.8), 4px 4px 0 #0f0d13;
+	background:
+		radial-gradient(circle at 50% 50%, rgba(57, 255, 159, 0.85) 0 28%, transparent 29%),
+		radial-gradient(circle at 22% 30%, rgba(57, 255, 159, 0.85) 0 7%, transparent 8%),
+		radial-gradient(circle at 80% 26%, rgba(60, 200, 255, 0.85) 0 9%, transparent 10%),
+		radial-gradient(circle at 78% 78%, rgba(57, 255, 159, 0.85) 0 6%, transparent 7%),
+		radial-gradient(circle at 18% 74%, rgba(60, 200, 255, 0.85) 0 5%, transparent 6%),
+		radial-gradient(circle at 92% 52%, rgba(57, 255, 159, 0.85) 0 3%, transparent 4%),
+		radial-gradient(circle at 8% 52%, rgba(60, 200, 255, 0.85) 0 3%, transparent 4%);
+	animation: undercity-boom 1.3s cubic-bezier(0.2, 1.4, 0.4, 1) forwards;
+}
+
+@keyframes undercity-boom {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(0.2) rotate(-20deg);
+	}
+	25%,
+	70% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.15) rotate(-8deg);
 	}
 }

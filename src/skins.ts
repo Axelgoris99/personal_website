@@ -14,7 +14,7 @@ export const skins: Skin[] = [
   { id: "comic", label: "Comic", intro: "BIM!" },
   { id: "minimal", label: "Minimal" },
   { id: "tarnished", label: "Tarnished", intro: "New Look Acquired" },
-  { id: "undercity", label: "Undercity" },
+  { id: "undercity", label: "Undercity", intro: "BOOM!" },
   { id: "spirited", label: "Spirited", intro: "🍃" },
   { id: "retro", label: "Retro RPG", intro: "LEVEL UP!" },
   { id: "parchment", label: "Parchment" },
