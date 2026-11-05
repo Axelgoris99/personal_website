@@ -4,7 +4,7 @@ import Icon from "./Icon.astro";
 ---
 
 <aside>
-  <h2>Interested in working together?</h2>
+  <h2 class="misprint">Interested in working together?</h2>
   <CallToAction href="mailto:agoriswork@gmail.com">
     Get In Touch!
     <Icon icon="paper-plane-tilt" size="1.2em" />
@@ -13,21 +13,37 @@ import Icon from "./Icon.astro";
 
 <style>
   aside {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3rem;
-    border-top: 1px solid var(--gray-800);
-    border-bottom: 1px solid var(--gray-800);
     padding: 5rem 1.5rem;
-    background-color: var(--gray-999_40);
-    box-shadow: var(--shadow-sm);
+    border-block: var(--border);
+    background: var(--yellow);
+    color: var(--on-accent);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* Speed lines radiating from the button. */
+  aside::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    background: repeating-conic-gradient(
+      from 0deg at 70% 50%,
+      rgba(255, 255, 255, 0.55) 0deg 4deg,
+      transparent 4deg 12deg
+    );
   }
 
   h2 {
-    font-size: var(--text-xl);
+    font-size: var(--text-3xl);
     text-align: center;
     max-width: 15ch;
+    color: var(--on-accent);
   }
 
   @media (min-width: 50em) {
@@ -39,7 +55,7 @@ import Icon from "./Icon.astro";
     }
 
     h2 {
-      font-size: var(--text-3xl);
+      font-size: var(--text-5xl);
       text-align: left;
     }
   }

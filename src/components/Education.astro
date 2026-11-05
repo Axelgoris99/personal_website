@@ -30,7 +30,7 @@ const { data, id: slug } = Astro.props.education;
   }
   .dateLocation {
     font-size: var(--text-base);
-    color: var(--gray-2);
+    color: var(--gray-400);
     padding-left: 2rem;
   }
   .tags {
@@ -41,8 +41,19 @@ const { data, id: slug } = Astro.props.education;
     gap: 0.5rem;
     text-indent: 0px;
   }
-  @media (min-width: 50em) {
   .education {
+    position: relative;
     margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--panel);
+    border: var(--border);
+    box-shadow: var(--pop);
+    text-indent: 0;
+  }
+  .education a {
+    text-decoration: none;
+  }
+  .education a:hover .title {
+    color: var(--magenta);
   }
 </style>

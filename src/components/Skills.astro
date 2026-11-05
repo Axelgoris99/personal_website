@@ -2,30 +2,20 @@
 import Icon from "./Icon.astro";
 ---
 
-<section class="box skills">
-  <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="terminal-window"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
+<section class="skills">
+  <div class="panel stack gap-2 lg:gap-4">
+    <span class="badge"><Icon icon="terminal-window" size="2rem" /></span>
     <h2>Full Stack</h2>
     <p>C# - C++ - Python - Angular - React - Kotlin. But also a bit of Golang, a bit of Rust, a lot of GDScript, some plantUml for diagrams, some svg icons design in code, etc. Tell me what you want</p>
     <p>I'll help you achieve it.</p>
   </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
+  <div class="panel stack gap-2 lg:gap-4">
+    <span class="badge"><Icon icon="trophy" size="2rem" /></span>
     <h2>High-Stakes Software</h2>
     <p>Railway simulators, defence, and now healthcare AI. Software where getting it wrong is not an option.</p>
   </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="strategy"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
+  <div class="panel stack gap-2 lg:gap-4">
+    <span class="badge"><Icon icon="strategy" size="2rem" /></span>
     <h2>Dev Ops</h2>
     <p>
       CI/CD, Docker, on-site deployments. At home: two Proxmox servers and a VPS running 30+ self-hosted services, from Home Assistant to game servers. <a href="/project/homelab">More here</a>.
@@ -34,38 +24,78 @@ import Icon from "./Icon.astro";
 </section>
 
 <style>
-  .box {
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    background-color: var(--gray-999_40);
-    box-shadow: var(--shadow-sm);
-  }
-
   .skills {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  .panel {
+    --tint: var(--yellow);
+    position: relative;
+    padding: 1.5rem;
+    background: var(--panel);
+    border: var(--border);
+    box-shadow: var(--pop);
+  }
+
+  .panel:nth-child(2) {
+    --tint: var(--cyan);
+  }
+  .panel:nth-child(3) {
+    --tint: var(--magenta);
+  }
+
+  /* Halftone in the panel's ink colour, bleeding from the corner. */
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(var(--tint) 2px, transparent 2.3px) 0 0 / 10px 10px;
+    mask-image: radial-gradient(circle at 100% 0%, #000, transparent 60%);
+  }
+
+  .badge {
+    display: flex;
+    align-self: flex-start;
+    padding: 0.5rem;
+    color: var(--on-accent);
+    background: var(--tint);
+    border: var(--border-thin);
+    box-shadow: var(--pop-sm);
+    transform: rotate(-4deg);
   }
 
   .skills h2 {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
   }
 
   .skills p {
-    color: var(--gray-400);
+    position: relative;
+    color: var(--gray-300);
   }
 
   @media (min-width: 50em) {
-    .box {
-      border-radius: 1.5rem;
-      padding: 2.5rem;
-    }
-
     .skills {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5rem;
+      gap: 2.5rem;
+    }
+
+    .panel {
+      padding: 2.25rem;
+    }
+
+    /* Mismatched panel angles. */
+    .panel:nth-child(1) {
+      transform: rotate(-1deg);
+    }
+    .panel:nth-child(2) {
+      transform: translateY(1.5rem) rotate(0.8deg);
+    }
+    .panel:nth-child(3) {
+      transform: rotate(-0.5deg);
     }
 
     .skills h2 {

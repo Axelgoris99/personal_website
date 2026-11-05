@@ -17,6 +17,7 @@ const currentYear = new Date().getFullYear();
 </footer>
 <style>
   footer {
+    background: var(--panel);
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -25,11 +26,12 @@ const currentYear = new Date().getFullYear();
     text-align: center;
     color: var(--gray-400);
     font-size: var(--text-sm);
+    font-weight: 700;
   }
 
   footer a {
     color: var(--gray-400);
-    text-decoration: 1px solid underline transparent;
+    text-decoration: 2px solid underline transparent;
     text-underline-offset: 0.25em;
     transition: text-decoration-color var(--theme-transition);
   }

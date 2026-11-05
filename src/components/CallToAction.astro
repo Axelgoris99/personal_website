@@ -13,17 +13,25 @@ const { href, ...attrs } = Astro.props;
     position: relative;
     display: flex;
     place-content: center;
+    align-items: center;
     text-align: center;
-    padding: 0.56em 2em;
-    gap: 0.8em;
-    color: var(--accent-text-over);
+    padding: 0.6em 1.8em;
+    gap: 0.6em;
+    color: var(--on-accent);
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-family: var(--font-brand);
     line-height: 1.1;
-    border-radius: 999rem;
-    overflow: hidden;
-    background: var(--gradient-accent-orange);
-    box-shadow: var(--shadow-md);
+    background: var(--magenta);
+    border: var(--border);
+    box-shadow: var(--pop);
     white-space: nowrap;
+    transform: skewX(-8deg);
+    transition:
+      transform var(--snap),
+      box-shadow var(--snap),
+      background-color var(--snap);
   }
 
   @media (min-width: 20em) {
@@ -32,24 +40,31 @@ const { href, ...attrs } = Astro.props;
     }
   }
 
-  /* Overlay for hover effects. */
+  a:hover,
+  a:focus-visible {
+    background: var(--yellow);
+    transform: skewX(-8deg) translate(-3px, -3px);
+    box-shadow: var(--pop-lg);
+  }
+
+  a:active {
+    transform: skewX(-8deg) translate(4px, 4px);
+    box-shadow: 0 0 0 var(--ink-shadow);
+  }
+
+  /* Halftone sheen across the button. */
   a::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    transition: background-color var(--theme-transition);
-    mix-blend-mode: overlay;
-  }
-
-  a:focus::after,
-  a:hover::after {
-    background-color: hsla(var(--gray-999-basis), 0.3);
+    background: radial-gradient(rgba(255, 255, 255, 0.35) 1.4px, transparent 1.6px) 0 0 / 8px 8px;
+    mask-image: linear-gradient(110deg, transparent 40%, #000);
   }
 
   @media (min-width: 50em) {
     a {
-      padding: 1.125rem 2.5rem;
+      padding: 1rem 2.4rem;
       font-size: var(--text-xl);
     }
   }

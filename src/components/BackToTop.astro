@@ -17,7 +17,7 @@ import Icon from "./Icon.astro";
   function scrollFunction() {
     if (!backToTop) return;
     if (scrollY > 20) {
-      backToTop.style.display = "block";
+      backToTop.style.display = "flex";
     } else {
       backToTop.style.display = "none";
     }
@@ -35,12 +35,18 @@ import Icon from "./Icon.astro";
     bottom: 20px;
     right: 30px;
     z-index: 99;
-    border: none;
-    outline: none;
-    background-color: var(--color-bg);
-    color: var(--color-text);
+    display: flex;
+    border: var(--border);
+    background-color: var(--yellow);
+    color: var(--on-accent);
     cursor: pointer;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 12px;
+    box-shadow: var(--pop-sm);
+    transition: transform var(--snap), box-shadow var(--snap);
+  }
+
+  .toTop:hover {
+    transform: translate(-2px, -2px) rotate(-6deg);
+    box-shadow: var(--pop);
   }
 </style>
