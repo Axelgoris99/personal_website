@@ -173,7 +173,7 @@
 	color: var(--black);
 }
 
-/* ---------- The hero: a sunburst and a slim "33" ---------- */
+/* ---------- The hero: a sunburst ---------- */
 
 :root[data-skin="deco"] .home-hero {
 	position: relative;
@@ -204,20 +204,6 @@
 		transform: translateX(50%);
 		opacity: 0.25;
 	}
-}
-
-:root[data-skin="deco"] .home-hero::after {
-	content: '33';
-	position: absolute;
-	z-index: -1;
-	right: 0;
-	top: -3rem;
-	pointer-events: none;
-	font-family: var(--font-brand);
-	font-size: min(32vw, 24rem);
-	line-height: 1;
-	color: var(--deco-line);
-	opacity: 0.35;
 }
 
 :root[data-skin="deco"] .hero-title {
