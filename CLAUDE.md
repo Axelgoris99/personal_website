@@ -4,6 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
+Node 22 and typst come from the Nix dev shell (`flake.nix`, loaded by direnv via `.envrc`, or `nix develop`).
+Images are stored in Git LFS: without `git-lfs` the checkout has pointer files and `npm run build` fails on them.
+
 ```bash
 npm run dev        # Start dev server (localhost:4321)
 npm run build      # Type-check + build for production

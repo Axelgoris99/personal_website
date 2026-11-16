@@ -1,0 +1,19 @@
+{
+  description = "goris.live portfolio dev shell";
+
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = { nixpkgs, ... }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          nodejs_22 # astro (npm run dev / build)
+          typst # scripts/build-resume.sh (needs ../resume)
+          rsync openssh # deploy.sh
+        ];
+      };
+    };
+}
