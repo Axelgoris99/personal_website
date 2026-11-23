@@ -27,4 +27,4 @@ export const skins: Skin[] = [
   { id: "hollow", label: "Hollow", intro: "◆", swatch: ["#0b0e14", "#e8eef5", "#a7d8ff"] },
 ];
 
-export const defaultSkin = "classic";
+export const defaultSkin = "minimal";
